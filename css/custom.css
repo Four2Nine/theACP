@@ -12,3 +12,8 @@
     position: relative;
     top: 15px;
 }
+
+.cu-link,
+.cu-link:hover {
+    color: #2e77ff !important;
+}
