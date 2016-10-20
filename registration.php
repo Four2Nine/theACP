@@ -1,3 +1,6 @@
+<?
+define("NAV", "reg");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,12 +27,12 @@
 </head><!--/head-->
 <body>
 
-<? include 'includes/header.html' ?>
+<? include 'includes/header.php' ?>
 
 <section id="title" class="emerald">
     <div class="container">
         <div class="row">
-            <div class="col-sm-6">
+            <div class="col-sm-6 cu-page-head">
                 <h1>注册一个帐号</h1>
                 <p>注册一个帐号即可报名加入我们的志愿者工作。生活于我，不止是一场英雄梦！</p>
             </div>

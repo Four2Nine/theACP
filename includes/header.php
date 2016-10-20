@@ -14,12 +14,21 @@
         </div>
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-right">
-                <li class="active"><a href="index.php">首页</a></li>
-                <li><a href="about-us.html">关于theACP</a></li>
-                <!--<li><a href="services.html">注册</a></li>-->
-                <li><a href="portfolio.html">志愿项目</a></li>
-                <li><a href="registration.php">注册</a></li>
-                <li><a href="login.php">登录</a></li>
+                <li <? if (NAV == 'index') echo 'class = "active"' ?>>
+                    <a href="index.php">首页</a>
+                </li>
+                <li <? if (NAV == 'about-us') echo 'class = "active"' ?>>
+                    <a href="about-us.php">关于theACP</a>
+                </li>
+                <li <? if (NAV == 'project') echo 'class = "active"' ?>>
+                    <a href="project-list.php">志愿项目</a>
+                </li>
+                <li <? if (NAV == 'reg') echo 'class = "active"' ?>>
+                    <a href="registration.php">注册</a>
+                </li>
+                <li <? if (NAV == 'login') echo 'class = "active"' ?>>
+                    <a href="login.php">登录</a>
+                </li>
                 <!--<li><a href="portfolio.html">登录</a></li>-->
 
                 <!--<li class="dropdown">-->

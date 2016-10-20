@@ -1,5 +1,5 @@
 .cu-logo {
-    font-family: "Bubbler One", "Roboto", Helvetica, Arial, sans-serif !important;
+    font-family: FontAwesome, Helvetica, Arial, sans-serif !important;
     font-weight: bolder;
     color: white;
 }
@@ -16,4 +16,13 @@
 .cu-link,
 .cu-link:hover {
     color: #2e77ff !important;
+}
+
+.cu-page-head h1,
+.cu-page-head p {
+    font-family: "黑体", Arial, sans-serif !important;
+}
+
+.cu-page-head p {
+    font-size: medium;
 }

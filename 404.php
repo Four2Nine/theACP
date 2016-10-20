@@ -23,7 +23,7 @@
 </head><!--/head-->
 <body>
 
-<? include 'includes/header.html' ?>
+<? include 'includes/header.php' ?>
 
 <section id="error" class="container">
     <h1>404, Page not found</h1>

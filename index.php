@@ -1,3 +1,6 @@
+<?
+define("NAV", "index");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,7 +27,7 @@
 </head><!--/head-->
 <body>
 
-<? include 'includes/header.html' ?>
+<? include 'includes/header.php' ?>
 
 <section id="main-slider" class="no-margin">
     <div class="carousel slide wet-asphalt">
