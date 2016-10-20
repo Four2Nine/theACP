@@ -27,7 +27,41 @@ define("NAV", "project");
 </head><!--/head-->
 <body>
 
-<? include "includes/header.php" ?>
+<header class="navbar navbar-inverse navbar-fixed-top wet-asphalt" role="banner">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle cu-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand cu-logo" href="index.php">
+                <!--<img src="images/logo.png" alt="logo">-->
+                theACP
+            </a>
+        </div>
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li <? if (NAV == 'index') echo 'class = "active"' ?>>
+                    <a href="index.php">首页</a>
+                </li>
+                <li <? if (NAV == 'about-us') echo 'class = "active"' ?>>
+                    <a href="about-us.php">关于theACP</a>
+                </li>
+                <li <? if (NAV == 'project') echo 'class = "active"' ?>>
+                    <a href="project-list.php">志愿项目</a>
+                </li>
+                <li <? if (NAV == 'reg') echo 'class = "active"' ?>>
+                    <a href="registration.php">注册</a>
+                </li>
+                <li <? if (NAV == 'login') echo 'class = "active"' ?>>
+                    <a href="login.php">登录</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</header><!--/header-->
 
 <section id="title" class="emerald">
     <div class="container">
@@ -277,6 +311,24 @@ define("NAV", "project");
     </div><!--/.row-->
 </section><!--/#blog-->
 
-<? include "includes/footer.html" ?>
+<footer id="footer" class="midnight-blue">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                &copy; 2016 429 | ShapeBootstrap.
+                All Rights Reserved.
+            </div>
+            <div class="col-sm-6">
+                <ul class="pull-right">
+                    <li><a href="#">xxx</a></li>
+                    <li><a href="#">xxx</a></li>
+                    <li><a href="#">xxx</a></li>
+                    <li><a href="#">xxx</a></li>
+                    <li><a id="gototop" class="gototop" href="#"><i class="icon-chevron-up"></i></a></li><!--#gototop-->
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer><!--/#footer-->
 </body>
 </html>
