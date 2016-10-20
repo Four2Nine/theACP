@@ -39,7 +39,7 @@
         </div>
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-right">
-                <li>
+                <li class="active">
                     <a href="index.php">首页</a>
                 </li>
                 <li>

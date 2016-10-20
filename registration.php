@@ -43,19 +43,19 @@ define("NAV", "reg");
         </div>
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-right">
-                <li <? if (NAV == 'index') echo 'class = "active"' ?>>
+                <li>
                     <a href="index.php">首页</a>
                 </li>
-                <li <? if (NAV == 'about-us') echo 'class = "active"' ?>>
+                <li>
                     <a href="about-us.php">关于theACP</a>
                 </li>
-                <li <? if (NAV == 'project') echo 'class = "active"' ?>>
+                <li>
                     <a href="project-list.php">志愿项目</a>
                 </li>
-                <li <? if (NAV == 'reg') echo 'class = "active"' ?>>
+                <li class="active">
                     <a href="registration.php">注册</a>
                 </li>
-                <li <? if (NAV == 'login') echo 'class = "active"' ?>>
+                <li>
                     <a href="login.php">登录</a>
                 </li>
             </ul>
