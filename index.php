@@ -23,46 +23,9 @@
     <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
 </head><!--/head-->
 <body>
-<header class="navbar navbar-inverse navbar-fixed-top wet-asphalt" role="banner">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle cu-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand cu-logo" href="index.html">
-                <!--<img src="images/logo.png" alt="logo">-->
-                theACP
-            </a>
-        </div>
-        <div class="collapse navbar-collapse">
-            <ul class="nav navbar-nav navbar-right">
-                <li class="active"><a href="index.html">首页</a></li>
-                <li><a href="about-us.html">关于theACP</a></li>
-                <!--<li><a href="services.html">注册</a></li>-->
-                <li><a href="portfolio.html">志愿项目</a></li>
-                <li><a href="registration.html">注册</a></li>
-                <li><a href="login.html">登录</a></li>
-                <!--<li><a href="portfolio.html">登录</a></li>-->
 
-                <!--<li class="dropdown">-->
-                <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown">志愿项目 <i class="icon-angle-down"></i></a>-->
-                <!--<ul class="dropdown-menu">-->
-                <!--<li><a href="career.html">项目一</a></li>-->
-                <!--<li><a href="blog-item.html">项目二</a></li>-->
-                <!--<li><a href="pricing.html">项目三</a></li>-->
-                <!--<li><a href="404.html">项目四</a></li>-->
-                <!--<li class="divider"></li>-->
-                <!--<li><a href="privacy.html">Privacy Policy</a></li>-->
-                <!--<li><a href="terms.html">Terms of Use</a></li>-->
-                <!--</ul>-->
-                <!--</li>-->
-            </ul>
-        </div>
-    </div>
-</header><!--/header-->
+<? include 'includes/header.html' ?>
+
 <section id="main-slider" class="no-margin">
     <div class="carousel slide wet-asphalt">
         <ol class="carousel-indicators">
@@ -426,27 +389,7 @@
 <!--</div>-->
 <!--</section>&lt;!&ndash;/#bottom&ndash;&gt;-->
 
-<footer id="footer" class="midnight-blue">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-6">
-                &copy; 2016 429 | ShapeBootstrap.
-                All Rights Reserved.
-            </div>
-            <div class="col-sm-6">
-                <ul class="pull-right">
-                    <li><a href="#">Home</a></li>
-                    <!--<li><a href="#">About Us</a></li>-->
-                    <!--<li><a href="#">Faq</a></li>-->
-                    <!--<li><a href="#">Contact Us</a></li>-->
-                    <li><a href="blog.html">Blog</a></li>
-                    <li><a href="contact-us.html">联系</a></li>
-                    <li><a id="gototop" class="gototop" href="#"><i class="icon-chevron-up"></i></a></li><!--#gototop-->
-                </ul>
-            </div>
-        </div>
-    </div>
-</footer><!--/#footer-->
+<? include 'includes/footer.html' ?>
 
 <script src="js/jquery.js"></script>
 <script src="js/bootstrap.min.js"></script>
