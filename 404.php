@@ -32,7 +32,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand cu-logo" href="index.php">
+            <a class="navbar-brand cu-logo" href="index.html">
                 <!--<img src="images/logo.png" alt="logo">-->
                 theACP
             </a>
@@ -40,7 +40,7 @@
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-right">
                 <li class="active">
-                    <a href="index.php">首页</a>
+                    <a href="index.html">首页</a>
                 </li>
                 <li>
                     <a href="about-us.php">关于theACP</a>
@@ -49,7 +49,7 @@
                     <a href="project-list.php">志愿项目</a>
                 </li>
                 <li>
-                    <a href="registration.php">注册</a>
+                    <a href="register.php">注册</a>
                 </li>
                 <li>
                     <a href="login.php">登录</a>
@@ -62,7 +62,7 @@
 <section id="error" class="container">
     <h1>404, Page not found</h1>
     <p>The Page you are looking for doesn't exist or an other error occurred.</p>
-    <a class="btn btn-success" href="index.php">GO BACK TO THE HOMEPAGE</a>
+    <a class="btn btn-success" href="index.html">GO BACK TO THE HOMEPAGE</a>
 </section><!--/#error-->
 
 <footer id="footer" class="midnight-blue">

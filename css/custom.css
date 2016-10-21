@@ -26,3 +26,15 @@
 .cu-page-head p {
     font-size: medium;
 }
+
+.cu-error {
+    margin-top: 5px !important;
+    margin-bottom: 5px !important;
+    font-size: 10pt;
+}
+
+.cu-correct {
+    position: relative;
+    top: 6px;
+    color: limegreen;
+}

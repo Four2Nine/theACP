@@ -1,5 +1,10 @@
-<?
-define("NAV", "reg");
+<?php
+ob_start();
+session_start();
+require dirname(__FILE__) . '/common/global.func.php';
+$_uniqid = _sha1_uniqid();
+$_SESSION['uniqid'] = $_uniqid;
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -36,7 +41,7 @@ define("NAV", "reg");
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand cu-logo" href="index.php">
+            <a class="navbar-brand cu-logo" href="index.html">
                 <!--<img src="images/logo.png" alt="logo">-->
                 theACP
             </a>
@@ -44,7 +49,7 @@ define("NAV", "reg");
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <a href="index.php">首页</a>
+                    <a href="index.html">首页</a>
                 </li>
                 <li>
                     <a href="about-us.php">关于theACP</a>
@@ -53,7 +58,7 @@ define("NAV", "reg");
                     <a href="project-list.php">志愿项目</a>
                 </li>
                 <li class="active">
-                    <a href="registration.php">注册</a>
+                    <a href="register.php">注册</a>
                 </li>
                 <li>
                     <a href="login.php">登录</a>
@@ -72,7 +77,7 @@ define("NAV", "reg");
             </div>
             <div class="col-sm-6">
                 <ul class="breadcrumb pull-right">
-                    <li><a href="index.php">首页</a></li>
+                    <li><a href="index.html">首页</a></li>
                     <li class="active">注册</li>
                 </ul>
             </div>
@@ -81,38 +86,49 @@ define("NAV", "reg");
 </section><!--/#title-->
 
 <section id="registration" class="container">
-    <form class="form-horizontal cu-form col-sm-6" role="form">
+
+    <div class="alert alert-danger" role="alert">Oh snap!...</div>
+
+    <form id="register-form" class="form-horizontal cu-form col-sm-8" role="form" method="post">
+        <input type="hidden" name="uniqid" value="<? echo $_uniqid ?>">
         <div class="form-group">
-            <label for="email" class="col-sm-3 control-label">邮箱</label>
-            <div class="col-sm-9">
-                <input type="text" id="email" name="email" placeholder="E-mail" class="form-control">
+            <label for="username" class="col-sm-3 control-label">会员名</label>
+            <div class="col-sm-6">
+                <input type="text" id="username" name="username" placeholder="会员名" class="form-control">
+                <span class="label label-danger cu-error" id="username-error"></span>
             </div>
+            <label class="glyphicon glyphicon-ok cu-correct" id="username-correct"></label>
         </div>
+
         <div class="form-group">
             <label for="password" class="col-sm-3 control-label">密码</label>
-            <div class="col-sm-9">
-                <input type="password" id="password" name="password" placeholder="Password" class="form-control">
+            <div class="col-sm-6">
+                <input type="password" id="password" name="password" placeholder="密码" class="form-control">
+                <span class="label label-danger cu-error" id="password-error"></span>
             </div>
+            <label class="glyphicon glyphicon-ok cu-correct" id="password-correct"></label>
         </div>
         <div class="form-group">
             <label for="password_confirm" class="col-sm-3 control-label">密码确认</label>
-            <div class="col-sm-9">
-                <input type="password" id="password_confirm" name="password_confirm" placeholder="Password (Confirm)"
+            <div class="col-sm-6">
+                <input type="password" id="password_confirm" name="password_confirm" placeholder="密码确认"
                        class="form-control">
+                <span class="label label-danger cu-error" id="password-confirm-error"></span>
+            </div>
+            <label class="glyphicon glyphicon-ok cu-correct" id="password-confirm-correct"></label>
+        </div>
+
+        <div class="form-group">
+            <label for="invitationCode" class="col-sm-3 control-label">邀请码</label>
+            <div class="col-sm-6">
+                <input type="text" id="invitationCode" name="invitationCode" placeholder="邀请码（选填）"
+                       class="form-control disabled">
             </div>
         </div>
-        <!--<div class="form-group">-->
-        <!--<div class="col-sm-offset-2 col-sm-10">-->
-        <!--<div class="checkbox">-->
-        <!--<label>-->
-        <!--<input type="checkbox"> Remember me-->
-        <!--</label>-->
-        <!--</div>-->
-        <!--</div>-->
-        <!--</div>-->
+
         <div class="form-group">
             <div class="col-sm-offset-3 col-sm-4">
-                <button class="btn btn-success btn-md btn-block">注册</button>
+                <button class="btn btn-success btn-md btn-block" id="register-btn">注册</button>
             </div>
         </div>
 
@@ -121,6 +137,8 @@ define("NAV", "reg");
             <a href="login.php" class="cu-link">直接登录</a>
         </p>
     </form>
+
+    <p id="testJsAjax"></p>
 </section><!--/#registration-->
 
 <footer id="footer" class="midnight-blue">
@@ -147,5 +165,6 @@ define("NAV", "reg");
 <script src="js/bootstrap.min.js"></script>
 <script src="js/jquery.prettyPhoto.js"></script>
 <script src="js/main.js"></script>
+<script src="js/register.js"></script>
 </body>
 </html>

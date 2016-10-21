@@ -36,7 +36,7 @@ define("NAV", "login");
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand cu-logo" href="index.php">
+            <a class="navbar-brand cu-logo" href="index.html">
                 <!--<img src="images/logo.png" alt="logo">-->
                 theACP
             </a>
@@ -44,7 +44,7 @@ define("NAV", "login");
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <a href="index.php">首页</a>
+                    <a href="index.html">首页</a>
                 </li>
                 <li>
                     <a href="about-us.php">关于theACP</a>
@@ -53,7 +53,7 @@ define("NAV", "login");
                     <a href="project-list.php">志愿项目</a>
                 </li>
                 <li>
-                    <a href="registration.php">注册</a>
+                    <a href="register.php">注册</a>
                 </li>
                 <li class="active">
                     <a href="login.php">登录</a>
@@ -72,7 +72,7 @@ define("NAV", "login");
             </div>
             <div class="col-sm-6">
                 <ul class="breadcrumb pull-right">
-                    <li><a href="index.php">首页</a></li>
+                    <li><a href="index.html">首页</a></li>
                     <li class="active">登录</li>
                 </ul>
             </div>
@@ -111,7 +111,7 @@ define("NAV", "login");
 
         <p class="col-sm-offset-3">
             还没有帐号？
-            <a href="registration.php" class="cu-link">前往注册</a>
+            <a href="register.php" class="cu-link">前往注册</a>
         </p>
     </form>
 </section><!--/#registration-->
