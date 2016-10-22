@@ -53,7 +53,7 @@ define("NAV", "about-us");
                     <a href="project-list.php">志愿项目</a>
                 </li>
                 <li>
-                    <a href="register.php">注册</a>
+                    <a href="register.html">注册</a>
                 </li>
                 <li>
                     <a href="login.php">登录</a>

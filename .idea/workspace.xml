@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="68bf7b96-db2d-43e4-bcf0-84d1f4ab4a97" name="Default" comment="修复uc会多出'&gt;'的bug">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dictionaries/liuyang.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/common/connection.db.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/common/global.func.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/common/mysql.func.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/controller/register.fun.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/register.js" />
+    <list default="true" id="68bf7b96-db2d-43e4-bcf0-84d1f4ab4a97" name="Default" comment="html表单提交到js页面，经过js验证后，post方式传递给php页面，在php页面对数据库操作后返回结果给js页面，然后js控制html页面的内容显示（提示功能）">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/php.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/common/Constant.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dictionaries/liuyang.xml" afterPath="$PROJECT_DIR$/.idea/dictionaries/liuyang.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/404.php" afterPath="$PROJECT_DIR$/404.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/about-us.php" afterPath="$PROJECT_DIR$/about-us.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/custom.css" afterPath="$PROJECT_DIR$/css/custom.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/common/connection.db.php" afterPath="$PROJECT_DIR$/common/connection.db.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/common/mysql.func.php" afterPath="$PROJECT_DIR$/common/mysql.func.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controller/register.fun.php" afterPath="$PROJECT_DIR$/controller/register.fun.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/register.js" afterPath="$PROJECT_DIR$/js/register.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/login.php" afterPath="$PROJECT_DIR$/login.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project-item.php" afterPath="$PROJECT_DIR$/project-item.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project-list.php" afterPath="$PROJECT_DIR$/project-list.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/registration.php" afterPath="$PROJECT_DIR$/register.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/register.php" afterPath="$PROJECT_DIR$/register.html" />
     </list>
     <ignored path="theACP.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -37,11 +37,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="register.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/register.php">
+      <file leaf-file-name="register.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/register.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="9" column="16" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
+            <state relative-caret-position="353">
+              <caret line="118" column="35" selection-start-line="118" selection-start-column="35" selection-end-line="118" selection-end-column="35" />
               <folding />
             </state>
           </provider>
@@ -50,26 +50,53 @@
       <file leaf-file-name="register.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/register.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="70" column="0" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
+            <state relative-caret-position="320">
+              <caret line="64" column="45" selection-start-line="64" selection-start-column="45" selection-end-line="64" selection-end-column="45" />
               <folding>
-                <element signature="e#246#2032#0" expanded="false" />
-                <element signature="e#2095#2139#0" expanded="false" />
-                <element signature="e#2178#2222#0" expanded="false" />
-                <element signature="e#2269#2343#0" expanded="false" />
-                <element signature="e#2384#3393#0" expanded="false" />
-                <element signature="e#3432#4098#0" expanded="false" />
-                <element signature="e#4162#4896#0" expanded="false" />
+                <element signature="e#2431#2476#0" expanded="false" />
+                <element signature="e#2515#2559#0" expanded="false" />
+                <element signature="e#2606#2680#0" expanded="false" />
+                <element signature="e#2721#3730#0" expanded="false" />
+                <element signature="e#3769#4435#0" expanded="false" />
+                <element signature="e#4499#5233#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="register.fun.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="register.fun.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/controller/register.fun.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="10" column="18" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="18" />
+            <state relative-caret-position="240">
+              <caret line="12" column="41" selection-start-line="12" selection-start-column="41" selection-end-line="12" selection-end-column="41" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="mysql.func.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/common/mysql.func.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1160">
+              <caret line="58" column="46" selection-start-line="58" selection-start-column="46" selection-end-line="58" selection-end-column="46" />
+              <folding>
+                <element signature="e#6#89#0#PHP" expanded="true" />
+                <marker date="1477127273296" expanded="true" signature="266:322" ph="SELECT COUNT... tb_user" />
+                <marker date="1477127273296" expanded="true" signature="728:750" ph="SELECT * FRO... " />
+                <marker date="1477127273296" expanded="true" signature="728:801" ph="SELECT id FR... ${$table}" />
+                <marker date="1477127273296" expanded="true" signature="1164:1176" ph="INSERT INTO ``... " />
+                <marker date="1477127273296" expanded="true" signature="1164:1185" ph="INSERT INTO `${$table}`... " />
+                <marker date="1477127273296" expanded="true" signature="1164:1272" ph="INSERT INTO `${$table}`... " />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Constant.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/common/Constant.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="415">
+              <caret line="27" column="41" selection-start-line="27" selection-start-column="41" selection-end-line="27" selection-end-column="41" />
               <folding />
             </state>
           </provider>
@@ -78,8 +105,8 @@
       <file leaf-file-name="custom.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/css/custom.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="553">
-              <caret line="38" column="21" selection-start-line="38" selection-start-column="21" selection-end-line="38" selection-end-column="21" />
+            <state relative-caret-position="404">
+              <caret line="39" column="1" selection-start-line="39" selection-start-column="1" selection-end-line="39" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -100,7 +127,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="login" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
   </component>
@@ -134,15 +161,16 @@
         <option value="$PROJECT_DIR$/js/jquery.form.js" />
         <option value="$PROJECT_DIR$/js/register1.js" />
         <option value="$PROJECT_DIR$/js/register2.js" />
+        <option value="$PROJECT_DIR$/utils/connection-db.php" />
+        <option value="$PROJECT_DIR$/common/global.func.php" />
+        <option value="$PROJECT_DIR$/register.php" />
+        <option value="$PROJECT_DIR$/common/Constant.php" />
+        <option value="$PROJECT_DIR$/common/connection.db.php" />
+        <option value="$PROJECT_DIR$/controller/register.fun.php" />
+        <option value="$PROJECT_DIR$/common/mysql.func.php" />
+        <option value="$PROJECT_DIR$/js/register.js" />
         <option value="$PROJECT_DIR$/css/custom.css" />
         <option value="$PROJECT_DIR$/register.html" />
-        <option value="$PROJECT_DIR$/utils/connection-db.php" />
-        <option value="$PROJECT_DIR$/common/mysql.func.php" />
-        <option value="$PROJECT_DIR$/common/global.func.php" />
-        <option value="$PROJECT_DIR$/common/connection.db.php" />
-        <option value="$PROJECT_DIR$/register.php" />
-        <option value="$PROJECT_DIR$/controller/register.fun.php" />
-        <option value="$PROJECT_DIR$/js/register.js" />
       </list>
     </option>
   </component>
@@ -155,7 +183,7 @@
   <component name="PhpServers">
     <servers />
   </component>
-  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
+  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" interpreter_name="PHP" />
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
@@ -187,20 +215,21 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane />
       </pane>
+      <pane id="Scope" />
       <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Font" />
+    <property name="settings.editor.selected.configurable" value="AppEnginePhpModulesConfigurable" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="js.eslint.eslintPackage" value="" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -211,8 +240,12 @@
       <recent name="D:\xampp\htdocs\theACP\common" />
     </key>
   </component>
-  <component name="RunManager" selected="JavaScript Debug.connection-db.php">
+  <component name="RunManager" selected="PHPUnit.theACP">
     <configuration default="false" name="connection-db.php" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:1587/theACP/utils/connection-db.php">
+      <method />
+    </configuration>
+    <configuration default="false" name="theACP" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner directory="$PROJECT_DIR$" />
       <method />
     </configuration>
     <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
@@ -261,12 +294,14 @@
       <recursive>false</recursive>
       <method />
     </configuration>
-    <list size="1">
+    <list size="2">
       <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.connection-db.php" />
+      <item index="1" class="java.lang.String" itemvalue="PHPUnit.theACP" />
     </list>
     <recent_temporary>
-      <list size="1">
-        <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.connection-db.php" />
+      <list size="2">
+        <item index="0" class="java.lang.String" itemvalue="PHPUnit.theACP" />
+        <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.connection-db.php" />
       </list>
     </recent_temporary>
   </component>
@@ -291,7 +326,9 @@
       <workItem from="1476933923693" duration="4089000" />
       <workItem from="1476972664915" duration="6030000" />
       <workItem from="1477013109492" duration="5495000" />
-      <workItem from="1477036061471" duration="23995000" />
+      <workItem from="1477036061471" duration="24638000" />
+      <workItem from="1477108338683" duration="1931000" />
+      <workItem from="1477110382078" duration="15627000" />
     </task>
     <task id="LOCAL-00001" summary="初始化静态模板">
       <created>1476894664513</created>
@@ -370,21 +407,28 @@
       <option name="project" value="LOCAL" />
       <updated>1476981476716</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="html表单提交到js页面，经过js验证后，post方式传递给php页面，在php页面对数据库操作后返回结果给js页面，然后js控制html页面的内容显示（提示功能）">
+      <created>1477066981554</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1477066981554</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="46022000" />
+    <option name="totallyTimeSpent" value="64223000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21375921" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2624204" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5683564" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5671406" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32924694" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -424,7 +468,8 @@
     <MESSAGE value="恢复" />
     <MESSAGE value="不再使用includes方法" />
     <MESSAGE value="修复uc会多出'&gt;'的bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="修复uc会多出'&gt;'的bug" />
+    <MESSAGE value="html表单提交到js页面，经过js验证后，post方式传递给php页面，在php页面对数据库操作后返回结果给js页面，然后js控制html页面的内容显示（提示功能）" />
+    <option name="LAST_COMMIT_MESSAGE" value="html表单提交到js页面，经过js验证后，post方式传递给php页面，在php页面对数据库操作后返回结果给js页面，然后js控制html页面的内容显示（提示功能）" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
@@ -435,35 +480,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Downloads/flat-theme-wordpress-unzipfirst/flat-theme/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="460">
-          <caret line="23" column="6" selection-start-line="23" selection-start-column="6" selection-end-line="23" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fonts/fontawesome-webfont.svg">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="239">
-          <caret line="25" column="57" selection-start-line="25" selection-start-column="57" selection-end-line="25" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/animate.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="202" column="43" selection-start-line="202" selection-start-column="43" selection-end-line="202" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/fonts/glyphicons-halflings-regular.svg">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="20">
@@ -655,26 +671,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/jquery.form.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="12" column="42" selection-start-line="12" selection-start-column="42" selection-end-line="12" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/register2.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="9" column="4" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/js/jquery.form.js" />
+    <entry file="file://$PROJECT_DIR$/js/register2.js" />
     <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/mysqli.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="20">
@@ -683,66 +684,104 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/common/mysql.func.php">
+    <entry file="file://$PROJECT_DIR$/common/global.func.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="7" column="18" selection-start-line="7" selection-start-column="18" selection-end-line="7" selection-end-column="18" />
+        <state relative-caret-position="537">
+          <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/slider/bg1.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/EcmaScript.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="261">
+          <caret line="45" column="49" selection-start-line="45" selection-start-column="30" selection-end-line="45" selection-end-column="49" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/common/connection.db.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="6" column="43" selection-start-line="6" selection-start-column="43" selection-end-line="6" selection-end-column="43" />
+        <state relative-caret-position="200">
+          <caret line="10" column="28" selection-start-line="10" selection-start-column="28" selection-end-line="10" selection-end-column="28" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/common/global.func.php">
+    <entry file="file://$PROJECT_DIR$/common/Constant.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="620">
-          <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+        <state relative-caret-position="415">
+          <caret line="27" column="41" selection-start-line="27" selection-start-column="41" selection-end-line="27" selection-end-column="41" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/custom.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="553">
-          <caret line="38" column="21" selection-start-line="38" selection-start-column="21" selection-end-line="38" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/register.php">
+    <entry file="file://$PROJECT_DIR$/js/bootstrap.min.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="9" column="16" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
-          <folding />
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/register.js">
+    <entry file="file://$PROJECT_DIR$/common/mysql.func.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="70" column="0" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
+        <state relative-caret-position="1160">
+          <caret line="58" column="46" selection-start-line="58" selection-start-column="46" selection-end-line="58" selection-end-column="46" />
           <folding>
-            <element signature="e#246#2032#0" expanded="false" />
-            <element signature="e#2095#2139#0" expanded="false" />
-            <element signature="e#2178#2222#0" expanded="false" />
-            <element signature="e#2269#2343#0" expanded="false" />
-            <element signature="e#2384#3393#0" expanded="false" />
-            <element signature="e#3432#4098#0" expanded="false" />
-            <element signature="e#4162#4896#0" expanded="false" />
+            <element signature="e#6#89#0#PHP" expanded="true" />
+            <marker date="1477127273296" expanded="true" signature="266:322" ph="SELECT COUNT... tb_user" />
+            <marker date="1477127273296" expanded="true" signature="728:750" ph="SELECT * FRO... " />
+            <marker date="1477127273296" expanded="true" signature="728:801" ph="SELECT id FR... ${$table}" />
+            <marker date="1477127273296" expanded="true" signature="1164:1176" ph="INSERT INTO ``... " />
+            <marker date="1477127273296" expanded="true" signature="1164:1185" ph="INSERT INTO `${$table}`... " />
+            <marker date="1477127273296" expanded="true" signature="1164:1272" ph="INSERT INTO `${$table}`... " />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/controller/register.fun.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="10" column="18" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="18" />
+        <state relative-caret-position="240">
+          <caret line="12" column="41" selection-start-line="12" selection-start-column="41" selection-end-line="12" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/custom.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="404">
+          <caret line="39" column="1" selection-start-line="39" selection-start-column="1" selection-end-line="39" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/register.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="64" column="45" selection-start-line="64" selection-start-column="45" selection-end-line="64" selection-end-column="45" />
+          <folding>
+            <element signature="e#2431#2476#0" expanded="false" />
+            <element signature="e#2515#2559#0" expanded="false" />
+            <element signature="e#2606#2680#0" expanded="false" />
+            <element signature="e#2721#3730#0" expanded="false" />
+            <element signature="e#3769#4435#0" expanded="false" />
+            <element signature="e#4499#5233#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/register.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="353">
+          <caret line="118" column="35" selection-start-line="118" selection-start-column="35" selection-end-line="118" selection-end-column="35" />
           <folding />
         </state>
       </provider>

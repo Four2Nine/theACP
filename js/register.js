@@ -4,11 +4,12 @@
 
 $(".cu-error").hide();
 $(".cu-correct").hide();
-$(".alert-danger").hide();
+$(".cu-notification").hide();
 
 $(document).ready(function () {
     // Bind to the submit event of our form
     $("#register-form").submit(function (event) {
+
 
         $(".cu-error").hide();
         // Prevent default posting of form - put here to work in case of errors
@@ -53,10 +54,22 @@ $(document).ready(function () {
             type: "post",
             data: serializedData,
             success: function (data) {
-                $(".alert-danger").html(data).fadeIn(800);
+
+                var result = JSON.parse(data);
+
+                if (result.status != 100) {
+                    $(".alert-danger").html(
+                        "error code: " + result.status
+                    ).fadeIn(800);
+                } else {
+                    $(".alert-success").html(
+                        "注册成功，正在跳转..."
+                    ).show();
+                }
+
                 setTimeout(function () {
-                    $(".alert-danger").fadeOut(800)
-                }, 2000);
+                    $(".cu-notification").fadeOut(800);
+                }, 3000);
             },
             error: function (request) {
 

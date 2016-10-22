@@ -53,7 +53,7 @@ define("NAV", "login");
                     <a href="project-list.php">志愿项目</a>
                 </li>
                 <li>
-                    <a href="register.php">注册</a>
+                    <a href="register.html">注册</a>
                 </li>
                 <li class="active">
                     <a href="login.php">登录</a>
@@ -111,7 +111,7 @@ define("NAV", "login");
 
         <p class="col-sm-offset-3">
             还没有帐号？
-            <a href="register.php" class="cu-link">前往注册</a>
+            <a href="register.html" class="cu-link">前往注册</a>
         </p>
     </form>
 </section><!--/#registration-->

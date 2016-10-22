@@ -5,70 +5,85 @@
  * Date: 2016/10/21
  * Time: 12:06
  */
-session_start();
-define('ROOT_PATH', substr(dirname(__FILE__), 0, -5));
+require substr(dirname(__FILE__), 0, -10) . 'common\connection.db.php';
+require substr(dirname(__FILE__), 0, -10) . 'common\Constant.php';
 
 $result = array();
 
-$result['uniqid'] = $_POST["uniqid"];
 $result['username'] = $_POST["username"];
 $result['password'] = $_POST["password"];
 $result['password_confirm'] = $_POST["password_confirm"];
 
+$result['status'] = check_username($result['username'], 20);
+$result['status'] = check_password($result['password'], $result['password_confirm'], 6);
+if ($result['status'] != Constant::$_CORRECT) {
+    echo json_encode($result);
+    exit;
+}
+
+//确定数据格式正确后，再查找数据库，看有没有重名
+$result['status'] = is_username_repeat($result['username']);
+if ($result['status'] != Constant::$_CORRECT) {
+    echo json_encode($result);
+    exit;
+}
+
+//增加一个会员用户
+$result['status'] = add_user($result);
+
 echo json_encode($result);
-
+exit;
 
 
 //-----------------------------------------------------------------
+//  检测函数
 //-----------------------------------------------------------------
-
-//if (!function_exists('_alert_back')) {
-//    exit('_alert_back()函数不存在，请检查！');
-//}
-//if (!function_exists('_mysql_string')) {
-//    exit('_mysql_string()函数不存在，请检查！');
-//}
 
 //检查用户名
-//function _check_username($_string, $_max_len)
-//{
-//    $_string = trim($_string);
-//    if (mb_strlen($_string, 'utf-8') < 1) {
-//        return "会员名不能为空";
-//    }
-//    if (mb_strlen($_string, 'utf-8') > $_max_len) {
-//        return '会员名长度不能超过' . $_max_len . '个字符';
-//    }
-//
-//    if (!(preg_match('/^[a-zA-Z0-9_\u4e00-\u9fa5]+$/', $_string))) {
-//        return '会员名不能包括除下划线以外的特殊字符';
-//    }
-//    return null;
-//}
-//
-//function _check_password($_first_pass, $_end_pass)
-//{
-//    if ($_first_pass != $_end_pass) {
-//        return '两次密码输入不一致';
-//    }
-//    return null;
-//}
-//
-//function _check_email($_string, $_max_len)
-//{
-//    if (!preg_match('/^([\w\-\.]+)@[\w\-\.]+(\.\w+)+$/', $_string)) {
-//        return '邮箱格式不正确！';
-//    }
-//    if (mb_strlen($_string, 'utf-8') > $_max_len) {
-//        return '邮箱字符不得大于' . $_max_len . '位！';
-//    }
-//    return null;
-//}
-//
-//function _check_uniqid($_post_uniqid, $_session_uniqid)
-//{
-//    if ($_post_uniqid != $_session_uniqid) {
-//        return '唯一标识符异常！';
-//    }
-//    return null;
-//}
+function check_username($string, $max_len)
+{
+    $string = trim($string);
+    if (mb_strlen($string, 'utf-8') < 1) {
+        return Constant::$_USERNAME_BLANK_ERROR;
+    }
+    if (mb_strlen($string, 'utf-8') > $max_len) {
+        return Constant::$_USERNAME_LENGTH_ERROR;
+    }
+
+    if (!(preg_match('/^[a-zA-Z0-9_\x{4e00}-\x{9fa5}]+$/u', $string))) {
+        return Constant::$_USERNAME_FORMAT_ERROR;
+    }
+
+    return Constant::$_CORRECT;
+}
+
+//检查密码
+function check_password($first_pass, $end_pass, $min_len)
+{
+    if ($first_pass != $end_pass) {
+        return Constant::$_PASSWORD_INCONSISTENT_ERROR;
+    }
+    if (mb_strlen($first_pass) < $min_len) {
+        return Constant::$_PASSWORD_LENGTH_ERROR;
+    }
+    return Constant::$_CORRECT;
+}
+
+//检查数据库
+function is_username_repeat($username)
+{
+    if (isRepeatUsername($username))
+        return Constant::$_USERNAME_REPEAT_ERROR;
+    else
+        return Constant::$_CORRECT;
+}
+
+//新增用户
+function add_user($result)
+{
+    $result['password'] = md5($result['password']);
+    if (addUser($result['username'], $result['password']))
+        return Constant::$_CORRECT;
+    else
+        return Constant::$_DB_INSERT_ERROR;
+}

@@ -1,11 +1,3 @@
-<?php
-ob_start();
-session_start();
-require dirname(__FILE__) . '/common/global.func.php';
-$_uniqid = _sha1_uniqid();
-$_SESSION['uniqid'] = $_uniqid;
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -58,7 +50,7 @@ $_SESSION['uniqid'] = $_uniqid;
                     <a href="project-list.php">志愿项目</a>
                 </li>
                 <li class="active">
-                    <a href="register.php">注册</a>
+                    <a href="register.html">注册</a>
                 </li>
                 <li>
                     <a href="login.php">登录</a>
@@ -87,10 +79,10 @@ $_SESSION['uniqid'] = $_uniqid;
 
 <section id="registration" class="container">
 
-    <div class="alert alert-danger" role="alert">Oh snap!...</div>
+    <div class="alert alert-danger cu-notification" role="alert"></div>
+    <div class="alert alert-success cu-notification" role="alert"></div>
 
     <form id="register-form" class="form-horizontal cu-form col-sm-8" role="form" method="post">
-        <input type="hidden" name="uniqid" value="<? echo $_uniqid ?>">
         <div class="form-group">
             <label for="username" class="col-sm-3 control-label">会员名</label>
             <div class="col-sm-6">
@@ -119,14 +111,6 @@ $_SESSION['uniqid'] = $_uniqid;
         </div>
 
         <div class="form-group">
-            <label for="invitationCode" class="col-sm-3 control-label">邀请码</label>
-            <div class="col-sm-6">
-                <input type="text" id="invitationCode" name="invitationCode" placeholder="邀请码（选填）"
-                       class="form-control disabled">
-            </div>
-        </div>
-
-        <div class="form-group">
             <div class="col-sm-offset-3 col-sm-4">
                 <button class="btn btn-success btn-md btn-block" id="register-btn">注册</button>
             </div>
@@ -137,8 +121,6 @@ $_SESSION['uniqid'] = $_uniqid;
             <a href="login.php" class="cu-link">直接登录</a>
         </p>
     </form>
-
-    <p id="testJsAjax"></p>
 </section><!--/#registration-->
 
 <footer id="footer" class="midnight-blue">
