@@ -56,7 +56,7 @@ define("NAV", "about-us");
                     <a href="register.html">注册</a>
                 </li>
                 <li>
-                    <a href="login.php">登录</a>
+                    <a href="login.html">登录</a>
                 </li>
             </ul>
         </div>
@@ -197,7 +197,7 @@ define("NAV", "about-us");
     <div class="container">
         <div class="row">
             <div class="col-sm-6">
-                &copy; 2016 429 | ShapeBootstrap.
+                &copy; 2016 Four2Nine | ShapeBootstrap.
                 All Rights Reserved.
             </div>
             <div class="col-sm-6">

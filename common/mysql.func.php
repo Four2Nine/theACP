@@ -10,18 +10,19 @@
  * @param $value //用户名
  * @return bool     //表中是否存在相同用户名
  */
-function isRepeatUsername($value)
+function isExist($value)
 {
     $con = mysqli_connect(DB_HOST, DB_USER, DB_PWD, DB_NAME);
-    $sql = "SELECT COUNT(id) FROM tb_user WHERE username = ? LIMIT 1";
+    $sql = "SELECT id FROM tb_user WHERE username = ?";
     $stmt = $con->prepare($sql);
     $stmt->bind_param("s", $value);
-    $stmt->bind_result($num);
-
     $stmt->execute();
+
+    $stmt->store_result();
+    $stmt->bind_result($ids);
     $stmt->close();
     $con->close();
-    return $num == 0 ? false : true;
+    return $ids == null ? false : true;
 }
 
 /**
@@ -33,7 +34,7 @@ function attemptLogin($value1, $value2)
 {
     $con = mysqli_connect(DB_HOST, DB_USER, DB_PWD, DB_NAME);
 
-    $sql = "SELECT COUNT(id) FROM tb_user WHERE username = ? AND password = ? LIMIT 1";
+    $sql = "SELECT COUNT(id) FROM tb_user WHERE username = ? AND password = ?";
     $stmt = $con->prepare($sql);
     $stmt->bind_param("ss", $value1, $value2);
     $stmt->bind_result($num);

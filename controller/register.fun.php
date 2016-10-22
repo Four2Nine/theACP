@@ -72,7 +72,7 @@ function check_password($first_pass, $end_pass, $min_len)
 //检查数据库
 function is_username_repeat($username)
 {
-    if (isRepeatUsername($username))
+    if (isExist($username))
         return Constant::$_USERNAME_REPEAT_ERROR;
     else
         return Constant::$_CORRECT;

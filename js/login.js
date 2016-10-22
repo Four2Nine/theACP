@@ -1,5 +1,5 @@
 /**
- * Created by liuyang on 2016/10/21.
+ * Created by liuyang on 2016/10/22.
  */
 
 $(".cu-error").hide();
@@ -7,10 +7,7 @@ $(".cu-correct").hide();
 $(".cu-notification").hide();
 
 $(document).ready(function () {
-    // Bind to the submit event of our form
-    $("#register-form").submit(function (event) {
-
-
+    $("#login-form").submit(function (event) {
         $(".cu-error").hide();
         // Prevent default posting of form - put here to work in case of errors
         event.preventDefault();
@@ -40,17 +37,8 @@ $(document).ready(function () {
             $inputs.prop("disabled", false);
             return false;
         }
-
-        //验证密码确认
-        if (!checkPasswordConfirm($("#password_confirm").val(), $("#password").val())) {
-            $inputs.prop("disabled", false);
-            return false;
-        }
-
-
-        // Fire off the request to /form.php
         $.ajax({
-            url: "/theACP/controller/register.fun.php",
+            url: "/theACP/controller/login.fun.php",
             type: "post",
             data: serializedData,
             success: function (data) {
@@ -63,7 +51,7 @@ $(document).ready(function () {
                     ).fadeIn(800);
                 } else {
                     $(".alert-success").html(
-                        "注册成功，正在跳转..."
+                        "登录成功，正在跳转..."
                     ).show();
                 }
 
@@ -88,8 +76,5 @@ $(document).ready(function () {
     });
     $("#password").blur(function () {
         checkPassword($(this).val())
-    });
-    $("#password_confirm").blur(function () {
-        checkPasswordConfirm($(this).val(), $("#password").val());
     });
 });

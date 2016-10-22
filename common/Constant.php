@@ -18,7 +18,7 @@ class Constant
     static $_USERNAME_REPEAT_ERROR = 2013; //用户名重复
     static $_USERNAME_NOT_FOUND_ERROR = 2014; //没有找到该用户
 
-    static $_PASSWORD_ERROR = 202;
+    static $_PASSWORD_ERROR = 202; //密码错误
     //-------------------------------------------------------
     static $_PASSWORD_BLANK_ERROR = 2020; //密码为空
     static $_PASSWORD_LENGTH_ERROR = 2021; //密码长度不符合要求
@@ -27,5 +27,5 @@ class Constant
 
     static $_INVITATION_CODE_ERROR = 203;
 
-    static $_DB_INSERT_ERROR = 301;
+    static $_DB_INSERT_ERROR = 302;
 }
