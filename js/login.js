@@ -38,7 +38,7 @@ $(document).ready(function () {
             return false;
         }
         $.ajax({
-            url: "/theACP/controller/login.fun.php",
+            url: "/theACP/controller/login.con.php",
             type: "post",
             data: serializedData,
             success: function (data) {
@@ -54,7 +54,7 @@ $(document).ready(function () {
                         "登录成功，正在跳转..."
                     ).show();
                     setTimeout(function () {
-                        location.href = "/theACP/user.html?username=" + result.username;
+                        location.href = "/theACP/user.php?username=" + result.username + "&token=" + result.token;
                     }, 1800);
                 }
 

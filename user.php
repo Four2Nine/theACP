@@ -11,6 +11,7 @@
     <link href="css/prettyPhoto.css" rel="stylesheet">
     <link href="css/animate.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
+    <link href="css/material.min.css" rel="stylesheet">
     <link href="css/custom.css" rel="stylesheet">
     <!--[if lt IE 9]>
     <script src="js/html5shiv.js"></script>
@@ -81,7 +82,9 @@
 </section><!--/#title-->
 
 <section id="user-info" class="container">
-
+    <div>
+        <div class="mdl-spinner mdl-js-spinner is-active"></div>
+    </div>
 </section><!--/#user-info-->
 
 <footer id="footer" class="midnight-blue">
@@ -107,6 +110,8 @@
 <script src="js/jquery.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/jquery.prettyPhoto.js"></script>
+<script src="js/material.min.js"></script>
 <script src="js/main.js"></script>
+<script src="js/user.js"></script>
 </body>
 </html>

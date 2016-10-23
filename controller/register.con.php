@@ -34,9 +34,11 @@ if ($result['status'] != Constant::$_CORRECT) {
     echo json_encode($result);
     exit;
 }
+$token = generateToken($result['username'], $result['password'], Constant::$_SALT);
+$result['token'] = $token;
 
-setcookie('__token', generateToken($result['username'], $result['password'], Constant::$_SALT));
 setcookie('__username', $result['username']);
+setcookie('__token', $token);
 
 echo json_encode($result);
 exit;
@@ -79,7 +81,7 @@ function check_password($first_pass, $end_pass, $min_len)
 //检查数据库
 function is_username_repeat($username)
 {
-    if (isExist($username))
+    if (isExist(toUTF8($username)))
         return Constant::$_USERNAME_REPEAT_ERROR;
     else
         return Constant::$_CORRECT;
@@ -89,7 +91,8 @@ function is_username_repeat($username)
 function add_user($result)
 {
     $result['password'] = md5($result['password'] . Constant::$_SALT);
-    if (addUser($result['username'], $result['password'], generateInvitationCode()))
+    $invitationCode = generateInvitationCode($result['username'], $result['password']);
+    if (addUser($result['username'], $result['password'], $invitationCode))
         return Constant::$_CORRECT;
     else
         return Constant::$_DB_INSERT_ERROR;

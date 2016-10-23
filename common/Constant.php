@@ -28,5 +28,7 @@ class Constant
 
     static $_INVITATION_CODE_ERROR = 203;
 
-    static $_DB_INSERT_ERROR = 302;
+    static $_DB_INSERT_ERROR = 301;
+
+    static $_NO_PERMISSION = 401;
 }

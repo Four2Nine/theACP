@@ -17,7 +17,9 @@ var PASSWORD_INCORRECT_ERROR = 2023; //密码错误
 
 var INVITATION_CODE_ERROR = 203; //无效的邀请码
 
-var DB_INSERT_ERROR = 302; //未知的INSERT错误
+var DB_INSERT_ERROR = 301; //未知的INSERT错误
+
+var NO_PERMISSION = 401;
 
 jQuery(function ($) {
 

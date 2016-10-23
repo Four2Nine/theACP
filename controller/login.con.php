@@ -5,7 +5,7 @@
  * Date: 2016/10/22
  * Time: 18:16
  */
-
+header('Content-Type:text/html;charset=utf-8;');
 require substr(dirname(__FILE__), 0, -10) . 'common\connection.db.php';
 require substr(dirname(__FILE__), 0, -10) . 'common\Constant.php';
 
@@ -26,8 +26,11 @@ if ($result['status'] != Constant::$_CORRECT) {
     exit;
 }
 
-setcookie('__token', generateToken($result['username'], $result['password'], Constant::$_SALT));
+$token = generateToken($result['username'], $result['password'], Constant::$_SALT);
+$result['token'] = $token;
+
 setcookie('__username', $result['username']);
+setcookie('__token', $token);
 
 echo json_encode($result);
 exit;

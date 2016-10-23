@@ -50,7 +50,7 @@ $(document).ready(function () {
 
         // Fire off the request to /form.php
         $.ajax({
-            url: "/theACP/controller/register.fun.php",
+            url: "/theACP/controller/register.con.php",
             type: "post",
             data: serializedData,
             success: function (data) {
@@ -66,7 +66,7 @@ $(document).ready(function () {
                         "注册成功，正在登录..."
                     ).show();
                     setTimeout(function () {
-                        location.href = "/theACP/user.html?username=" + result.username;
+                        location.href = "/theACP/user.php?username=" + result.username + "&token=" + result.token;
                     }, 1800);
                 }
 
