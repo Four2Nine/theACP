@@ -13,16 +13,22 @@
 function isExist($value)
 {
     $con = mysqli_connect(DB_HOST, DB_USER, DB_PWD, DB_NAME);
-    $sql = "SELECT id FROM tb_user WHERE username = ?";
+    $sql = "SELECT `id` FROM `tb_user` WHERE `username` = ? LIMIT 1";
     $stmt = $con->prepare($sql);
     $stmt->bind_param("s", $value);
     $stmt->execute();
 
     $stmt->store_result();
     $stmt->bind_result($ids);
+
+    $isExist = false;
+    while ($stmt->fetch()) {
+        $isExist = true;
+    }
+
     $stmt->close();
     $con->close();
-    return $ids == null ? false : true;
+    return $isExist;
 }
 
 /**
@@ -34,15 +40,22 @@ function attemptLogin($value1, $value2)
 {
     $con = mysqli_connect(DB_HOST, DB_USER, DB_PWD, DB_NAME);
 
-    $sql = "SELECT COUNT(id) FROM tb_user WHERE username = ? AND password = ?";
+    $sql = "SELECT `id` FROM `tb_user` WHERE `username` = ? AND `password` = ? LIMIT 1";
     $stmt = $con->prepare($sql);
     $stmt->bind_param("ss", $value1, $value2);
-    $stmt->bind_result($num);
-
     $stmt->execute();
+
+    $stmt->store_result();
+    $stmt->bind_result($ids);
+
+    $isExist = false;
+    while ($stmt->fetch()) {
+        $isExist = true;
+    }
+
     $stmt->close();
     $con->close();
-    return $num == 0 ? false : true;
+    return $isExist;
 }
 
 
