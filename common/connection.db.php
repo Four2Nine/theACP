@@ -5,6 +5,7 @@ if (PHP_VERSION < '5.3.29') {
 define('ROOT_PATH', substr(dirname(__FILE__), 0, -6));
 require ROOT_PATH . 'common\global.func.php';
 require ROOT_PATH . 'common\mysql.func.php';
+require ROOT_PATH . 'common\utils.php';
 define('DB_HOST', 'localhost');
 define('DB_USER', 'root');
 define('DB_PWD', 'QFynXANCxVdXm2q7');

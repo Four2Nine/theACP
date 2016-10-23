@@ -59,18 +59,19 @@ function attemptLogin($value1, $value2)
 }
 
 
-function addUser($name, $password)
+function addUser($name, $password, $invitation_code)
 {
     $con = mysqli_connect(DB_HOST, DB_USER, DB_PWD, DB_NAME);
     $con->query("SET NAMES UTF8");
 
     $sql = "INSERT INTO tb_user (
                     username,
-                    password
+                    password,
+                    invitation_code
               ) VALUE (?,?)";
 
     $stmt = $con->prepare($sql);
-    $stmt->bind_param("ss", $name, $password);
+    $stmt->bind_param("sss", $name, $password, $invitation_code);
     $stmt->execute();
 
     $affected_rows = $stmt->affected_rows;

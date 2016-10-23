@@ -30,6 +30,13 @@ if ($result['status'] != Constant::$_CORRECT) {
 
 //增加一个会员用户
 $result['status'] = add_user($result);
+if ($result['status'] != Constant::$_CORRECT) {
+    echo json_encode($result);
+    exit;
+}
+
+setcookie('__token', generateToken($result['username'], $result['password'], Constant::$_SALT));
+setcookie('__username', $result['username']);
 
 echo json_encode($result);
 exit;
@@ -81,8 +88,8 @@ function is_username_repeat($username)
 //新增用户
 function add_user($result)
 {
-    $result['password'] = md5($result['password']);
-    if (addUser($result['username'], $result['password']))
+    $result['password'] = md5($result['password'] . Constant::$_SALT);
+    if (addUser($result['username'], $result['password'], generateInvitationCode()))
         return Constant::$_CORRECT;
     else
         return Constant::$_DB_INSERT_ERROR;

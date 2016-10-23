@@ -57,19 +57,22 @@ $(document).ready(function () {
 
                 var result = JSON.parse(data);
 
-                if (result.status != 100) {
+                if (result.status != CORRECT) {
                     $(".alert-danger").html(
-                        "error code: " + result.status
+                        "error code: " + result.status + '<br>' + errorcode2errorinfo(result.status)
                     ).fadeIn(800);
                 } else {
                     $(".alert-success").html(
-                        "注册成功，正在跳转..."
+                        "注册成功，正在登录..."
                     ).show();
+                    setTimeout(function () {
+                        location.href = "/theACP/user.html?username=" + result.username;
+                    }, 1800);
                 }
 
                 setTimeout(function () {
                     $(".cu-notification").fadeOut(800);
-                }, 3000);
+                }, 2000);
             },
             error: function (request) {
 

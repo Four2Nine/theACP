@@ -12,7 +12,7 @@ require substr(dirname(__FILE__), 0, -10) . 'common\Constant.php';
 $result = array();
 
 $result['username'] = $_POST["username"];
-$result['password'] = md5($_POST["password"]);
+$result['password'] = md5($_POST["password"] . Constant::$_SALT);
 
 $result['status'] = is_username_exist($result['username']);
 if ($result['status'] != Constant::$_CORRECT) {
@@ -25,6 +25,9 @@ if ($result['status'] != Constant::$_CORRECT) {
     echo json_encode($result);
     exit;
 }
+
+setcookie('__token', generateToken($result['username'], $result['password'], Constant::$_SALT));
+setcookie('__username', $result['username']);
 
 echo json_encode($result);
 exit;

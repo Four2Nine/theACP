@@ -47,22 +47,25 @@ $(document).ready(function () {
 
                 if (result.status != 100) {
                     $(".alert-danger").html(
-                        "error code: " + result.status
+                        "error code: " + result.status + '<br>' + errorcode2errorinfo(result.status)
                     ).fadeIn(800);
                 } else {
                     $(".alert-success").html(
                         "登录成功，正在跳转..."
                     ).show();
+                    setTimeout(function () {
+                        location.href = "/theACP/user.html?username=" + result.username;
+                    }, 1800);
                 }
 
                 setTimeout(function () {
                     $(".cu-notification").fadeOut(800);
-                }, 3000);
+                }, 2000);
             },
             error: function (request) {
 
             },
-            complete: function () {
+            complete: function (data) {
                 // Reenable the inputs
                 $inputs.prop("disabled", false);
             }
