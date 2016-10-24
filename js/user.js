@@ -35,7 +35,7 @@ $(document).ready(function () {
                     $("#username").html(result.username);
                     $("#balance").html(result.balance + " 元");
                     $("#invitation-code").val(result.invitation_code);
-                    $("#user-info").fadeIn(800);
+                    $("#user-info").fadeIn(1800);
                 }
                 if (result.project_info_status != null && result.project_info_status != CORRECT) {
                     $("#cu-spinner-content").hide();

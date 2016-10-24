@@ -54,7 +54,7 @@ $(document).ready(function () {
                         "登录成功，正在跳转..."
                     ).show();
                     setTimeout(function () {
-                        location.href = "/theACP/user.html?username=" + result.username + "&token=" + result.token;
+                        location.href = "/theACP/user.html";
                     }, 1800);
                 }
 
