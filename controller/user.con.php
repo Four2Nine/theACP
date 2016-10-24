@@ -12,9 +12,63 @@ require substr(dirname(__FILE__), 0, -10) . 'common\Constant.php';
 
 $result = array();
 
-if (!(isset($_COOKIE['__token']) && isset($_COOKIE['__username']))) {
-    $result['status'] = Constant::$_NO_PERMISSION;
+//验证Cookie是否存在
+$result['status'] = is_cookie_exist();
+if ($result['status'] != Constant::$_CORRECT) {
     echo json_encode($result);
     exit;
 }
+
+//验证token是否正确
+$result['status'] = is_token_exist($_COOKIE['__token']);
+if ($result['status'] != Constant::$_CORRECT) {
+    echo json_encode($result);
+    exit;
+}
+
+$userInfo = get_user_info($result);
+
+if ($userInfo == null) {
+    $result['status'] = Constant::$_DB_SELECT_ERROR;
+} else {
+    $result['status'] = Constant::$_CORRECT;
+    $result['username'] = $userInfo['username'];
+    $result['balance'] = $userInfo['balance'];
+    $result['invitation_code'] = $userInfo['invitation_code'];
+}
+
+echo json_encode($result);
+exit;
+
+
+//-----------------------------------------------------------------------
+//-----------------------------------------------------------------------
+
+function is_cookie_exist()
+{
+    if (!(isset($_COOKIE['__token']) && isset($_COOKIE['__username']))) {
+        return Constant::$_NOT_LOGIN;
+    } else {
+        return Constant::$_CORRECT;
+    }
+}
+
+function is_token_exist($token)
+{
+    if (checkToken($token)) {
+        return Constant::$_CORRECT;
+    } else {
+        return Constant::$_TOKEN_INCORRECT;
+    }
+}
+
+function get_user_info($result)
+{
+    $userInfo = getUserInfo($result['token'], $result['username']);
+    if (count($userInfo) == 0) {
+        return null;
+    }
+    return $userInfo;
+}
+
 

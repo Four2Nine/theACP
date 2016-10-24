@@ -26,9 +26,12 @@ class Constant
     static $_PASSWORD_INCONSISTENT_ERROR = 2022; //密码输入不一致
     static $_PASSWORD_INCORRECT_ERROR = 2023; //密码错误
 
-    static $_INVITATION_CODE_ERROR = 203;
+    static $_INVITATION_CODE_ERROR = 203;   //邀请码错误
 
-    static $_DB_INSERT_ERROR = 301;
+    static $_DB_INSERT_ERROR = 301;     //数据库插入错误
+    static $_DB_SELECT_ERROR = 302;     //数据库查询错误
 
-    static $_NO_PERMISSION = 401;
+    static $_NOT_LOGIN = 400;   //没有登录
+    static $_NO_PERMISSION = 401;   //没有权限访问该页面
+    static $_TOKEN_INCORRECT = 402; //__token 不符合
 }

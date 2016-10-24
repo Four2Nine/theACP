@@ -28,14 +28,16 @@ if ($result['status'] != Constant::$_CORRECT) {
     exit;
 }
 
+$result['password'] = md5($result['password'] . Constant::$_SALT);
+$token = generateToken($result['username'], $result['password'], Constant::$_SALT);
+$result['token'] = $token;
+
 //增加一个会员用户
 $result['status'] = add_user($result);
 if ($result['status'] != Constant::$_CORRECT) {
     echo json_encode($result);
     exit;
 }
-$token = generateToken($result['username'], $result['password'], Constant::$_SALT);
-$result['token'] = $token;
 
 setcookie('__username', $result['username']);
 setcookie('__token', $token);
@@ -90,9 +92,8 @@ function is_username_repeat($username)
 //新增用户
 function add_user($result)
 {
-    $result['password'] = md5($result['password'] . Constant::$_SALT);
     $invitationCode = generateInvitationCode($result['username'], $result['password']);
-    if (addUser($result['username'], $result['password'], $invitationCode))
+    if (addUser($result['token'], $result['username'], $result['password'], $invitationCode))
         return Constant::$_CORRECT;
     else
         return Constant::$_DB_INSERT_ERROR;
