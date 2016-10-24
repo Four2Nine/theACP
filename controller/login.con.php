@@ -29,8 +29,8 @@ if ($result['status'] != Constant::$_CORRECT) {
 $token = generateToken($result['username'], $result['password'], Constant::$_SALT);
 $result['token'] = $token;
 
-setcookie('__username', $result['username']);
-setcookie('__token', $token);
+setcookie('__username', $result['username'], time() + 3600);
+setcookie('__token', $token, time() + 3600);
 
 echo json_encode($result);
 exit;
