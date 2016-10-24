@@ -36,7 +36,6 @@ function generateToken($username, $password, $salt)
     return md5(serialize($cookies));
 }
 
-
 function toUTF8($str)
 {
     $encode = mb_detect_encoding($str, array('ASCII', 'UTF-8', 'GB2312', 'GBK'));
@@ -44,4 +43,10 @@ function toUTF8($str)
         $str = iconv('UTF-8', $encode, $str);
     }
     return $str;
+}
+
+function logout($cookie1, $cookie2)
+{
+    setcookie($cookie1, FALSE, time() - 1);
+    setcookie($cookie2, FALSE, time() - 1);
 }

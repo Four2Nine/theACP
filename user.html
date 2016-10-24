@@ -53,10 +53,10 @@
                 <li class="dropdown active">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">会员<i class="icon-angle-down"></i></a>
                     <ul class="dropdown-menu">
-                        <li><a href="">个人中心</a></li>
-                        <li><a href="">报名</a></li>
+                        <li><a href="#">个人中心</a></li>
+                        <li><a href="#">报名</a></li>
                         <li class="divider"></li>
-                        <li><a href="">退出登录</a></li>
+                        <li id="cu-logout"><a href="#">退出登录</a></li>
                     </ul>
                 </li>
             </ul>
@@ -81,10 +81,56 @@
     </div>
 </section><!--/#title-->
 
-<section id="user-info" class="container">
-    <div>
-        <div class="mdl-spinner mdl-js-spinner is-active"></div>
+<section class="container">
+    <aside class="col-sm-4 col-sm-push-8">
+        <div id="cu-spinner-aside" class="mdl-spinner mdl-js-spinner is-active"></div>
+        <div id="cu-alert-aside" class="alert alert-danger cu-notification" role="alert"></div>
+
+        <div id="user-info" class="panel panel-default mdl-shadow--4dp">
+            <div class="panel-heading">
+                <strong>会员资料</strong>
+            </div>
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <span class="glyphicon glyphicon-user"></span>&nbsp;
+                    <span id="username"></span>
+                </li>
+                <li class="list-group-item">
+                    <span class="glyphicon glyphicon-credit-card"></span>&nbsp;
+                    <span id="balance"></span>
+                </li>
+                <li class="list-group-item">
+                    <div class="input-group">
+
+                        <input id="invitation-code" class="form-control"/>
+
+                        <div id="cu-copy-invitation-code" class="input-group-addon">
+                            <span id="copy2board" class="glyphicon glyphicon-link" data-toggle="tooltip"
+                                  data-placement="bottom"
+                                  title="复制邀请码到剪切板"></span>
+                        </div>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <button class="mdl-button mdl-js-button mdl-js-ripple-effect">
+                        修改资料
+                    </button>
+                </li>
+            </ul>
+        </div><!--#user-info-->
+
+    </aside>
+    <div class="col-sm-8 col-sm-pull-4">
+        <div id="cu-spinner-content" class="mdl-spinner mdl-js-spinner is-active"></div>
+
+        <div id="cu-alert-content" class="alert alert-danger cu-notification" role="alert">
+            <button type="button" class="close" data-dismiss="alert">
+                <span aria-hidden="true">&times;</span>
+                <span class="sr-only">Close</span>
+            </button>
+        </div>
     </div>
+
 </section><!--/#user-info-->
 
 <footer id="footer" class="midnight-blue">

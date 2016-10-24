@@ -28,6 +28,7 @@ class Constant
 
     static $_INVITATION_CODE_ERROR = 203;   //邀请码错误
 
+    //-------------------------------------------------------
     static $_DB_INSERT_ERROR = 301;     //数据库插入错误
     static $_DB_SELECT_ERROR = 302;     //数据库查询错误
 

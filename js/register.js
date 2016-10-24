@@ -66,7 +66,7 @@ $(document).ready(function () {
                         "注册成功，正在登录..."
                     ).show();
                     setTimeout(function () {
-                        location.href = "/theACP/user.php?username=" + result.username + "&token=" + result.token;
+                        location.href = "/theACP/user.html?username=" + result.username + "&token=" + result.token;
                     }, 1800);
                 }
 

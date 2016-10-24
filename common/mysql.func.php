@@ -96,7 +96,7 @@ function checkToken($token)
 {
     $con = mysqli_connect(DB_HOST, DB_USER, DB_PWD, DB_NAME);
     $con->query("SET NAMES UTF8;");
-    $sql = "SELECT * FROM `tb_user` WHERE `token` = ? LIMIT 1";
+    $sql = "SELECT `id` FROM `tb_user` WHERE `token` = ? LIMIT 1";
     $stmt = $con->prepare($sql);
     $stmt->bind_param("s", $token);
     $stmt->execute();

@@ -18,8 +18,11 @@ var PASSWORD_INCORRECT_ERROR = 2023; //密码错误
 var INVITATION_CODE_ERROR = 203; //无效的邀请码
 
 var DB_INSERT_ERROR = 301; //未知的INSERT错误
+var DB_SELECT_ERROR = 302;     //数据库查询错误
 
-var NO_PERMISSION = 401;
+var NOT_LOGIN = 400;   //没有登录
+var NO_PERMISSION = 401;   //没有权限访问该页面
+var TOKEN_INCORRECT = 402; //__token 不符合
 
 jQuery(function ($) {
 
@@ -111,5 +114,13 @@ function errorcode2errorinfo(errorcode) {
             return "无效的邀请码";
         case DB_INSERT_ERROR:
             return "未知的INSERT错误";
+        case DB_SELECT_ERROR:
+            return "未知的SELECT错误";
+        case NOT_LOGIN:
+            return "未登录";
+        case NO_PERMISSION:
+            return "没有权限访问该页面";
+        case TOKEN_INCORRECT:
+            return "TOKEN不正确";
     }
 }
