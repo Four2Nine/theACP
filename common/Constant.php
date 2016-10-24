@@ -8,7 +8,7 @@
  */
 class Constant
 {
-    static $_SALT = "+Four2Nine|theACP+";
+    static $_SALT = "+Four2Nine+";
     static $_CORRECT = 100; //正确
 
     static $_USERNAME_ERROR = 201; //用户名错误
