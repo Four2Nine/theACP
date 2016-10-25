@@ -15,4 +15,8 @@ $(document).ready(function () {
             $("#cu-interview-date").fadeOut(300);
         }
     });
+
+    $("#cu-apply-download-btn").click(function () {
+        window.location.href = '/theACP/open-resource/项目报名表.doc';
+    })
 });
