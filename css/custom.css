@@ -31,6 +31,7 @@
     margin-top: 5px !important;
     margin-bottom: 5px !important;
     font-size: 10pt;
+    color: #ed2918 !important;
 }
 
 .cu-correct {
@@ -41,4 +42,28 @@
 
 #cu-copy-invitation-code {
     cursor: pointer;
+}
+
+#cu-project-title {
+    color: #fff;
+    height: 176px;
+    background: url("../images/default/default-project-cover.jpg") center / cover;
+}
+
+.cu-block {
+    display: block !important;
+}
+
+.cu-apply-doc-title {
+    font-family: FontAwesome, Helvetica, Arial, sans-serif !important;
+    font-size: 16px;
+    line-height: 20px;
+}
+
+#cu-apply-download-btn {
+    margin: 0 8px 8px 8px;
+}
+
+.cu-inline {
+    display: inline !important;
 }
