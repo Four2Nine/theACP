@@ -66,50 +66,69 @@
 </header><!--/header-->
 
 <section class="container">
+
     <div class="col-sm-8">
+
+        <div id="p2" class="mdl-progress mdl-js-progress mdl-progress__indeterminate"></div>
+        <p id="cu-apply-notification">正在验证登录状态...</p>
+
         <h3>立即在线报名</h3>
 
-        <form role="form" method="post">
+        <form id="apply-form" role="form" method="post">
 
             <label>项目/Project</label>
 
-            <div id="cu-project-select" class="panel panel-default mdl-shadow--2dp">
-                <div id="cu-project-title" class="mdl-card__title">
-                    <h2 class="mdl-card__title-text">暂未选择任何项目</h2>
-                </div>
-                <div class="mdl-card__supporting-text">
-                    请先选择要报名的志愿者项目！
-                </div>
-                <ul class="list-group">
-                    <li class="list-group-item">
-                        <label class="cu-block mdl-radio mdl-js-radio mdl-js-ripple-effect" for="list-option-0">
-                            <input type="radio" id="list-option-0" class="mdl-radio__button" name="options" value="0"/>
-                            项目0
-                        </label>
-                    </li>
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <label class="cu-block mdl-radio mdl-js-radio mdl-js-ripple-effect" for="list-option-0">
+                        <input type="radio" id="list-option-0" class="mdl-radio__button" name="project" value="0"/>
+                        斯里兰卡 elephantfree
+                    </label>
+                </li>
 
-                    <li class="list-group-item">
-                        <label class="cu-block mdl-radio mdl-js-radio mdl-js-ripple-effect" for="list-option-1">
-                            <input type="radio" id="list-option-1" class="mdl-radio__button" name="options" value="1"/>
-                            项目1
-                        </label>
-                    </li>
+                <li class="list-group-item">
+                    <label class="cu-block mdl-radio mdl-js-radio mdl-js-ripple-effect" for="list-option-1">
+                        <input type="radio" id="list-option-1" class="mdl-radio__button" name="project" value="1"/>
+                        泰国 elephantfree
+                    </label>
+                </li>
 
-                    <li class="list-group-item">
-                        <label class="cu-block mdl-radio mdl-js-radio mdl-js-ripple-effect" for="list-option-2">
-                            <input type="radio" id="list-option-2" class="mdl-radio__button" name="options" value="2"/>
-                            项目2
-                        </label>
-                    </li>
+                <li class="list-group-item">
+                    <label class="cu-block mdl-radio mdl-js-radio mdl-js-ripple-effect" for="list-option-2">
+                        <input type="radio" id="list-option-2" class="mdl-radio__button" name="project" value="2"/>
+                        斯里兰卡加勒
+                    </label>
+                </li>
 
-                    <li class="list-group-item">
-                        <label class="cu-block mdl-radio mdl-js-radio mdl-js-ripple-effect" for="list-option-3">
-                            <input type="radio" id="list-option-3" class="mdl-radio__button" name="options" value="3"/>
-                            项目3
-                        </label>
-                    </li>
-                </ul>
-            </div>
+                <li class="list-group-item">
+                    <label class="cu-block mdl-radio mdl-js-radio mdl-js-ripple-effect" for="list-option-3">
+                        <input type="radio" id="list-option-3" class="mdl-radio__button" name="project" value="3"/>
+                        泰国清迈
+                    </label>
+                </li>
+
+                <li class="list-group-item">
+                    <label class="cu-block mdl-radio mdl-js-radio mdl-js-ripple-effect" for="list-option-4">
+                        <input type="radio" id="list-option-4" class="mdl-radio__button" name="project" value="4"/>
+                        马尔代夫
+                    </label>
+                </li>
+
+                <li class="list-group-item">
+                    <label class="cu-block mdl-radio mdl-js-radio mdl-js-ripple-effect" for="list-option-5">
+                        <input type="radio" id="list-option-5" class="mdl-radio__button" name="project" value="5"/>
+                        印尼巴厘岛
+                    </label>
+                </li>
+
+                <li class="list-group-item">
+                    <label class="cu-block mdl-radio mdl-js-radio mdl-js-ripple-effect" for="list-option-6">
+                        <input type="radio" id="list-option-6" class="mdl-radio__button" name="project" value="6"/>
+                        中国大理
+                    </label>
+                </li>
+            </ul>
+
 
             <div class="form-group">
                 <label for="name">姓名/Name</label>

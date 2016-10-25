@@ -5,9 +5,8 @@
 $(".cu-notification").hide();
 $("#user-info").hide();
 
-$("#copy2board").tooltip();
-
 $(document).ready(function () {
+    //验证登录状态
     $.ajax({
         url: "/theACP/controller/user.con.php",
         success: function (data) {
@@ -27,7 +26,7 @@ $(document).ready(function () {
 
                 setTimeout(function () {
                     location.href = "/theACP/login.html";
-                }, 1500);
+                }, 1200);
             } else {
                 $("#cu-spinner-aside").hide();
                 if (result.user_info_status != null && result.user_info_status != CORRECT) {
@@ -54,6 +53,7 @@ $(document).ready(function () {
         }
     });
 
+    //退出登录
     $("#cu-logout").click(function () {
         $.ajax({
             url: "/theACP/controller/logout.con.php",

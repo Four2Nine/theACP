@@ -44,12 +44,6 @@
     cursor: pointer;
 }
 
-#cu-project-title {
-    color: #fff;
-    height: 176px;
-    background: url("../images/default/default-project-cover.jpg") center / cover;
-}
-
 .cu-block {
     display: block !important;
 }
