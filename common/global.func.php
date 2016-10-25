@@ -47,6 +47,6 @@ function toUTF8($str)
 
 function logout($cookie1, $cookie2)
 {
-    setcookie($cookie1, "", time() - 3600);
-    setcookie($cookie2, "", time() - 3600);
+    setcookie($cookie1, FALSE, time() - 1);
+    setcookie($cookie2, FALSE, time() - 1);
 }

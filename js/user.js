@@ -56,7 +56,7 @@ $(document).ready(function () {
 
     $("#cu-logout").click(function () {
         $.ajax({
-            url: "/theACP/controller/user.con.php",
+            url: "/theACP/controller/logout.con.php",
             success: function (data) {
                 var result = JSON.parse(data);
 
