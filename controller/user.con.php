@@ -14,22 +14,8 @@ $result = array();
 $result['user_info_status'] = null;
 $result['project_info_status'] = null;
 
-//验证Cookie是否存在
-$result['status'] = is_cookie_exist();
-if ($result['status'] != Constant::$_CORRECT) {
-    echo json_encode($result);
-    exit;
-}
-
 $result['token'] = $_COOKIE['__token'];
 $result['username'] = $_COOKIE['__username'];
-
-//验证token是否正确
-$result['status'] = is_token_exist($_COOKIE['__token']);
-if ($result['status'] != Constant::$_CORRECT) {
-    echo json_encode($result);
-    exit;
-}
 
 $userInfo = get_user_info($result);
 
@@ -48,24 +34,6 @@ exit;
 
 //-----------------------------------------------------------------------
 //-----------------------------------------------------------------------
-
-function is_cookie_exist()
-{
-    if (!(isset($_COOKIE['__token']) && isset($_COOKIE['__username']))) {
-        return Constant::$_NOT_LOGIN;
-    } else {
-        return Constant::$_CORRECT;
-    }
-}
-
-function is_token_exist($token)
-{
-    if (checkToken($token)) {
-        return Constant::$_CORRECT;
-    } else {
-        return Constant::$_TOKEN_INCORRECT;
-    }
-}
 
 function get_user_info($result)
 {
