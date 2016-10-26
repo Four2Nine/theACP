@@ -37,7 +37,7 @@ define("NAV", "project");
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand cu-logo" href="index.html">
-                <!--<img src="images/logo.png" alt="logo">-->
+                <img src="images/theacp.logo.png" alt="logo">
                 theACP
             </a>
         </div>

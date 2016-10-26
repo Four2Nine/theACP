@@ -5,6 +5,8 @@
 $("#cu-interview-date").hide();
 
 $(document).ready(function () {
+
+    //提交报名表单
     $("#apply-form").submit(function (event) {
         // Prevent default posting of form - put here to work in case of errors
         event.preventDefault();
@@ -22,6 +24,9 @@ $(document).ready(function () {
         // Note: we disable elements AFTER the form data has been serialized.
         // Disabled form elements will not be serialized.
         $inputs.prop("disabled", true);
+
+        //开始验证表单内容格式是否合法
+        //...
 
         $.ajax({
             url: "/theACP/controller/apply.con.php",
