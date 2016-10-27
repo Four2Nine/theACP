@@ -143,6 +143,44 @@ function getUserInfo($token, $username)
 }
 
 /**
+ * @param $token //用户token
+ * @return array    //多条用户申请表
+ */
+function getUserApply($token)
+{
+    $con = mysqli_connect(DB_HOST, DB_USER, DB_PWD, DB_NAME);
+    $con->query("SET NAMES UTF8;");
+    $sql = "SELECT `id`, `project_id`, `status` FROM `tb_apply` WHERE `user_token` = ? ORDER BY `id` DESC";
+    $stmt = $con->prepare($sql);
+    $stmt->bind_param("s", $token);
+    $stmt->execute();
+
+    $stmt->store_result();
+    $stmt->bind_result($id, $project_id, $status);
+
+    $result = array();
+    while ($stmt->fetch()) {
+        $item = array();
+        $item['id'] = $id;
+        $item['project_id'] = $project_id;
+        switch ($status) {
+            case 0:
+                $item['status'] = "待审核";
+                break;
+            case 1:
+                $item['status'] = "审核中";
+                break;
+            case 2:
+                $item['status'] = "审核通过";
+        }
+        $result[$id] = $item;
+    }
+    $stmt->close();
+    $con->close();
+    return $result;
+}
+
+/**
  * @param $array //报名表信息-数组
  * @return bool //是否报名成功
  */

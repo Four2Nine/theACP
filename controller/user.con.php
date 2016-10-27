@@ -11,21 +11,22 @@ require substr(dirname(__FILE__), 0, -10) . 'common\connection.db.php';
 require substr(dirname(__FILE__), 0, -10) . 'common\Constant.php';
 
 $result = array();
-$result['user_info_status'] = null;
-$result['project_info_status'] = null;
 
-$result['token'] = $_COOKIE['__token'];
-$result['username'] = $_COOKIE['__username'];
-
-$userInfo = get_user_info($result);
+$userInfo = get_user_info();
+$applyInfo = get_apply_info();
 
 if ($userInfo == null) {
     $result['user_info_status'] = Constant::$_DB_SELECT_ERROR;
 } else {
     $result['user_info_status'] = Constant::$_CORRECT;
-    $result['username'] = $userInfo['username'];
-    $result['balance'] = $userInfo['balance'];
-    $result['invitation_code'] = $userInfo['invitation_code'];
+    $result['user_info'] = $userInfo;
+}
+
+if ($applyInfo == null) {
+    $result['apply_info_status'] = Constant::$_DB_SELECT_ERROR;
+} else {
+    $result['apply_info_status'] = Constant::$_CORRECT;
+    $result['apply_info'] = $applyInfo;
 }
 
 echo json_encode($result);
@@ -35,13 +36,22 @@ exit;
 //-----------------------------------------------------------------------
 //-----------------------------------------------------------------------
 
-function get_user_info($result)
+function get_user_info()
 {
-    $userInfo = getUserInfo($result['token'], $result['username']);
+    $userInfo = getUserInfo($_COOKIE['__token'], $_COOKIE['__username']);
     if (count($userInfo) == 0) {
         return null;
     }
     return $userInfo;
+}
+
+function get_apply_info()
+{
+    $applyInfo = getUserApply($_COOKIE['__token']);
+    if (count($applyInfo) == 0) {
+        return null;
+    }
+    return $applyInfo;
 }
 
 
