@@ -76,63 +76,65 @@
 
         <form id="apply-form" role="form" method="post">
 
-            <label>项目/Project</label>
+            <div class="form-group">
+                <label>项目/Project</label>
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <label class="cu-block mdl-radio mdl-js-radio mdl-js-ripple-effect" for="list-option-0">
+                            <input type="radio" id="list-option-0" class="mdl-radio__button" name="project" value="0"/>
+                            斯里兰卡 elephantfree
+                        </label>
+                    </li>
 
-            <ul class="list-group">
-                <li class="list-group-item">
-                    <label class="cu-block mdl-radio mdl-js-radio mdl-js-ripple-effect" for="list-option-0">
-                        <input type="radio" id="list-option-0" class="mdl-radio__button" name="project" value="0"/>
-                        斯里兰卡 elephantfree
-                    </label>
-                </li>
+                    <li class="list-group-item">
+                        <label class="cu-block mdl-radio mdl-js-radio mdl-js-ripple-effect" for="list-option-1">
+                            <input type="radio" id="list-option-1" class="mdl-radio__button" name="project" value="1"/>
+                            泰国 elephantfree
+                        </label>
+                    </li>
 
-                <li class="list-group-item">
-                    <label class="cu-block mdl-radio mdl-js-radio mdl-js-ripple-effect" for="list-option-1">
-                        <input type="radio" id="list-option-1" class="mdl-radio__button" name="project" value="1"/>
-                        泰国 elephantfree
-                    </label>
-                </li>
+                    <li class="list-group-item">
+                        <label class="cu-block mdl-radio mdl-js-radio mdl-js-ripple-effect" for="list-option-2">
+                            <input type="radio" id="list-option-2" class="mdl-radio__button" name="project" value="2"/>
+                            斯里兰卡加勒
+                        </label>
+                    </li>
 
-                <li class="list-group-item">
-                    <label class="cu-block mdl-radio mdl-js-radio mdl-js-ripple-effect" for="list-option-2">
-                        <input type="radio" id="list-option-2" class="mdl-radio__button" name="project" value="2"/>
-                        斯里兰卡加勒
-                    </label>
-                </li>
+                    <li class="list-group-item">
+                        <label class="cu-block mdl-radio mdl-js-radio mdl-js-ripple-effect" for="list-option-3">
+                            <input type="radio" id="list-option-3" class="mdl-radio__button" name="project" value="3"/>
+                            泰国清迈
+                        </label>
+                    </li>
 
-                <li class="list-group-item">
-                    <label class="cu-block mdl-radio mdl-js-radio mdl-js-ripple-effect" for="list-option-3">
-                        <input type="radio" id="list-option-3" class="mdl-radio__button" name="project" value="3"/>
-                        泰国清迈
-                    </label>
-                </li>
+                    <li class="list-group-item">
+                        <label class="cu-block mdl-radio mdl-js-radio mdl-js-ripple-effect" for="list-option-4">
+                            <input type="radio" id="list-option-4" class="mdl-radio__button" name="project" value="4"/>
+                            马尔代夫
+                        </label>
+                    </li>
 
-                <li class="list-group-item">
-                    <label class="cu-block mdl-radio mdl-js-radio mdl-js-ripple-effect" for="list-option-4">
-                        <input type="radio" id="list-option-4" class="mdl-radio__button" name="project" value="4"/>
-                        马尔代夫
-                    </label>
-                </li>
+                    <li class="list-group-item">
+                        <label class="cu-block mdl-radio mdl-js-radio mdl-js-ripple-effect" for="list-option-5">
+                            <input type="radio" id="list-option-5" class="mdl-radio__button" name="project" value="5"/>
+                            印尼巴厘岛
+                        </label>
+                    </li>
 
-                <li class="list-group-item">
-                    <label class="cu-block mdl-radio mdl-js-radio mdl-js-ripple-effect" for="list-option-5">
-                        <input type="radio" id="list-option-5" class="mdl-radio__button" name="project" value="5"/>
-                        印尼巴厘岛
-                    </label>
-                </li>
-
-                <li class="list-group-item">
-                    <label class="cu-block mdl-radio mdl-js-radio mdl-js-ripple-effect" for="list-option-6">
-                        <input type="radio" id="list-option-6" class="mdl-radio__button" name="project" value="6"/>
-                        中国大理
-                    </label>
-                </li>
-            </ul>
-
+                    <li class="list-group-item">
+                        <label class="cu-block mdl-radio mdl-js-radio mdl-js-ripple-effect" for="list-option-6">
+                            <input type="radio" id="list-option-6" class="mdl-radio__button" name="project" value="6"/>
+                            中国大理
+                        </label>
+                    </li>
+                </ul>
+                <span id="cu-project-fb" class="cu-default-fb">请选择一个项目</span>
+            </div>
 
             <div class="form-group">
                 <label for="name">姓名/Name</label>
                 <input type="text" class="form-control" id="name" name="name" placeholder="姓名/Name">
+                <span id="cu-name-fb" class="cu-default-fb">请填写您的真实姓名</span>
             </div>
 
             <div class="form-group">
@@ -146,70 +148,82 @@
                     <input type="radio" class="mdl-radio__button" name="gender" value="1"/>
                     男
                 </label>
+                <span id="cu-gender-fb" class="cu-default-fb"></span>
             </div>
 
             <div class="form-group">
                 <label for="nationality">国籍/Nationality</label>
                 <input type="text" class="form-control" id="nationality" name="nationality"
                        placeholder="国籍/Nationality">
+                <span id="cu-nationality-fb" class="cu-default-fb"></span>
             </div>
 
             <div class="form-group">
                 <label for="phone_number">手机号码/Phone number</label>
                 <input type="tel" class="form-control" id="phone_number" name="phone_number"
                        placeholder="手机号码/Phone number">
+                <span id="cu-phone-number-fb" class="cu-default-fb"></span>
             </div>
 
             <div class="form-group">
                 <label for="email">电子邮件/Email</label>
                 <input type="email" class="form-control" id="email" name="email"
                        placeholder="电子邮件/Email">
+                <span id="cu-email-fb" class="cu-default-fb"></span>
             </div>
 
             <div class="form-group">
                 <label for="wechat">微信账号/WeChat number</label>
                 <input type="text" class="form-control" id="wechat" name="wechat" placeholder="微信账号/WeChat number">
+                <span id="cu-wechat-fb" class="cu-default-fb"></span>
             </div>
 
             <div class="form-group">
                 <label for="id_card_number">身份证号/ID Card number</label>
                 <input type="text" class="form-control" id="id_card_number" name="id_card_number"
                        placeholder="身份证号/ID Card number">
+                <span id="cu-id-card-number-fb" class="cu-default-fb"></span>
             </div>
 
             <div class="form-group">
                 <label for="passport_number">护照号/Passport number</label>
                 <input type="text" class="form-control" id="passport_number" name="passport_number"
                        placeholder="护照号/Passport number">
+                <span id="cu-passport-number-fb" class="cu-default-fb"></span>
             </div>
 
             <div class="form-group">
                 <label for="province">现居省份/Province</label>
                 <input type="text" class="form-control" id="province" name="province" placeholder="现居省份/Province">
+                <span id="cu-province-fb" class="cu-default-fb"></span>
             </div>
 
             <div class="form-group">
                 <label for="post_address">邮寄地址/Post address</label>
                 <input type="text" class="form-control" id="post_address" name="post_address"
                        placeholder="邮寄地址/Post address">
+                <span id="cu-post-address-fb" class="cu-default-fb"></span>
             </div>
 
             <div class="form-group">
                 <label for="city_of_departure">出发城市/City of Departure</label>
-                <input type="text" class="form-control" id="city_of_departure" name="post_address"
+                <input type="text" class="form-control" id="city_of_departure" name="city_of_departure"
                        placeholder="出发城市/City of Departure">
+                <span id="cu-city-of-departure-fb" class="cu-default-fb"></span>
             </div>
 
             <div class="form-group">
                 <label for="emergency_contact_name">紧急联系人/Emergency contact name</label>
                 <input type="text" class="form-control" id="emergency_contact_name" name="emergency_contact_name"
                        placeholder="紧急联系人/Emergency contact name">
+                <span id="cu-emergency-contact-name-fb" class="cu-default-fb"></span>
             </div>
 
             <div class="form-group">
                 <label for="emergency_contact_phone_number">紧急联系人电话/Emergency phone number</label>
                 <input type="tel" class="form-control" id="emergency_contact_phone_number"
                        name="emergency_contact_phone_number" placeholder="手机号码/Phone number">
+                <span id="cu-emergency-contact-phone-number-fb" class="cu-default-fb"></span>
             </div>
 
             <div class="form-group">
@@ -230,6 +244,7 @@
                     <input type="radio" class="mdl-radio__button" name="occupation" value="2"/>
                     工作
                 </label>
+                <span id="cu-occupation-fb" class="cu-default-fb"></span>
             </div>
 
             <div class="form-group">
@@ -239,19 +254,21 @@
                            placeholder="项目时长/How long do you plan to volunteer?">
                     <span class="input-group-addon">周(week)</span>
                 </div>
-                <span class="help-block">至少一周时间/At least one week</span>
+                <span id="cu-duration-fb" class="cu-default-fb">至少一周时间/At least one week</span>
             </div>
 
             <div class="form-group">
                 <label for="start_date">预计项目开始时间/Starting date</label>
                 <input type="date" class="form-control" id="start_date" name="start_date"
                        placeholder="预计项目开始时间/Starting date">
+                <span id="cu-start-date-fb" class="cu-default-fb"></span>
             </div>
 
             <div class="form-group">
                 <label for="diet_requirement">有无特殊饮食要求/Specific requirement for diet</label>
                 <textarea id="diet_requirement" name="diet_requirement" class="form-control" rows="3"
                           placeholder="有无特殊饮食要求/Specific requirement for diet"></textarea>
+                <span id="cu-diet-requirement-fb" class="cu-default-fb"></span>
             </div>
 
             <div class="form-group">
@@ -259,6 +276,7 @@
                 <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="is_medical_history">
                     <input type="checkbox" id="is_medical_history" name="is_medical_history"
                            class="mdl-checkbox__input"/>
+                    <span id="cu-is-medical-history-fb" class="cu-default-fb"></span>
                 </label>
             </div>
 
@@ -268,6 +286,7 @@
                     <input type="checkbox" id="is_first_go_abroad" name="is_first_go_abroad"
                            class="mdl-checkbox__input"/>
                 </label>
+                <span id="cu-is-first-go-abroad-fb" class="cu-default-fb"></span>
             </div>
 
             <div class="form-group">
@@ -285,6 +304,7 @@
                     <input type="radio" class="mdl-radio__button" name="english_level" value="2"/>
                     大学英语六级
                 </label>
+                <span id="cu-english-level-fb" class="cu-default-fb"></span>
             </div>
 
             <div class="form-group">
@@ -293,12 +313,14 @@
                 <label class="cu-inline mdl-switch mdl-js-switch mdl-js-ripple-effect" for="is_apply_interview">
                     <input type="checkbox" id="is_apply_interview" name="is_apply_interview" class="mdl-switch__input"/>
                 </label>
+                <span id="cu-is-apply-interview-fb" class="cu-default-fb">选择申请面试后，需要选择合适的面试时间</span>
             </div>
 
             <div class="form-group" id="cu-interview-date">
                 <label for="interview_date">选择合适的面试时间</label>
                 <input type="date" class="form-control" id="interview_date" name="interview_date"
                        placeholder="选择合适的面试时间">
+                <span id="cu-interview-date-fb" class="cu-default-fb"></span>
             </div>
 
             <div class="form-group">
@@ -308,9 +330,11 @@
                     <input type="checkbox" id="is_need_insurance" name="is_need_insurance"
                            class="mdl-checkbox__input"/>
                 </label>
+                <span id="cu-is-need-insurance-fb" class="cu-default-fb"></span>
             </div>
 
-            <button type="submit" class="btn btn-success disabled">立即报名</button>
+            <button type="submit" class="btn btn-success">立即报名</button>
+            <span id="cu-submit-fb" class="cu-default-fb"></span>
         </form>
     </div>
 

@@ -61,3 +61,24 @@
 .cu-inline {
     display: inline !important;
 }
+
+.cu-default-fb {
+    display: block;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    color: #737373;
+}
+
+.cu-success-fb {
+    display: block;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    color: green;
+}
+
+.cu-error-fb {
+    display: block;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    color: red;
+}
