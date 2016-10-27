@@ -114,7 +114,6 @@ function checkToken($token)
     return $result;
 }
 
-
 /**
  * @param $token //__token
  * @param $username //用户名
@@ -143,3 +142,76 @@ function getUserInfo($token, $username)
     return $result;
 }
 
+/**
+ * @param $array //报名表信息-数组
+ * @return bool //是否报名成功
+ */
+function submitApply($array)
+{
+    $con = mysqli_connect(DB_HOST, DB_USER, DB_PWD, DB_NAME);
+    $con->query("SET NAMES UTF8;");
+    $sql = "INSERT INTO `tb_apply` (
+                    `user_token`,
+                    `project_id`,
+                    `name`,
+                    `gender`,
+                    `nationality`,
+                    `phone_number`,
+                    `email`,
+                    `wechat`,
+                    `id_card_number`,
+                    `passport_number`,
+                    `province`,
+                    `post_address`,
+                    `city_of_departure`,
+                    `emergency_contact_name`,
+                    `emergency_contact_phone_number`,
+                    `occupation`,
+                    `duration`,
+                    `start_date`,
+                    `diet_requirement`,
+                    `is_medical_history`,
+                    `medical_history`,
+                    `is_first_go_abroad`,
+                    `english_level`,
+                    `is_need_insurance`,
+                    `is_apply_interview`,
+                    `interview_date`
+              ) VALUE (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+    $stmt = $con->prepare($sql);
+    $stmt->bind_param("sisisssssssssssiissisiiiis",
+        $array['user_token'],
+        $array['project'],
+        $array['name'],
+        $array['gender'],
+        $array['nationality'],
+        $array['phone_number'],
+        $array['email'],
+        $array['wechat'],
+        $array['id_card_number'],
+        $array['passport_number'],
+        $array['province'],
+        $array['post_address'],
+        $array['city_of_departure'],
+        $array['emergency_contact_name'],
+        $array['emergency_contact_phone_number'],
+        $array['occupation'],
+        $array['duration'],
+        $array['start_date'],
+        $array['diet_requirement'],
+        $array['is_medical_history'],
+        $array['medical_history'],
+        $array['is_first_go_abroad'],
+        $array['english_level'],
+        $array['is_need_insurance'],
+        $array['is_apply_interview'],
+        $array['interview_date']
+    );
+    $stmt->execute();
+
+    $affected_rows = $stmt->affected_rows;
+    $stmt->close();
+    $con->close();
+    return $affected_rows == 1 ? true : false;
+}

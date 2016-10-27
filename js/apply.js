@@ -3,8 +3,12 @@
  */
 
 $("#cu-interview-date").hide();
+$("#cu-medical-history").hide();
 
 $(document).ready(function () {
+
+    var is_apply_interview = $("#is_apply_interview");
+    var is_medical_history = $("#is_medical_history");
 
     //验证登录状态
     $.ajax({
@@ -106,13 +110,51 @@ $(document).ready(function () {
                 $inputs);
             return false;
         }
+        if ($("#duration").val() == "") {
+            showErrorInfo("项目时长没有填写，请检查", "不能为空", $("#cu-duration-fb"), $inputs);
+            return false;
+        }
+        if ($("#start_date").val() == "") {
+            showErrorInfo("开始时间没有填写，请检查", "不能为空", $("#cu-start-date-fb"), $inputs);
+            return false;
+        }
+
+        if (is_medical_history.is(':checked')) {
+            if ($("#medical-history").val() == "") {
+                showErrorInfo("历史重大疾病没有填写，请检查", "如果没有历史重大疾病，请取消上方勾选",
+                    $("#cu-medical-history-fb"), $inputs);
+                return false;
+            }
+        }
+
+        if (is_apply_interview.is(':checked')) {
+            if ($("#interview-date").val() == "") {
+                showErrorInfo("面试时间没有填写，请检查", "如果不申请面试，请取消上方勾选",
+                    $("#cu-interview-date-fb"), $inputs);
+                return false;
+            }
+        }
 
         $.ajax({
             url: "/theACP/controller/apply.con.php",
             type: "post",
             data: serializedData,
             success: function (data) {
-                //var result = JSON.parse(data);
+                var result = JSON.parse(data);
+                if (result.status != CORRECT) {
+                    // 显示错误信息
+                    $("#cu-submit-fb").attr("class", "cu-error-fb").html(
+                        "<span class='glyphicon glyphicon-remove'></span>&nbsp;" +
+                        "error code: " + result.status + "&nbsp;&nbsp;" + errorcode2errorinfo(result.status)
+                    ).show();
+                } else {
+                    $("#cu-submit-fb").attr("class", "cu-success-fb").html(
+                        "<span class='glyphicon glyphicon-ok'></span>&nbsp;报名成功..."
+                    ).show();
+                    setTimeout(function () {
+                        location.href = "/theACP/user.html";
+                    }, 1200);
+                }
             },
             error: function (request) {
 
@@ -179,10 +221,19 @@ $(document).ready(function () {
     $("#start_date").blur(function () {
         checkEmpty($(this), $("#cu-start-date-fb"));
     });
-    $("#diet_requirement").blur(function () {
-        checkEmpty($(this), $("#cu-diet-requirement-fb"));
+    $("#interview_date").blur(function () {
+        if (is_apply_interview.is(':checked')) {
+            checkEmpty($(this), $("#cu-interview-date-fb"));
+        }
+    });
+    $("#medical_history").blur(function () {
+        if (is_medical_history.is(':checked')) {
+            checkEmpty($(this), $("#cu-medical-history-fb"));
+        }
     });
 
+
+    //验证表单是否为空，如果是空的话显示错误信息
     function checkEmpty(tar, fb) {
         if (tar.val() == "") {
             tar.parent("div").removeClass("has-success").addClass("has-error");
@@ -195,8 +246,18 @@ $(document).ready(function () {
         }
     }
 
+    //是否有重大疾病，是的话才会显示重大疾病的填写文本框
+    is_medical_history.click(function () {
+        var check = $(this);
+        if (check.is(':checked')) {
+            $("#cu-medical-history").fadeIn(800);
+        } else {
+            $("#cu-medical-history").fadeOut(300);
+        }
+    });
+
     //是否申请面试，是的话才会显示面试时间的选择
-    $("#is_apply_interview").click(function () {
+    is_apply_interview.click(function () {
         var check = $(this);
         if (check.is(':checked')) {
             $("#cu-interview-date").fadeIn(800);

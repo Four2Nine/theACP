@@ -268,16 +268,22 @@
                 <label for="diet_requirement">有无特殊饮食要求/Specific requirement for diet</label>
                 <textarea id="diet_requirement" name="diet_requirement" class="form-control" rows="3"
                           placeholder="有无特殊饮食要求/Specific requirement for diet"></textarea>
-                <span id="cu-diet-requirement-fb" class="cu-default-fb"></span>
+                <span id="cu-diet-requirement-fb" class="cu-default-fb">如果没有，可以不填</span>
             </div>
 
             <div class="form-group">
-                <label for="is_medical_history">有无历史重大疾病/Any referencial medical history?</label>
-                <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="is_medical_history">
-                    <input type="checkbox" id="is_medical_history" name="is_medical_history"
-                           class="mdl-checkbox__input"/>
-                    <span id="cu-is-medical-history-fb" class="cu-default-fb"></span>
+                <label for="is_medical_history">有无历史重大疾病/Any referential medical history?</label>
+                <br>
+                <label class="cu-inline mdl-switch mdl-js-switch mdl-js-ripple-effect" for="is_medical_history">
+                    <input type="checkbox" id="is_medical_history" name="is_medical_history" class="mdl-switch__input"/>
                 </label>
+            </div>
+
+            <div class="form-group" id="cu-medical-history">
+                <label for="diet_requirement">历史重大疾病/Referential medical history</label>
+                <textarea id="medical_history" name="medical_history" class="form-control" rows="3"
+                          placeholder="历史重大疾病/Referential medical history"></textarea>
+                <span id="cu-medical-history-fb" class="cu-default-fb"></span>
             </div>
 
             <div class="form-group">
