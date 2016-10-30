@@ -22,12 +22,10 @@ if ($userInfo == null) {
     $result['user_info'] = $userInfo;
 }
 
-if ($applyInfo == null) {
-    $result['apply_info_status'] = Constant::$_DB_SELECT_ERROR;
-} else {
-    $result['apply_info_status'] = Constant::$_CORRECT;
-    $result['apply_info'] = $applyInfo;
-}
+
+$result['apply_info_status'] = Constant::$_CORRECT;
+$result['apply_info'] = $applyInfo;
+
 
 echo json_encode($result);
 exit;

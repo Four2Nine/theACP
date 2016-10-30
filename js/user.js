@@ -47,7 +47,7 @@ $(document).ready(function () {
                             ).fadeIn(500);
                         } else {
                             //显示用户已经报名的项目，以及进度
-                            if (result.apply_info.length == 0) {
+                            if (result.apply_info == null || result.apply_info.length == 0) {
                                 $("table tbody>tr>td").html("没有已报名项目");
                             } else {
                                 var html = "";
