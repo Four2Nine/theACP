@@ -125,7 +125,7 @@ function goPage(page) {
 }
 
 function prevPage() {
-    var page = Math.max(currentPage - 1, 0);
+    var page = Math.max(currentPage - 1, 1);
     location.href = "/theACP/project-list.html?p=" + page;
 }
 
