@@ -253,3 +253,63 @@ function submitApply($array)
     $con->close();
     return $affected_rows == 1 ? true : false;
 }
+
+/**
+ * @return int 返回项目数量
+ */
+function getProjectCount()
+{
+    $con = mysqli_connect(DB_HOST, DB_USER, DB_PWD, DB_NAME);
+    $con->query("SET NAMES UTF8;");
+    $sql = "SELECT * FROM `tb_project`";
+    $stmt = $con->prepare($sql);
+    $stmt->execute();
+    $stmt->store_result();
+    $count = $stmt->num_rows;
+    $stmt->close();
+    $con->close();
+    return $count;
+}
+
+/**
+ * @param $start //查询起始
+ * @param $num //查询数目
+ * @return array    //返回项目信息
+ */
+function getProjectInfo($start, $num)
+{
+    $con = mysqli_connect(DB_HOST, DB_USER, DB_PWD, DB_NAME);
+    $con->query("SET NAMES UTF8;");
+    $sql = "SELECT `id`, `acpname`, `acpcity`, `acpdate`, `acpday`, `acptheme`, `acpbright`, `acpmean`, `acpdetail`, 
+`acptip`, `acppicture`, `acppushdate`, `acpistop` FROM `tb_project` LIMIT ?, ?";
+    $stmt = $con->prepare($sql);
+    $stmt->bind_param("ii", $start, $num);
+    $stmt->execute();
+
+    $stmt->store_result();
+    $stmt->bind_result($id, $name, $city, $date, $day, $theme, $bright, $mean, $detail, $tip, $picture, $push_date,
+        $is_top);
+
+    $result = array();
+    while ($stmt->fetch()) {
+        $item = array();
+        $item['id'] = $id;
+        $item['name'] = $name;
+        $item['city'] = $city;
+        $item['date'] = $date;
+        $item['day'] = $day;
+        $item['theme'] = $theme;
+        $item['bright'] = $bright;
+        $item['mean'] = $mean;
+        $item['detail'] = $detail;
+        $item['tip'] = $tip;
+        $item['picture'] = $picture;
+        $item['push_date'] = $push_date;
+        $item['is_top'] = $is_top;
+
+        $result[$id] = $item;
+    }
+    $stmt->close();
+    $con->close();
+    return $result;
+}

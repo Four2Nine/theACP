@@ -5,13 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>登录 | theACP</title>
+    <title>404 | Flat Theme</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/prettyPhoto.css" rel="stylesheet">
     <link href="css/animate.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
-    <link href="css/custom.css" rel="stylesheet">
     <!--[if lt IE 9]>
     <script src="js/html5shiv.js"></script>
     <script src="js/respond.min.js"></script>
@@ -40,7 +39,7 @@
         </div>
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-right">
-                <li>
+                <li class="active">
                     <a href="index.html">首页</a>
                 </li>
                 <li>
@@ -52,7 +51,7 @@
                 <li>
                     <a href="register.html">注册</a>
                 </li>
-                <li class="active">
+                <li>
                     <a href="login.html">登录</a>
                 </li>
             </ul>
@@ -60,59 +59,11 @@
     </div>
 </header><!--/header-->
 
-<section id="title" class="emerald">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-6 cu-page-head">
-                <h1>登录</h1>
-                <p>报名加入我们的志愿者工作。</p>
-            </div>
-            <div class="col-sm-6">
-                <ul class="breadcrumb pull-right">
-                    <li><a href="index.html">首页</a></li>
-                    <li class="active">登录</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</section><!--/#title-->
-
-<section id="login" class="container">
-
-    <div class="alert alert-danger cu-notification" role="alert"></div>
-    <div class="alert alert-success cu-notification" role="alert"></div>
-
-    <form id="login-form" class="form-horizontal cu-form col-sm-8" role="form">
-        <div class="form-group">
-            <label for="username" class="col-sm-3 control-label">会员名</label>
-            <div class="col-sm-7">
-                <input type="text" id="username" name="username" placeholder="会员名" class="form-control">
-                <span class="cu-error" id="username-error"></span>
-            </div>
-            <label class="glyphicon glyphicon-ok cu-correct col-sm-2" id="username-correct"></label>
-        </div>
-        <div class="form-group">
-            <label for="password" class="col-sm-3 control-label">密码</label>
-            <div class="col-sm-7">
-                <input type="password" id="password" name="password" placeholder="密码" class="form-control">
-                <span class="cu-error" id="password-error"></span>
-            </div>
-            <label class="glyphicon glyphicon-ok cu-correct col-sm-2" id="password-correct"></label>
-        </div>
-
-        <div class="form-group">
-            <div class="col-sm-offset-3 col-sm-4">
-                <button class="btn btn-success btn-md btn-block" id="login-btn">登录</button>
-            </div>
-        </div>
-
-        <p class="col-sm-offset-3">
-            还没有帐号？
-            <a href="register.html" class="cu-link">前往注册</a>
-        </p>
-    </form>
-
-</section><!--/#login-->
+<section id="error" class="container">
+    <h1>404, Page not found</h1>
+    <p>The Page you are looking for doesn't exist or an other error occurred.</p>
+    <a class="btn btn-success" href="index.html">GO BACK TO THE HOMEPAGE</a>
+</section><!--/#error-->
 
 <footer id="footer" class="midnight-blue">
     <div class="container">
@@ -138,7 +89,5 @@
 <script src="js/bootstrap.min.js"></script>
 <script src="js/jquery.prettyPhoto.js"></script>
 <script src="js/main.js"></script>
-<script src="js/com.fun.js"></script>
-<script src="js/login.js"></script>
 </body>
 </html>

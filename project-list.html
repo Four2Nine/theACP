@@ -1,3 +1,6 @@
+<?
+define("NAV", "project");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,12 +8,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>404 | Flat Theme</title>
+    <title>志愿者项目 | theACP</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/prettyPhoto.css" rel="stylesheet">
     <link href="css/animate.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
+    <link href="css/material.min.css" rel="stylesheet">
+    <link href="css/custom.css" rel="stylesheet">
     <!--[if lt IE 9]>
     <script src="js/html5shiv.js"></script>
     <script src="js/respond.min.js"></script>
@@ -38,32 +43,62 @@
             </a>
         </div>
         <div class="collapse navbar-collapse">
-            <ul class="nav navbar-nav navbar-right">
-                <li class="active">
+            <ul class="nav navbar-nav navbar-right cu-nav">
+                <li>
                     <a href="index.html">首页</a>
                 </li>
                 <li>
-                    <a href="about-us.php">关于theACP</a>
+                    <a href="about-us.html">关于theACP</a>
                 </li>
-                <li>
-                    <a href="project-list.php">志愿项目</a>
+                <li class="active">
+                    <a href="project-list.html">志愿项目</a>
                 </li>
-                <li>
-                    <a href="register.html">注册</a>
-                </li>
-                <li>
-                    <a href="login.html">登录</a>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">会员&nbsp;<i
+                            class="icon-angle-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="user.html">个人中心</a></li>
+                        <li><a href="apply.html">报名</a></li>
+                        <li class="divider"></li>
+                        <li id="cu-logout"><a href="#">退出登录</a></li>
+                    </ul>
                 </li>
             </ul>
         </div>
     </div>
 </header><!--/header-->
 
-<section id="error" class="container">
-    <h1>404, Page not found</h1>
-    <p>The Page you are looking for doesn't exist or an other error occurred.</p>
-    <a class="btn btn-success" href="index.html">GO BACK TO THE HOMEPAGE</a>
-</section><!--/#error-->
+<section id="blog" class="container">
+    <div class="row">
+        <aside class="col-sm-4 col-sm-push-8">
+            <div class="widget search">
+                <form role="form">
+                    <div class="input-group">
+                        <input type="text" class="form-control" autocomplete="off" placeholder="Search">
+                        <span class="input-group-btn">
+                                <button class="btn btn-danger" type="button"><i class="icon-search"></i></button>
+                            </span>
+                    </div>
+                </form>
+            </div><!--/.search-->
+        </aside>
+
+        <div class="col-sm-8 col-sm-pull-4">
+
+            <div id="p2" class="mdl-progress mdl-js-progress mdl-progress__indeterminate"></div>
+            <p id="cu-project-notification">正在获取数据...</p>
+
+            <div id="cu-blog-container">
+                <div class="blog hidden"></div>
+
+                <ul class="pagination pagination-lg">
+                    <li onclick="prevPage()"><a><i class="icon-angle-left"></i></a></li>
+                    <li onclick="nextPage()"><a><i class="icon-angle-right"></i></a></li>
+                </ul><!--/.pagination-->
+            </div>
+        </div><!--/.col-md-8-->
+    </div><!--/.row-->
+</section><!--/#blog-->
 
 <footer id="footer" class="midnight-blue">
     <div class="container">
@@ -88,6 +123,10 @@
 <script src="js/jquery.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/jquery.prettyPhoto.js"></script>
+<script src="js/jquery.isotope.min.js"></script>
+<script src="js/material.min.js"></script>
 <script src="js/main.js"></script>
+<script src="js/com.fun.js"></script>
+<script src="js/project-list.js"></script>
 </body>
 </html>
