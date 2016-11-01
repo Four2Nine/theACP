@@ -168,10 +168,11 @@ function getUserApply($token)
                 $item['status'] = "待审核";
                 break;
             case 1:
-                $item['status'] = "审核中";
+                $item['status'] = "审核通过";
                 break;
             case 2:
-                $item['status'] = "审核通过";
+                $item['status'] = "审核拒绝";
+                break;
         }
         $result[$id] = $item;
     }
