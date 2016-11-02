@@ -82,3 +82,9 @@
     margin-bottom: 10px;
     color: red;
 }
+
+#cu-apply-doc .mdl-card__title {
+    color: #fff;
+    height: 150px;
+    background: #78909b url("../images/apply/apply.doc.png") right no-repeat;
+}

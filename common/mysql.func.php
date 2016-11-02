@@ -316,6 +316,32 @@ function getProjectInfo($start, $num)
 }
 
 /**
+ * @return array 为报名表页面获取项目的ID和名称列表
+ */
+function getProjectIdAndName()
+{
+    $con = mysqli_connect(DB_HOST, DB_USER, DB_PWD, DB_NAME);
+    $con->query("SET NAMES UTF8;");
+    $sql = "SELECT `id`, `acpname` FROM `tb_project`";
+    $stmt = $con->prepare($sql);
+    $stmt->execute();
+    $stmt->store_result();
+    $stmt->bind_result($id, $name);
+
+    $result = array();
+    while ($stmt->fetch()) {
+        $item = array();
+        $item['id'] = $id;
+        $item['name'] = $name;
+        $result[$id] = $item;
+    }
+
+    $stmt->close();
+    $con->close();
+    return $result;
+}
+
+/**
  * @param $token //用户的token
  * @param $pwd //待验证用户的密码
  * @return bool     //提供的密码和指定的用户（token）密码是否一致

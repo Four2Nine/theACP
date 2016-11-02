@@ -32,138 +32,169 @@ $(document).ready(function () {
         }
     });
 
-    //提交报名表单
-    $("#apply-form").submit(function (event) {
-        // Prevent default posting of form - put here to work in case of errors
-        event.preventDefault();
+    //从数据库获取项目列表，如果有项目才可以报名，没有的话就无法报名
+    $.ajax({
+        url: "/theACP/controller/apply.getProject.con.php",
+        success: function (data) {
+            var result = JSON.parse(data);
 
-        // setup some local variables
-        var $form = $(this);
+            if (result.projectNum == 0) {
+                $(".list-group").html(
+                    '<div class="alert alert-danger">Oh snap!  暂未开通任何项目, 无法报名</div>'
+                );
 
-        // Let's select and cache all the fields
-        var $inputs = $form.find("input, select, button, textarea");
+                $("#apply-form").find("button[type='submit']").addClass("disabled");
+            } else {
+                var html = "";
 
-        // Serialize the data in the form
-        var serializedData = $form.serialize();
+                for (var item in result.projectInfo) {
+                    var id = result.projectInfo[item]['id'];
+                    var name = result.projectInfo[item]['name'];
 
-        // Let's disable the inputs for the duration of the Ajax request.
-        // Note: we disable elements AFTER the form data has been serialized.
-        // Disabled form elements will not be serialized.
-        $inputs.prop("disabled", true);
-
-        //开始验证表单内容格式是否合法
-        var project = $("input[name=project]:checked").val();
-        if (project == undefined) {
-            showErrorInfo("没有选择项目，请检查", "你忘记选择项目了", $("#cu-project-fb"), $inputs);
-            return false;
-        }
-
-        if ($("#name").val() == "") {
-            showErrorInfo("姓名没有填写，请检查", "不能为空", $("#cu-name-fb"), $inputs);
-            return false;
-        }
-
-        if ($("#nationality").val() == "") {
-            showErrorInfo("国籍没有填写，请检查", "不能为空", $("#cu-nationality-fb"), $inputs);
-            return false;
-        }
-
-        if ($("#phone_number").val() == "") {
-            showErrorInfo("电话号码没有填写，请检查", "不能为空", $("#cu-phone-number-fb"), $inputs);
-            return false;
-        }
-
-        if ($("#email").val() == "") {
-            showErrorInfo("邮箱没有填写，请检查", "不能为空", $("#cu-email-fb"), $inputs);
-            return false;
-        }
-        if ($("#wechat").val() == "") {
-            showErrorInfo("微信号没有填写，请检查", "不能为空", $("#cu-wechat-fb"), $inputs);
-            return false;
-        }
-        if ($("#id_card_number").val() == "") {
-            showErrorInfo("身份证号没有填写，请检查", "不能为空", $("#cu-id-card-number-fb"), $inputs);
-            return false;
-        }
-        if ($("#passport_number").val() == "") {
-            showErrorInfo("护照号没有填写，请检查", "不能为空", $("#cu-passport-number-fb"), $inputs);
-            return false;
-        }
-        if ($("#province").val() == "") {
-            showErrorInfo("现居省份没有填写，请检查", "不能为空", $("#cu-province-fb"), $inputs);
-            return false;
-        }
-        if ($("#post_address").val() == "") {
-            showErrorInfo("邮寄地址没有填写，请检查", "不能为空", $("#cu-post-address-fb"), $inputs);
-            return false;
-        }
-        if ($("#city_of_departure").val() == "") {
-            showErrorInfo("出发城市没有填写，请检查", "不能为空", $("#cu-city-of-departure-fb"), $inputs);
-            return false;
-        }
-        if ($("#emergency_contact_name").val() == "") {
-            showErrorInfo("紧急联系人没有填写，请检查", "不能为空", $("#cu-emergency-contact-name-fb"), $inputs);
-            return false;
-        }
-        if ($("#emergency_contact_phone_number").val() == "") {
-            showErrorInfo("紧急联系人电话没有填写，请检查", "不能为空", $("#cu-emergency-contact-phone-number-fb"),
-                $inputs);
-            return false;
-        }
-        if ($("#duration").val() == "") {
-            showErrorInfo("项目时长没有填写，请检查", "不能为空", $("#cu-duration-fb"), $inputs);
-            return false;
-        }
-        if ($("#start_date").val() == "") {
-            showErrorInfo("开始时间没有填写，请检查", "不能为空", $("#cu-start-date-fb"), $inputs);
-            return false;
-        }
-
-        if (is_medical_history.is(':checked')) {
-            if ($("#medical-history").val() == "") {
-                showErrorInfo("历史重大疾病没有填写，请检查", "如果没有历史重大疾病，请取消上方勾选",
-                    $("#cu-medical-history-fb"), $inputs);
-                return false;
-            }
-        }
-
-        if (is_apply_interview.is(':checked')) {
-            if ($("#interview-date").val() == "") {
-                showErrorInfo("面试时间没有填写，请检查", "如果不申请面试，请取消上方勾选",
-                    $("#cu-interview-date-fb"), $inputs);
-                return false;
-            }
-        }
-
-        $.ajax({
-            url: "/theACP/controller/apply.con.php",
-            type: "post",
-            data: serializedData,
-            success: function (data) {
-                var result = JSON.parse(data);
-                if (result.status != CORRECT) {
-                    // 显示错误信息
-                    $("#cu-submit-fb").attr("class", "cu-error-fb").html(
-                        "<span class='glyphicon glyphicon-remove'></span>&nbsp;" +
-                        "error code: " + result.status + "&nbsp;&nbsp;" + errorcode2errorinfo(result.status)
-                    ).show();
-                } else {
-                    $("#cu-submit-fb").attr("class", "cu-success-fb").html(
-                        "<span class='glyphicon glyphicon-ok'></span>&nbsp;报名成功..."
-                    ).show();
-                    setTimeout(function () {
-                        location.href = "/theACP/user.html";
-                    }, 1200);
+                    html += '<li class="list-group-item">' +
+                        '<lable class="cu-block mdl-radio mdl-js-radio mdl-js-ripple-effect" for="list-option-' + id + '">' +
+                        '<input type="radio" id="list-option-' + id + '" class="mdl-radio__button" name="project" value="' + id + '">&nbsp;' + name +
+                        '</lable>' +
+                        '</li>';
                 }
-            },
-            error: function (request) {
 
-            },
-            complete: function () {
-                // Reenable the inputs
-                $inputs.prop("disabled", false);
+                $(".list-group").html(html);
+
+                //提交报名表单
+                $("#apply-form").submit(function (event) {
+                    // Prevent default posting of form - put here to work in case of errors
+                    event.preventDefault();
+
+                    // setup some local variables
+                    var $form = $(this);
+
+                    // Let's select and cache all the fields
+                    var $inputs = $form.find("input, select, button, textarea");
+
+                    // Serialize the data in the form
+                    var serializedData = $form.serialize();
+
+                    // Let's disable the inputs for the duration of the Ajax request.
+                    // Note: we disable elements AFTER the form data has been serialized.
+                    // Disabled form elements will not be serialized.
+                    $inputs.prop("disabled", true);
+
+                    //开始验证表单内容格式是否合法
+                    var project = $("input[name=project]:checked").val();
+                    if (project == undefined) {
+                        showErrorInfo("没有选择项目，请检查", "你忘记选择项目了", $("#cu-project-fb"), $inputs);
+                        return false;
+                    }
+
+                    if ($("#name").val() == "") {
+                        showErrorInfo("姓名没有填写，请检查", "不能为空", $("#cu-name-fb"), $inputs);
+                        return false;
+                    }
+
+                    if ($("#nationality").val() == "") {
+                        showErrorInfo("国籍没有填写，请检查", "不能为空", $("#cu-nationality-fb"), $inputs);
+                        return false;
+                    }
+
+                    if ($("#phone_number").val() == "") {
+                        showErrorInfo("电话号码没有填写，请检查", "不能为空", $("#cu-phone-number-fb"), $inputs);
+                        return false;
+                    }
+
+                    if ($("#email").val() == "") {
+                        showErrorInfo("邮箱没有填写，请检查", "不能为空", $("#cu-email-fb"), $inputs);
+                        return false;
+                    }
+                    if ($("#wechat").val() == "") {
+                        showErrorInfo("微信号没有填写，请检查", "不能为空", $("#cu-wechat-fb"), $inputs);
+                        return false;
+                    }
+                    if ($("#id_card_number").val() == "") {
+                        showErrorInfo("身份证号没有填写，请检查", "不能为空", $("#cu-id-card-number-fb"), $inputs);
+                        return false;
+                    }
+                    if ($("#passport_number").val() == "") {
+                        showErrorInfo("护照号没有填写，请检查", "不能为空", $("#cu-passport-number-fb"), $inputs);
+                        return false;
+                    }
+                    if ($("#province").val() == "") {
+                        showErrorInfo("现居省份没有填写，请检查", "不能为空", $("#cu-province-fb"), $inputs);
+                        return false;
+                    }
+                    if ($("#post_address").val() == "") {
+                        showErrorInfo("邮寄地址没有填写，请检查", "不能为空", $("#cu-post-address-fb"), $inputs);
+                        return false;
+                    }
+                    if ($("#city_of_departure").val() == "") {
+                        showErrorInfo("出发城市没有填写，请检查", "不能为空", $("#cu-city-of-departure-fb"), $inputs);
+                        return false;
+                    }
+                    if ($("#emergency_contact_name").val() == "") {
+                        showErrorInfo("紧急联系人没有填写，请检查", "不能为空", $("#cu-emergency-contact-name-fb"), $inputs);
+                        return false;
+                    }
+                    if ($("#emergency_contact_phone_number").val() == "") {
+                        showErrorInfo("紧急联系人电话没有填写，请检查", "不能为空", $("#cu-emergency-contact-phone-number-fb"),
+                            $inputs);
+                        return false;
+                    }
+                    if ($("#duration").val() == "") {
+                        showErrorInfo("项目时长没有填写，请检查", "不能为空", $("#cu-duration-fb"), $inputs);
+                        return false;
+                    }
+                    if ($("#start_date").val() == "") {
+                        showErrorInfo("开始时间没有填写，请检查", "不能为空", $("#cu-start-date-fb"), $inputs);
+                        return false;
+                    }
+
+                    if (is_medical_history.is(':checked')) {
+                        if ($("#medical-history").val() == "") {
+                            showErrorInfo("历史重大疾病没有填写，请检查", "如果没有历史重大疾病，请取消上方勾选",
+                                $("#cu-medical-history-fb"), $inputs);
+                            return false;
+                        }
+                    }
+
+                    if (is_apply_interview.is(':checked')) {
+                        if ($("#interview-date").val() == "") {
+                            showErrorInfo("面试时间没有填写，请检查", "如果不申请面试，请取消上方勾选",
+                                $("#cu-interview-date-fb"), $inputs);
+                            return false;
+                        }
+                    }
+
+                    $.ajax({
+                        url: "/theACP/controller/apply.con.php",
+                        type: "post",
+                        data: serializedData,
+                        success: function (data) {
+                            var result = JSON.parse(data);
+                            if (result.status != CORRECT) {
+                                // 显示错误信息
+                                $("#cu-submit-fb").attr("class", "cu-error-fb").html(
+                                    "<span class='glyphicon glyphicon-remove'></span>&nbsp;" +
+                                    "error code: " + result.status + "&nbsp;&nbsp;" + errorcode2errorinfo(result.status)
+                                ).show();
+                            } else {
+                                $("#cu-submit-fb").attr("class", "cu-success-fb").html(
+                                    "<span class='glyphicon glyphicon-ok'></span>&nbsp;报名成功..."
+                                ).show();
+                                setTimeout(function () {
+                                    location.href = "/theACP/user.html";
+                                }, 1200);
+                            }
+                        },
+                        error: function (request) {
+
+                        },
+                        complete: function () {
+                            // Reenable the inputs
+                            $inputs.prop("disabled", false);
+                        }
+                    });
+                });
             }
-        });
+        }
     });
 
     //点击提交时判断input的合法性
