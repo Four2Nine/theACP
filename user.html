@@ -143,9 +143,46 @@
                         </div>
                     </div>
                 </li>
+
+                <li class="list-group-item">
+                    <form>
+                        <div class="form-group">
+                            <label for="name">会员名</label>
+                            <input type="text" class="form-control" id="name" name="name" placeholder="会员名">
+                        </div>
+                        <div class="form-group">
+                            <label for="password">密码</label>
+                            <input type="password" class="form-control cu-block" id="password" name="password"
+                                   placeholder="密码">
+                        </div>
+                        <div class="form-group">
+                            <label for="is_change_password">修改密码</label>
+                            <br>
+                            <label class="cu-inline mdl-switch mdl-js-switch mdl-js-ripple-effect"
+                                   for="is_change_password">
+                                <input type="checkbox" id="is_change_password" name="is_change_password"
+                                       class="mdl-switch__input"/>
+                            </label>
+                        </div>
+                        <div class="form-group" id="cu-new-password">
+                            <label for="new_password">新密码</label>
+                            <input type="password" class="form-control cu-block" id="new_password" name="new_password"
+                                   placeholder="新密码">
+                        </div>
+                        <div class="form-group" id="cu-confirm-new-password">
+                            <label for="confirm_new_password">确认新密码</label>
+                            <input type="password" class="form-control cu-block" id="confirm_new_password"
+                                   name="confirm_new_password" placeholder="确认新密码">
+                        </div>
+                    </form>
+                </li>
+
                 <li class="list-group-item">
                     <button class="mdl-button mdl-js-button mdl-js-ripple-effect">
                         <span class="glyphicon glyphicon-cog"></span>&nbsp;&nbsp;修改资料
+                    </button>
+                    <button class="mdl-button mdl-js-button mdl-js-ripple-effect">
+                        取消
                     </button>
                 </li>
             </ul>

@@ -2,6 +2,9 @@
  * Created by liuyang on 2016/10/23.
  */
 
+$("#cu-new-password").hide();
+$("#cu-confirm-new-password").hide();
+
 $(document).ready(function () {
     //验证登录状态
     $.ajax({
@@ -82,4 +85,15 @@ $(document).ready(function () {
             }
         })
     });
+
+    $("#is_change_password").click(function () {
+        var check = $(this);
+        if (check.is(':checked')) {
+            $("#cu-new-password").fadeIn(800);
+            $("#cu-confirm-new-password").fadeIn(800);
+        } else {
+            $("#cu-new-password").fadeOut(300);
+            $("#cu-confirm-new-password").fadeOut(300);
+        }
+    })
 });
