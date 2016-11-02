@@ -314,3 +314,50 @@ function getProjectInfo($start, $num)
     $con->close();
     return $result;
 }
+
+/**
+ * @param $token //用户的token
+ * @param $pwd //待验证用户的密码
+ * @return bool     //提供的密码和指定的用户（token）密码是否一致
+ */
+function checkPassword($token, $pwd)
+{
+    $con = mysqli_connect(DB_HOST, DB_USER, DB_PWD, DB_NAME);
+    $con->query("SET NAMES UTF8;");
+    $sql = "SELECT * FROM `tb_user` WHERE `token` = ? AND `password` = ?";
+    $stmt = $con->prepare($sql);
+    $stmt->bind_param("ss", $token, $pwd);
+    $stmt->execute();
+    $stmt->store_result();
+
+    $return = $stmt->fetch();
+
+    $stmt->close();
+    $con->close();
+    return $return;
+}
+
+/**
+ * @param $old_token //旧token
+ * @param $name //姓名
+ * @param $pwd //密码
+ * @param $token //新token
+ * @return int 返回影响行数
+ */
+function updateUserInfo($old_token, $name, $pwd, $token)
+{
+    $con = mysqli_connect(DB_HOST, DB_USER, DB_PWD, DB_NAME);
+    $con->query("SET NAMES UTF8;");
+    $sql = "UPDATE `tb_user` SET `token` = ?, `username` = ?, `password` = ? 
+WHERE `token` = ?";
+    $stmt = $con->prepare($sql);
+    $stmt->bind_param("ssss", $token, $name, $pwd, $old_token);
+
+    $stmt->execute();
+    $stmt->store_result();
+    $affected_rows = $stmt->affected_rows;
+
+    $stmt->close();
+    $con->close();
+    return $affected_rows;
+}

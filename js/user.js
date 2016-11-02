@@ -6,6 +6,7 @@ $("#cu-new-password").hide();
 $("#cu-confirm-new-password").hide();
 $("#cu-update-user-info-form").parent().hide();
 $("#cu-cancel-update-user-info").hide();
+$("#submit-update-form").hide();
 
 $(document).ready(function () {
     //验证登录状态
@@ -88,6 +89,7 @@ $(document).ready(function () {
         })
     });
 
+    //是否修改密码，如果是那么就显示新密码和确认新密码输入框
     $("#is_change_password").click(function () {
         var check = $(this);
         if (check.is(':checked')) {
@@ -99,14 +101,165 @@ $(document).ready(function () {
         }
     });
 
+    //点击后显示修改个人信息的表单
     $("#display-update-form").click(function () {
         $("#cu-update-user-info-form").parent().fadeIn(800);
         $("#cu-cancel-update-user-info").fadeIn(800);
+        $("#display-update-form").hide();
+        $("#submit-update-form").show();
     });
 
+    //取消后隐藏修改个人信息的表单，并重新显示修改资料按钮
     $("#cu-cancel-update-user-info").click(function () {
-        $("#cu-update-user-info-form").parent().fadeOut(300);
-        $("#cu-cancel-update-user-info").fadeOut(300);
+        cancelUpdate();
     });
 
+    //提交修改个人信息的表单
+    $("#submit-update-form").click(function () {
+
+        var form = $("#cu-update-user-info-form");
+        var inputs = form.find("input, select, button, textarea");
+        var serializedData = form.serialize();
+
+        //检测密码
+        if (!checkPwd($("#password"), $("#cu-password-fb"))) {
+            inputs.prop("disabled", false);
+            return false;
+        }
+
+        //检测姓名
+        if (!checkName($("#name"), $("#cu-name-fb"))) {
+            inputs.prop("disabled", false);
+            return false;
+        }
+
+        //如果需要修改密码，还要验证新密码和新密码确认
+        if ($("#is_change_password").is(':checked')) {
+            var newPwd = $("#new_password");
+            var newPwdConfirm = $("#confirm_new_password");
+
+            if (!checkPwd(newPwd, $("#cu-new-password-fb"))) {
+                inputs.prop("disabled", false);
+                return false;
+            }
+
+            if (!checkConfirmPwd(newPwd, newPwdConfirm, $("#cu-confirm-new-password-fb"))) {
+                inputs.prop("disabled", false);
+                return false;
+            }
+        }
+
+        $.ajax({
+            url: "/theACP/controller/user.updateInfo.con.php",
+            type: "post",
+            data: serializedData,
+            success: function (data) {
+                cancelUpdate();
+                var result = JSON.parse(data);
+                if (result.status != CORRECT) {
+                    $("#cu-update-fb").removeClass("label-success").addClass("label-danger")
+                        .html(errorcode2errorinfo(result.status) + ", 修改失败").show();
+                    setTimeout(function () {
+                        $("#cu-update-fb").fadeOut(300);
+                    }, 1700);
+                } else {
+                    //更新会员的姓名
+                    $("#username").html(result.name);
+                    $("#cu-update-fb").addClass("label-success").removeClass("label-danger")
+                        .html("信息已修改").fadeIn(500);
+                    setTimeout(function () {
+                        $("#cu-update-fb").fadeOut(300);
+                    }, 1700);
+                }
+            }
+        })
+    });
+
+});
+
+function cancelUpdate() {
+    $("#cu-update-user-info-form").parent().fadeOut(300);
+    $("#cu-cancel-update-user-info").fadeOut(300);
+    $("#display-update-form").show();
+    $("#submit-update-form").hide();
+}
+
+//检测姓名
+function checkName(tar, fb) {
+    if (tar.val() == "") {
+        tar.parent("div").removeClass("has-success").addClass("has-error");
+        fb.attr("class", "cu-error-fb").html(
+            "<span class='glyphicon glyphicon-remove'></span>&nbsp;不能为空"
+        ).fadeIn(800);
+        return false;
+    } else if (tar.val().length > 20) {
+        tar.parent("div").removeClass("has-success").addClass("has-error");
+        fb.attr("class", "cu-error-fb").html(
+            "<span class='glyphicon glyphicon-remove'></span>&nbsp;长度不能超过20个字符"
+        ).fadeIn(800);
+        return false;
+    } else if (!/^[a-zA-Z0-9_\u4e00-\u9fa5]+$/.test(tar.val())) {
+        tar.parent("div").removeClass("has-success").addClass("has-error");
+        fb.attr("class", "cu-error-fb").html(
+            "<span class='glyphicon glyphicon-remove'></span>&nbsp;不能包括除下划线以外的特殊字符"
+        ).fadeIn(800);
+        return false;
+    } else {
+        tar.parent("div").removeClass("has-error").addClass("has-success");
+        fb.attr("class", "cu-success-fb").html("").fadeIn(800);
+        return true;
+    }
+}
+
+//检测密码
+function checkPwd(tar, fb) {
+    if (tar.val() == "") {
+        tar.parent("div").removeClass("has-success").addClass("has-error");
+        fb.attr("class", "cu-error-fb").html(
+            "<span class='glyphicon glyphicon-remove'></span>&nbsp;不能为空"
+        ).fadeIn(800);
+        return false;
+    } else if (tar.val().length < 6) {
+        tar.parent("div").removeClass("has-success").addClass("has-error");
+        fb.attr("class", "cu-error-fb").html(
+            "<span class='glyphicon glyphicon-remove'></span>&nbsp;不能少于6位"
+        ).fadeIn(800);
+        return false;
+    } else {
+        tar.parent("div").removeClass("has-error").addClass("has-success");
+        fb.attr("class", "cu-success-fb").html("").fadeIn(800);
+        return true;
+    }
+}
+
+//检测确认密码
+function checkConfirmPwd(tar1, tar2, fb2) {
+    if (tar1.val() != tar2.val()) {
+        tar2.parent("div").removeClass("has-success").addClass("has-error");
+        fb2.attr("class", "cu-error-fb").html(
+            "<span class='glyphicon glyphicon-remove'></span>&nbsp;两次输入不一致"
+        ).fadeIn(800);
+        return false;
+    } else {
+        tar2.parent("div").removeClass("has-error").addClass("has-success");
+        fb2.attr("class", "cu-success-fb").html("").fadeIn(800);
+        return true;
+    }
+}
+
+//失去焦点时判断inputs合法性
+$("#name").blur(function () {
+    checkName($(this), $("#cu-name-fb"));
+});
+
+$("#password").blur(function () {
+    checkPwd($(this), $("#cu-password-fb"));
+});
+
+$("#new_password").blur(function () {
+    checkPwd($(this), $("#cu-new-password-fb"));
+});
+
+$("#confirm_new_password").blur(function () {
+    checkConfirmPwd($("#new_password"), $(this), $("#cu-confirm-new-password-fb"));
 });

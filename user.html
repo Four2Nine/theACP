@@ -147,16 +147,18 @@
                 <li class="list-group-item">
                     <form id="cu-update-user-info-form">
                         <div class="form-group">
-                            <label for="name">会员名</label>
-                            <input type="text" class="form-control" id="name" name="name" placeholder="会员名">
-                        </div>
-                        <div class="form-group">
                             <label for="password">密码</label>
                             <input type="password" class="form-control cu-block" id="password" name="password"
                                    placeholder="密码">
+                            <span id="cu-password-fb" class="cu-default-fb"></span>
                         </div>
                         <div class="form-group">
-                            <label for="is_change_password">修改密码</label>
+                            <label for="name">会员名</label>
+                            <input type="text" class="form-control" id="name" name="name" placeholder="会员名">
+                            <span id="cu-name-fb" class="cu-default-fb"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="is_change_password">是否修改密码</label>
                             <br>
                             <label class="cu-inline mdl-switch mdl-js-switch mdl-js-ripple-effect"
                                    for="is_change_password">
@@ -168,11 +170,13 @@
                             <label for="new_password">新密码</label>
                             <input type="password" class="form-control cu-block" id="new_password" name="new_password"
                                    placeholder="新密码">
+                            <span id="cu-new-password-fb" class="cu-default-fb"></span>
                         </div>
                         <div class="form-group" id="cu-confirm-new-password">
                             <label for="confirm_new_password">确认新密码</label>
                             <input type="password" class="form-control cu-block" id="confirm_new_password"
                                    name="confirm_new_password" placeholder="确认新密码">
+                            <span id="cu-confirm-new-password-fb" class="cu-default-fb"></span>
                         </div>
                     </form>
                 </li>
@@ -181,9 +185,13 @@
                     <button id="display-update-form" class="mdl-button mdl-js-button mdl-js-ripple-effect">
                         <span class="glyphicon glyphicon-cog"></span>&nbsp;&nbsp;修改资料
                     </button>
+                    <button id="submit-update-form" class="mdl-button mdl-js-button mdl-js-ripple-effect">
+                        提交修改
+                    </button>
                     <button id="cu-cancel-update-user-info" class="mdl-button mdl-js-button mdl-js-ripple-effect">
                         取消
                     </button>
+                    <span class="label" id="cu-update-fb"></span>
                 </li>
             </ul>
         </div>

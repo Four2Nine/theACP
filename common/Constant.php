@@ -31,6 +31,7 @@ class Constant
     //-------------------------------------------------------
     static $_DB_INSERT_ERROR = 301;     //数据库插入错误
     static $_DB_SELECT_ERROR = 302;     //数据库查无数据
+    static $_DB_UPDATE_ERROR = 303;     //数据库更新错误
 
     static $_NOT_LOGIN = 400;   //没有登录
     static $_NO_PERMISSION = 401;   //没有权限访问该页面
