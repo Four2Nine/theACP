@@ -4,6 +4,8 @@
 
 $("#cu-new-password").hide();
 $("#cu-confirm-new-password").hide();
+$("#cu-update-user-info-form").parent().hide();
+$("#cu-cancel-update-user-info").hide();
 
 $(document).ready(function () {
     //验证登录状态
@@ -95,5 +97,16 @@ $(document).ready(function () {
             $("#cu-new-password").fadeOut(300);
             $("#cu-confirm-new-password").fadeOut(300);
         }
-    })
+    });
+
+    $("#display-update-form").click(function () {
+        $("#cu-update-user-info-form").parent().fadeIn(800);
+        $("#cu-cancel-update-user-info").fadeIn(800);
+    });
+
+    $("#cu-cancel-update-user-info").click(function () {
+        $("#cu-update-user-info-form").parent().fadeOut(300);
+        $("#cu-cancel-update-user-info").fadeOut(300);
+    });
+
 });
