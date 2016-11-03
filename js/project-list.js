@@ -89,9 +89,11 @@ $(document).ready(function () {
                                 "<span><i class='icon-comment'></i>评论人数</span>" +
                                 "</div>" +
                                 "<p>" + result.projectInfo[item]['bright'] + "</p>" +
-                                "<a class='btn btn-default' href='project-item.html?project_id=" + result.projectInfo[item]['id'] + "'>查看全部" +
-                                "<i class='icon-angle-right'></i>" +
+                                "<button class='mdl-button mdl-js-button mdl-js-ripple-effect'>" +
+                                "<a href='project-item.html?project_id=" + result.projectInfo[item]['id'] + "'>" +
+                                "查看全部" +
                                 "</a>" +
+                                "</button>" +
                                 "</div>" +
                                 "</div>" +
                                 "</div>"
@@ -117,6 +119,10 @@ $(document).ready(function () {
             }
         })
     });
+
+    $("#cu-link-to-about-btn").click(function () {
+        location.href = "/theACP/about-us.html";
+    })
 
 });
 

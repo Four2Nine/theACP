@@ -387,3 +387,19 @@ WHERE `token` = ?";
     $con->close();
     return $affected_rows;
 }
+
+/**
+ * @param $id //项目id
+ * @return mixed    //该项目的详细信息
+ */
+function getProjectDetail($id)
+{
+    $con = new PDO('mysql:host=localhost;dbname=db_acp', DB_USER, DB_PWD);
+    $con->query("SET NAMES UTF8;");
+
+    $sql = "SELECT * FROM `tb_project` WHERE `id` = ?";
+    $stmt = $con->prepare($sql);
+    $stmt->bindParam(1, $id, PDO::PARAM_INT);
+    $stmt->execute();
+    return $stmt->fetchObject();
+}

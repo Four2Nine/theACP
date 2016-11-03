@@ -62,7 +62,6 @@ $(document).ready(function () {
                                         "<td>" + item + "</td>" +
                                         "<td>" + result.apply_info[item + ""]['project_id'] + "</td>" +
                                         "<td>" + result.apply_info[item + ""]['status'] + "</td>" +
-                                        "<td><span class='glyphicon glyphicon-list-alt'></span></td>" +
                                         "</tr>";
                                 }
 

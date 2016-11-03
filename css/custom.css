@@ -89,7 +89,21 @@
     background: #78909b url("../images/apply/apply.doc.png") right no-repeat;
 }
 
+#cu-project-list-aside .mdl-card__title {
+    color: #fff;
+    height: 170px;
+    background: #78909b url("../images/project/volunteer.icon.png") center no-repeat;
+}
+
 #cu-about-us-logo {
     height: 280px;
     background: url("../images/about-us/about-us.logo.png") no-repeat;
+}
+
+#cu-project-title {
+    margin: 0 !important;
+}
+
+.span-margin {
+    margin: 5px 0 5px 0 !important;
 }
