@@ -42,7 +42,7 @@ define("NAV", "about-us");
             </a>
         </div>
         <div class="collapse navbar-collapse">
-            <ul class="nav navbar-nav navbar-right">
+            <ul class="nav navbar-nav navbar-right cu-nav">
                 <li>
                     <a href="index.html">首页</a>
                 </li>
@@ -52,160 +52,249 @@ define("NAV", "about-us");
                 <li>
                     <a href="project-list.html">志愿项目</a>
                 </li>
-                <li>
-                    <a href="register.html">注册</a>
-                </li>
-                <li>
-                    <a href="login.html">登录</a>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">会员&nbsp;<i
+                            class="icon-angle-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="user.html">个人中心</a></li>
+                        <li><a href="apply.html">报名</a></li>
+                        <li class="divider"></li>
+                        <li id="cu-logout"><a href="#">退出登录</a></li>
+                    </ul>
                 </li>
             </ul>
         </div>
     </div>
 </header><!--/header-->
 
-<section id="title" class="emerald">
+<section class="container">
+
+    <div class="row">
+        <div class="col-sm-12 center">
+            <img src="images/about-us/about-us.logo.png">
+        </div>
+    </div><!--/.row-->
+
+    <h1 class="center">我们是</h1>
+    <p class="lead center">向导Amara的英雄梦。Amara是斯里兰卡志愿者组织E.C.R.F(Elephant Care Relief Foundation)官方向导，
+        现向全球征集志愿者。The ACP旨在解开众多大象身上的重重枷锁，享受本属于它们的自由；让每一位有志工之心的人得以施展自己的力量；
+        同时深入体验并了解斯里兰卡——这颗印度洋上的眼泪。对于你所照顾的那头大象，you are its hero. 这里有纯正的斯里兰卡，
+        最真切的文化体验。作为斯里兰卡国内官方志愿者组织的国内分支，theACP致力于提供最顶级的义工之旅, 同时收取最为可接收的项目费用。
+        这里是the ACP,单纯直白的义工。</p>
+</section><!--/#about-us-->
+
+<section class="container">
+    <h1 class="center">最近项目</h1>
+    <p class="lead center">The ACP团队每位成员均多次参加国际志工活动，用心做小，用心做好。</p>
+    <div class="gap"></div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="btn-group center">
+                <a class="btn btn-danger" href="#scroller" data-slide="prev"><i class="icon-angle-left"></i></a>
+                <a class="btn btn-danger" href="#scroller" data-slide="next"><i class="icon-angle-right"></i></a>
+            </div>
+            <div class="gap"></div>
+            <div id="scroller" class="carousel slide">
+                <div class="carousel-inner">
+
+                    <div class="item active">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <div class="portfolio-item">
+                                    <div class="item-inner">
+                                        <img class="img-responsive" src="images/project/sililanka.jpg" alt="">
+                                        <h5>
+                                            斯里兰卡
+                                        </h5>
+                                        <div class="overlay">
+                                            <a class="preview btn btn-danger" title="Malesuada fames ac turpis egestas"
+                                               href="images/project/sililanka.jpg" rel="prettyPhoto"><i
+                                                    class="icon-eye-open"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="portfolio-item">
+                                    <div class="item-inner">
+                                        <img class="img-responsive" src="images/project/taiguo.jpg" alt="">
+                                        <h5>
+                                            泰国
+                                        </h5>
+                                        <div class="overlay">
+                                            <a class="preview btn btn-danger" title="Malesuada fames ac turpis egestas"
+                                               href="images/project/taiguo.jpg" rel="prettyPhoto"><i
+                                                    class="icon-eye-open"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="portfolio-item">
+                                    <div class="item-inner">
+                                        <img class="img-responsive" src="images/project/yunnandali.jpg" alt="">
+                                        <h5>
+                                            云南大理
+                                        </h5>
+                                        <div class="overlay">
+                                            <a class="preview btn btn-danger" title="Malesuada fames ac turpis egestas"
+                                               href="images/project/yunnandali.jpg" rel="prettyPhoto"><i
+                                                    class="icon-eye-open"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!--/.row-->
+                    </div><!--/.item-->
+
+                    <div class="item">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <div class="portfolio-item">
+                                    <div class="item-inner">
+                                        <img class="img-responsive" src="images/project/sililanka2.jpg" alt="">
+                                        <h5>
+                                            斯里兰卡
+                                        </h5>
+                                        <div class="overlay">
+                                            <a class="preview btn btn-danger" title="Malesuada fames ac turpis egestas"
+                                               href="images/project/sililanka2.jpg" rel="prettyPhoto"><i
+                                                    class="icon-eye-open"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="portfolio-item">
+                                    <div class="item-inner">
+                                        <img class="img-responsive" src="images/project/taiguo2.jpg" alt="">
+                                        <h5>
+                                            泰国
+                                        </h5>
+                                        <div class="overlay">
+                                            <a class="preview btn btn-danger" title="Malesuada fames ac turpis egestas"
+                                               href="images/project/taiguo2.jpg" rel="prettyPhoto"><i
+                                                    class="icon-eye-open"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="portfolio-item">
+                                    <div class="item-inner">
+                                        <img class="img-responsive" src="images/project/yunnandali2.jpg" alt="">
+                                        <h5>
+                                            云南大理
+                                        </h5>
+                                        <div class="overlay">
+                                            <a class="preview btn btn-danger" title="Malesuada fames ac turpis egestas"
+                                               href="images/project/yunnandali2.jpg" rel="prettyPhoto"><i
+                                                    class="icon-eye-open"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!--/.row-->
+                    </div><!--/.item-->
+                </div>
+            </div>
+        </div>
+    </div><!--/.row-->
+</section><!--/#recent-works-->
+
+<section id="bottom" class="wet-asphalt">
     <div class="container">
         <div class="row">
-            <div class="col-sm-6 cu-page-head">
-                <h1>关于theACP</h1>
-                <p>Pellentesque habitant morbi tristique senectus et netus et malesuada</p>
-            </div>
-            <div class="col-sm-6">
-                <ul class="breadcrumb pull-right">
-                    <li><a href="index.html">首页</a></li>
-                    <li class="active">关于theACP</li>
-                </ul>
+
+            <div class="col-md-4 col-sm-6">
+                <h3>联系方式</h3>
+                <div>
+
+                    <div class="media">
+                        <div class="pull-left">
+                            <img src="images/about-us/wechat.png" alt="">
+                        </div>
+                        <div class="media-body">
+                            <h5 class="media-heading">微信公众号</h5>
+                            <p>theACP</p>
+                        </div>
+                    </div>
+                    <div class="media">
+                        <div class="pull-left">
+                            <img src="images/about-us/renren.png" alt="">
+                        </div>
+                        <div class="media-body">
+                            <h5 class="media-heading">人人小站</h5>
+                            <p>
+                                <a href="http://zhan.renren.com/theacp"
+                                   target="_blank">http://zhan.renren.com/theacp</a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="media">
+                        <div class="pull-left">
+                            <img src="images/about-us/douban.png" alt="">
+                        </div>
+                        <div class="media-body">
+                            <h5 class="media-heading">豆瓣小站</h5>
+                            <p><a href="http://site.douban.com/251281/"
+                                  target="_blank">http://site.douban.com/251281/</a></p>
+                        </div>
+                    </div>
+
+                    <div class="media">
+                        <div class="pull-left">
+                            <img src="images/about-us/douban.xiaozu.png" alt="">
+                        </div>
+                        <div class="media-body">
+                            <h5 class="media-heading">豆瓣小组</h5>
+                            <p><a href="http://www.douban.com/group/theACP/" target="_blank">
+                                http://www.douban.com/group/theACP/</a></p>
+                        </div>
+                    </div>
+
+                    <div class="media">
+                        <div class="pull-left">
+                            <img src="images/about-us/email.png" alt="">
+                        </div>
+                        <div class="media-body">
+                            <h5 class="media-heading">邮件联系</h5>
+                            <p>theACP@163.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div><!--/.col-md-3-->
+
+            <div class="col-md-4 col-sm-6">
+                <h3>地址</h3>
+                <p>成都安可普文化传播有限公司</p>
+                <p>87#Dongchenggen Road<br>
+                    Chengdu, 610000<br>
+                    Sichuan, P.R China<br>
+                    www.theacpasia.org
+                </p>
+            </div> <!--/.col-md-4-->
+
+            <div class="col-md-4 hidden-sm hidden-xs">
+                <img src="images/about-us/about-us.logo-white.png">
             </div>
         </div>
     </div>
-</section><!--/#title-->
-
-<section id="about-us" class="container">
-    <div class="row">
-        <div class="col-sm-6">
-            <h2>What we are</h2>
-            <p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit
-                consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet
-                mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non mauris
-                vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia
-                nostra, per inceptos himenaeos. Mauris in erat justo. Nullam ac urna eu felis dapibus condimentum sit
-                amet a augue. Sed non neque elit. Sed ut imperdiet nisi. Proin condimentum fermentum nunc. Etiam
-                pharetra, erat sed fermentum feugiat, velit mauris egestas quam, ut aliquam massa nisl quis neque.
-                Suspendisse in orci enim.</p>
-        </div><!--/.col-sm-6-->
-        <div class="col-sm-6">
-            <h2>Our Skills</h2>
-            <div>
-                <div class="progress">
-                    <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="90"
-                         aria-valuemin="0" aria-valuemax="100" style="width: 90%;">
-                        <span>HTML/CSS</span>
-                    </div>
-                </div>
-                <div class="progress">
-                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="70"
-                         aria-valuemin="0" aria-valuemax="100" style="width: 70%;">
-                        <span>Wordpress</span>
-                    </div>
-                </div>
-                <div class="progress">
-                    <div class="progress-bar" role="progressbar" aria-valuenow="40" aria-valuemin="0"
-                         aria-valuemax="100" style="width: 40%;">
-                        <span>Joomla</span>
-                    </div>
-                </div>
-                <div class="progress">
-                    <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="55" aria-valuemin="0"
-                         aria-valuemax="100" style="width: 55%;">
-                        <span>Drupal</span>
-                    </div>
-                </div>
-                <div class="progress">
-                    <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="75"
-                         aria-valuemin="0" aria-valuemax="100" style="width: 75%;">
-                        <span>PHP</span>
-                    </div>
-                </div>
-            </div>
-        </div><!--/.col-sm-6-->
-    </div><!--/.row-->
-
-    <div class="gap"></div>
-    <h1 class="center">Meet the Team</h1>
-    <p class="lead center">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis
-        egestas.</p>
-    <div class="gap"></div>
-
-    <div id="meet-the-team" class="row">
-        <div class="col-md-3 col-xs-6">
-            <div class="center">
-                <p><img class="img-responsive img-thumbnail img-circle" src="images/team-member.jpg" alt=""></p>
-                <h5>David J. Robbins
-                    <small class="designation muted">Senior Vice President</small>
-                </h5>
-                <p>Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor.</p>
-                <a class="btn btn-social btn-facebook" href="#"><i class="icon-facebook"></i></a> <a
-                    class="btn btn-social btn-google-plus" href="#"><i class="icon-google-plus"></i></a> <a
-                    class="btn btn-social btn-twitter" href="#"><i class="icon-twitter"></i></a> <a
-                    class="btn btn-social btn-linkedin" href="#"><i class="icon-linkedin"></i></a>
-            </div>
-        </div>
-
-        <div class="col-md-3 col-xs-6">
-            <div class="center">
-                <p><img class="img-responsive img-thumbnail img-circle" src="images/team-member.jpg" alt=""></p>
-                <h5>David J. Robbins
-                    <small class="designation muted">Senior Vice President</small>
-                </h5>
-                <p>Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor.</p>
-                <a class="btn btn-social btn-facebook" href="#"><i class="icon-facebook"></i></a> <a
-                    class="btn btn-social btn-google-plus" href="#"><i class="icon-google-plus"></i></a> <a
-                    class="btn btn-social btn-twitter" href="#"><i class="icon-twitter"></i></a> <a
-                    class="btn btn-social btn-linkedin" href="#"><i class="icon-linkedin"></i></a>
-            </div>
-        </div>
-        <div class="col-md-3 col-xs-6">
-            <div class="center">
-                <p><img class="img-responsive img-thumbnail img-circle" src="images/team-member.jpg" alt=""></p>
-                <h5>David J. Robbins
-                    <small class="designation muted">Senior Vice President</small>
-                </h5>
-                <p>Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor.</p>
-                <a class="btn btn-social btn-facebook" href="#"><i class="icon-facebook"></i></a> <a
-                    class="btn btn-social btn-google-plus" href="#"><i class="icon-google-plus"></i></a> <a
-                    class="btn btn-social btn-twitter" href="#"><i class="icon-twitter"></i></a> <a
-                    class="btn btn-social btn-linkedin" href="#"><i class="icon-linkedin"></i></a>
-            </div>
-        </div>
-        <div class="col-md-3 col-xs-6">
-            <div class="center">
-                <p><img class="img-responsive img-thumbnail img-circle" src="images/team-member.jpg" alt=""></p>
-                <h5>David J. Robbins
-                    <small class="designation muted">Senior Vice President</small>
-                </h5>
-                <p>Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor.</p>
-                <a class="btn btn-social btn-facebook" href="#"><i class="icon-facebook"></i></a> <a
-                    class="btn btn-social btn-google-plus" href="#"><i class="icon-google-plus"></i></a> <a
-                    class="btn btn-social btn-twitter" href="#"><i class="icon-twitter"></i></a> <a
-                    class="btn btn-social btn-linkedin" href="#"><i class="icon-linkedin"></i></a>
-            </div>
-        </div>
-    </div><!--/#meet-the-team-->
-</section><!--/#about-us-->
+</section><!--/#bottom-->
 
 <footer id="footer" class="midnight-blue">
     <div class="container">
         <div class="row">
             <div class="col-sm-6">
-                &copy; 2016 Four2Nine | ShapeBootstrap.
+                &copy; 2016 PowerBy: Four2Nine | DesignBy: ShapeBootstrap.
                 All Rights Reserved.
             </div>
             <div class="col-sm-6">
                 <ul class="pull-right">
-                    <li><a href="#">xxx</a></li>
-                    <li><a href="#">xxx</a></li>
-                    <li><a href="#">xxx</a></li>
-                    <li><a href="#">xxx</a></li>
+                    <li><a href="http://zhan.renren.com/theacp" target="_blank">人人小站</a></li>
+                    <li><a href="http://site.douban.com/251281/" target="_blank">豆瓣小站</a></li>
+                    <li><a href="http://www.douban.com/group/theACP/" target="_blank">豆瓣小组</a></li>
                     <li><a id="gototop" class="gototop" href="#"><i class="icon-chevron-up"></i></a></li><!--#gototop-->
                 </ul>
             </div>
@@ -217,5 +306,6 @@ define("NAV", "about-us");
 <script src="js/bootstrap.min.js"></script>
 <script src="js/jquery.prettyPhoto.js"></script>
 <script src="js/main.js"></script>
+<script src="js/about-us.js"></script>
 </body>
 </html>

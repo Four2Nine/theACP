@@ -88,3 +88,8 @@
     height: 150px;
     background: #78909b url("../images/apply/apply.doc.png") right no-repeat;
 }
+
+#cu-about-us-logo {
+    height: 280px;
+    background: url("../images/about-us/about-us.logo.png") no-repeat;
+}
