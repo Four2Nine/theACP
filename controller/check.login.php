@@ -20,7 +20,7 @@ if ($result['status'] != Constant::$_CORRECT) {
 }
 
 //验证token是否正确
-$result['status'] = is_token_exist($_COOKIE['__token']);
+$result['status'] = is_token_exist();
 
 echo json_encode($result);
 exit;
@@ -31,16 +31,18 @@ exit;
 
 function is_cookie_exist()
 {
-    if (!(isset($_COOKIE['__token']) && isset($_COOKIE['__username']))) {
+    if (!(isset($_COOKIE['__token']) && isset($_COOKIE['__username'])
+        && isset($_COOKIE['__password']))
+    ) {
         return Constant::$_NOT_LOGIN;
     } else {
         return Constant::$_CORRECT;
     }
 }
 
-function is_token_exist($token)
+function is_token_exist()
 {
-    if (checkToken($token)) {
+    if ($_COOKIE['__token'] == generateToken($_COOKIE['__username'], $_COOKIE['__password'], Constant::$_SALT)) {
         return Constant::$_CORRECT;
     } else {
         return Constant::$_TOKEN_INCORRECT;

@@ -30,6 +30,7 @@ $token = generateToken($result['username'], $result['password'], Constant::$_SAL
 $result['token'] = $token;
 
 setcookie('__username', $result['username']);
+setcookie('__password', $result['password']);
 setcookie('__token', $token);
 
 echo json_encode($result);

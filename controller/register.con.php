@@ -40,6 +40,7 @@ if ($result['status'] != Constant::$_CORRECT) {
 }
 
 setcookie('__username', $result['username']);
+setcookie('__password', $result['password']);
 setcookie('__token', $token);
 
 echo json_encode($result);
