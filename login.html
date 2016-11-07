@@ -79,37 +79,25 @@
 
 <section id="login" class="container">
 
-    <div class="alert alert-danger cu-notification" role="alert"></div>
-    <div class="alert alert-success cu-notification" role="alert"></div>
-
-    <form id="login-form" class="form-horizontal cu-form col-sm-8" role="form">
+    <form id="login-form" class="form-horizontal cu-form col-sm-5" role="form">
         <div class="form-group">
-            <label for="username" class="col-sm-3 control-label">会员名</label>
-            <div class="col-sm-7">
-                <input type="text" id="username" name="username" placeholder="会员名" class="form-control">
-                <span class="cu-error" id="username-error"></span>
-            </div>
-            <label class="glyphicon glyphicon-ok cu-correct col-sm-2" id="username-correct"></label>
+            <label for="username">会员名</label>
+            <input type="text" id="username" name="username" placeholder="会员名" class="form-control">
+            <span id="cu-username-fb" class="cu-default-fb"></span>
         </div>
         <div class="form-group">
-            <label for="password" class="col-sm-3 control-label">密码</label>
-            <div class="col-sm-7">
-                <input type="password" id="password" name="password" placeholder="密码" class="form-control">
-                <span class="cu-error" id="password-error"></span>
-            </div>
-            <label class="glyphicon glyphicon-ok cu-correct col-sm-2" id="password-correct"></label>
+            <label for="password">密码</label>
+            <input type="password" id="password" name="password" placeholder="密码" class="form-control">
+            <span id="cu-password-fb" class="cu-default-fb"></span>
         </div>
 
         <div class="form-group">
-            <div class="col-sm-offset-3 col-sm-4">
-                <button class="btn btn-success btn-md btn-block" id="login-btn">登录</button>
-            </div>
+            <button type="submit" class="btn btn-success btn-md" id="login-btn">登录</button>
+            <span id="cu-submit-fb" class="cu-default-fb cu-inline"></span>
+            <br>
+            <br>
+            <p>还没有帐号？<a href="register.html" class="cu-link">立即注册</a></p>
         </div>
-
-        <p class="col-sm-offset-3">
-            还没有帐号？
-            <a href="register.html" class="cu-link">前往注册</a>
-        </p>
     </form>
 
 </section><!--/#login-->

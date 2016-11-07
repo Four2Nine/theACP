@@ -183,6 +183,10 @@ $(document).ready(function () {
                                     location.href = "/theACP/user.html";
                                 }, 1200);
                             }
+
+                            setTimeout(function () {
+                                $("#cu-submit-fb").fadeOut(800);
+                            }, 2000);
                         },
                         error: function (request) {
 

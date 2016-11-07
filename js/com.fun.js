@@ -1,70 +1,94 @@
 /**
  * Created by liuyang on 2016/10/22.
  */
-function checkUsername(username) {
+
+/**
+ * 检测用户名格式是否正确
+ * @param tar 用户名输入框 $("#username")
+ * @param fb    错误信息提示框 $("#cu-username-fb")
+ */
+function checkUsername(tar, fb) {
+    var username = tar.val();
     var pattern = /^[a-zA-Z0-9_\u4e00-\u9fa5]+$/;
 
     if (username == "") {
-        $("#username-error")
-            .html("<span class='glyphicon glyphicon-remove'></span>&nbsp;不能为空")
-            .fadeIn(800);
-        $("#username-correct").hide();
+        tar.parent("div").removeClass("has-success").addClass("has-error");
+        fb.attr("class", "cu-error-fb").html(
+            "<span class='glyphicon glyphicon-remove'></span>&nbsp;不能为空"
+        ).fadeIn(800);
         return false;
     } else if (username.length > 20) {
-        $("#username-error")
-            .html("<span class='glyphicon glyphicon-remove'></span>&nbsp;长度不能超过20个字符")
-            .fadeIn(800);
-        $("#username-correct").hide();
+        tar.parent("div").removeClass("has-success").addClass("has-error");
+        fb.attr("class", "cu-error-fb").html(
+            "<span class='glyphicon glyphicon-remove'></span>&nbsp;不能超过20个字符"
+        ).fadeIn(800);
         return false;
     } else if (!pattern.test(username)) {
-        $("#username-error")
-            .html("<span class='glyphicon glyphicon-remove'></span>&nbsp;不能包括除下划线以外的特殊字符")
-            .fadeIn(800);
-        $("#username-correct").hide();
+        tar.parent("div").removeClass("has-success").addClass("has-error");
+        fb.attr("class", "cu-error-fb").html(
+            "<span class='glyphicon glyphicon-remove'></span>&nbsp;不能包括除下划线以外的特殊字符"
+        ).fadeIn(800);
         return false;
     } else {
-        $("#username-error").hide();
-        $("#username-correct").fadeIn(800);
+        tar.parent("div").removeClass("has-error").addClass("has-success");
+        fb.attr("class", "cu-success-fb").html("").fadeIn(800);
         return true;
     }
 }
 
-function checkPassword(password) {
+/**
+ * 检测密码格式是否正确
+ * @param tar 密码输入框 $("#password")
+ * @param fb    错误信息提示框 $("#cu-password-fb")
+ */
+function checkPassword(tar, fb) {
+    var password = tar.val();
+
     if (password == "") {
-        $("#password-error")
-            .html("<span class='glyphicon glyphicon-remove'></span>&nbsp;不能为空")
-            .fadeIn(800);
-        $("#password-correct").hide();
+        tar.parent("div").removeClass("has-success").addClass("has-error");
+        fb.attr("class", "cu-error-fb").html(
+            "<span class='glyphicon glyphicon-remove'></span>&nbsp;不能为空"
+        ).fadeIn(800);
         return false;
     } else if (password.length < 6) {
-        $("#password-error")
-            .html("<span class='glyphicon glyphicon-remove'></span>&nbsp;不能少于6位")
-            .fadeIn(800);
-        $("#password-correct").hide();
+        tar.parent("div").removeClass("has-success").addClass("has-error");
+        fb.attr("class", "cu-error-fb").html(
+            "<span class='glyphicon glyphicon-remove'></span>&nbsp;不能少于6位"
+        ).fadeIn(800);
         return false;
     } else {
-        $("#password-error").hide();
-        $("#password-correct").fadeIn(800);
+        tar.parent("div").removeClass("has-error").addClass("has-success");
+        fb.attr("class", "cu-success-fb").html("").fadeIn(800);
         return true;
     }
 }
 
-function checkPasswordConfirm(password_confirm, password) {
-    if (password_confirm == "") {
-        $("#password-confirm-error")
-            .html("<span class='glyphicon glyphicon-exclamation-sign'></span>不能为空")
-            .fadeIn(800);
-        $("#password-confirm-correct").hide();
+/**
+ * 检测密码确认格式是否正确
+ * @param tar1      密码输入框 $("#password")
+ * @param tar2      密码确认输入框 $("#password_confirm")
+ * @param fb2       $("#cu-confirm-password-fb")
+ * @returns {boolean} 返回是否正确
+ */
+function checkPasswordConfirm(tar1, tar2, fb2) {
+    var password = tar1.val();
+    var passwordConfirm = tar2.val();
+
+    if (passwordConfirm == "") {
+        tar2.parent("div").removeClass("has-success").addClass("has-error");
+        fb2.attr("class", "cu-error-fb").html(
+            "<span class='glyphicon glyphicon-remove'></span>&nbsp;不能为空"
+        ).fadeIn(800);
         return false;
-    } else if (password_confirm != password) {
-        $("#password-confirm-error")
-            .html("<span class='glyphicon glyphicon-exclamation-sign'></span>两次输入不一致")
-            .fadeIn(800);
-        $("#password-confirm-correct").hide();
+    } else if (passwordConfirm != password) {
+        tar2.parent("div").removeClass("has-success").addClass("has-error");
+        fb2.attr("class", "cu-error-fb").html(
+            "<span class='glyphicon glyphicon-remove'></span>&nbsp;两次输入不一致"
+        ).fadeIn(800);
         return false;
     } else {
-        $("#password-confirm-error").hide();
-        $("#password-confirm-correct").fadeIn(800);
+        tar2.parent("div").removeClass("has-error").addClass("has-success");
+        fb2.attr("class", "cu-success-fb").html("").fadeIn(800);
         return true;
     }
 }
