@@ -30,9 +30,8 @@ $(document).ready(function () {
         $.ajax({
             url: "/theACP/controller/logout.con.php",
             success: function (data) {
-                var result = JSON.parse(data);
 
-                if (result.status == CORRECT) {
+                if (data == CORRECT) {
                     location.href = "/theACP/about-us.html";
                 }
             }

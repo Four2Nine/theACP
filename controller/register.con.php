@@ -5,44 +5,81 @@
  * Date: 2016/10/21
  * Time: 12:06
  */
-require substr(dirname(__FILE__), 0, -10) . 'common\connection.db.php';
-require substr(dirname(__FILE__), 0, -10) . 'common\Constant.php';
+require 'connection.db.php';
+require 'global.func.php';
+require 'Constant.php';
+
+$con = mysqli_connect(DB_HOST, DB_USER, DB_PWD, DB_NAME);
+$con->query("SET NAMES UTF8;");
+
+$data = array();
+
+$data['username'] = $_POST["username"];
+$data['password'] = $_POST["password"];
+$data['password_confirm'] = $_POST["password_confirm"];
+
 
 $result = array();
-
-$result['username'] = $_POST["username"];
-$result['password'] = $_POST["password"];
-$result['password_confirm'] = $_POST["password_confirm"];
-
-$result['status'] = check_username($result['username'], 20);
-$result['status'] = check_password($result['password'], $result['password_confirm'], 6);
+$result['status'] = check_username($data['username'], 20);
+$result['status'] = check_password($data['password'], $data['password_confirm'], 6);
 if ($result['status'] != Constant::$_CORRECT) {
     echo json_encode($result);
     exit;
 }
 
 //确定数据格式正确后，再查找数据库，看有没有重名
-$result['status'] = is_username_repeat($result['username']);
-if ($result['status'] != Constant::$_CORRECT) {
+$sqlRepeat = "SELECT `id` FROM `tb_user` WHERE `username` = ? LIMIT 1";
+$stmt = $con->prepare($sqlRepeat);
+$stmt->bind_param("s", $value);
+$stmt->execute();
+$stmt->store_result();
+$stmt->bind_result($ids);
+
+$isRepeat = $stmt->fetch();
+if ($isRepeat) {
+    //有重名
+    $result['status'] = Constant::$_USERNAME_REPEAT_ERROR;
     echo json_encode($result);
     exit;
+} else {
+    $result['status'] = Constant::$_CORRECT;
 }
 
-$result['password'] = md5($result['password'] . Constant::$_SALT);
-$token = generateToken($result['username'], $result['password'], Constant::$_SALT);
-$result['token'] = $token;
+//没有重名，可以注册
+//加密密码，生成token，邀请码
+$data['password'] = md5($data['password'] . Constant::$_SALT);
+$token = generateToken($data['username'], $data['password'], Constant::$_SALT);
+$invitationCode = generateInvitationCode($data['username'], $data['password']);
 
 //增加一个会员用户
-$result['status'] = add_user($result);
-if ($result['status'] != Constant::$_CORRECT) {
+$sqlAdd = "INSERT INTO `tb_user` (
+                    `token`,
+                    `username`,
+                    `password`,
+                    `invitation_code`
+              ) VALUE (?, ?, ?, ?)";
+
+$stmt = $con->prepare($sqlAdd);
+$stmt->bind_param("ssss", $token, $data['username'], $data['password'], $invitationCode);
+$stmt->execute();
+
+$affected_rows = $stmt->affected_rows;
+
+if ($affected_rows == 1) {
+    $result['status'] = Constant::$_CORRECT;
+} else {
+    $result['status'] = Constant::$_DB_INSERT_ERROR;
     echo json_encode($result);
     exit;
 }
 
-setcookie('__username', $result['username']);
-setcookie('__password', $result['password']);
+setcookie('__username', $data['username']);
+setcookie('__password', $data['password']);
 setcookie('__token', $token);
 
+
+$stmt->close();
+$con->close();
 echo json_encode($result);
 exit;
 
@@ -79,23 +116,4 @@ function check_password($first_pass, $end_pass, $min_len)
         return Constant::$_PASSWORD_LENGTH_ERROR;
     }
     return Constant::$_CORRECT;
-}
-
-//检查数据库
-function is_username_repeat($username)
-{
-    if (isExist(toUTF8($username)))
-        return Constant::$_USERNAME_REPEAT_ERROR;
-    else
-        return Constant::$_CORRECT;
-}
-
-//新增用户
-function add_user($result)
-{
-    $invitationCode = generateInvitationCode($result['username'], $result['password']);
-    if (addUser($result['token'], $result['username'], $result['password'], $invitationCode))
-        return Constant::$_CORRECT;
-    else
-        return Constant::$_DB_INSERT_ERROR;
 }

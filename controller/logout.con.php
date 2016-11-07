@@ -6,13 +6,9 @@
  * Time: 15:35
  */
 
-header('Content-Type:text/html;charset=utf-8;');
-require substr(dirname(__FILE__), 0, -10) . 'common\connection.db.php';
-require substr(dirname(__FILE__), 0, -10) . 'common\Constant.php';
+require 'Constant.php';
 
-logout("__username", "__token");
+setcookie("__username", FALSE, time() - 1);
+setcookie("__token", FALSE, time() - 1);
 
-$result = array();
-$result['status'] = Constant::$_CORRECT;
-echo json_encode($result);
-exit;
+echo Constant::$_CORRECT;
