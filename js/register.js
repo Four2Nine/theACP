@@ -1,17 +1,11 @@
 /**
  * Created by liuyang on 2016/10/21.
  */
-
-$(".cu-error").hide();
-$(".cu-correct").hide();
-$(".cu-notification").hide();
-
+$(".cu-default-fb").hide();
 $(document).ready(function () {
     // Bind to the submit event of our form
     $("#register-form").submit(function (event) {
-
-
-        $(".cu-error").hide();
+        $(".cu-default-fb").hide();
         // Prevent default posting of form - put here to work in case of errors
         event.preventDefault();
 
@@ -29,20 +23,24 @@ $(document).ready(function () {
         // Disabled form elements will not be serialized.
         $inputs.prop("disabled", true);
 
+        var username = $("#username");
+        var password = $("#password");
+        var confirmPassword = $("#password_confirm");
+
         //验证会员名
-        if (!checkUsername($("#username").val())) {
+        if (!checkUsername(username, $("#cu-username-fb"))) {
             $inputs.prop("disabled", false);
             return false;
         }
 
         //验证密码
-        if (!checkPassword($("#password").val())) {
+        if (!checkPassword(password, $("#cu-password-fb"))) {
             $inputs.prop("disabled", false);
             return false;
         }
 
         //验证密码确认
-        if (!checkPasswordConfirm($("#password_confirm").val(), $("#password").val())) {
+        if (!checkPasswordConfirm(password, confirmPassword, $("#cu-confirm-password-fb"))) {
             $inputs.prop("disabled", false);
             return false;
         }
@@ -58,20 +56,21 @@ $(document).ready(function () {
                 var result = JSON.parse(data);
 
                 if (result.status != CORRECT) {
-                    $(".alert-danger").html(
-                        "error code: " + result.status + '<br>' + errorcode2errorinfo(result.status)
-                    ).fadeIn(800);
+                    $("#cu-submit-fb").attr("class", "cu-error-fb").html(
+                        "<span class='glyphicon glyphicon-remove'></span>&nbsp;" +
+                        "error code: " + result.status + "&nbsp;&nbsp;" + errorcode2errorinfo(result.status)
+                    ).show();
                 } else {
-                    $(".alert-success").html(
-                        "注册成功，正在登录..."
+                    $("#cu-submit-fb").attr("class", "cu-success-fb").html(
+                        "<span class='glyphicon glyphicon-ok'></span>&nbsp;注册成功，正在自动登录..."
                     ).show();
                     setTimeout(function () {
                         location.href = "/theACP/user.html";
-                    }, 1800);
+                    }, 1200);
                 }
 
                 setTimeout(function () {
-                    $(".cu-notification").fadeOut(800);
+                    $("#cu-submit-fb").fadeOut(800);
                 }, 2000);
             },
             error: function (request) {
@@ -87,12 +86,15 @@ $(document).ready(function () {
 
     //失去焦点时判断 input 的合法性
     $("#username").blur(function () {
-        checkUsername($(this).val());
+        var fb = $("#cu-username-fb");
+        fb.attr("class", "cu-success-fb").html("").fadeIn(800);
+        checkUsername($(this), fb);
     });
     $("#password").blur(function () {
-        checkPassword($(this).val())
+        checkPassword($(this), $("#cu-password-fb"))
     });
     $("#password_confirm").blur(function () {
-        checkPasswordConfirm($(this).val(), $("#password").val());
+        checkPasswordConfirm($("#password"), $(this), $("#cu-confirm-password-fb"));
     });
+
 });

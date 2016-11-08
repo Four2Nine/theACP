@@ -4,7 +4,7 @@
 
 $("#cu-interview-date").hide();
 $("#cu-medical-history").hide();
-var project_id = getQueryString("project_id");
+var project_id_GET = getQueryString("project_id");
 
 $(document).ready(function () {
 
@@ -52,10 +52,10 @@ $(document).ready(function () {
                     var id = result.projectInfo[item]['id'];
                     var name = result.projectInfo[item]['name'];
 
-                    if (project_id != null && project_id == id) {
+                    if (id == project_id_GET) {
                         html += '<li class="list-group-item">' +
                             '<lable class="cu-block mdl-radio mdl-js-radio mdl-js-ripple-effect" for="list-option-' + id + '">' +
-                            '<input checked="checked" type="radio" id="list-option-' + id + '" class="mdl-radio__button" name="project" value="' + id + '">&nbsp;' + name +
+                            '<input type="radio" checked="checked" id="list-option-' + id + '" class="mdl-radio__button" name="project" value="' + id + '">&nbsp;' + name +
                             '</lable>' +
                             '</li>';
                     } else {
@@ -65,6 +65,7 @@ $(document).ready(function () {
                             '</lable>' +
                             '</li>';
                     }
+
                 }
 
                 $(".list-group").html(html);
@@ -192,6 +193,10 @@ $(document).ready(function () {
                                     location.href = "/theACP/user.html";
                                 }, 1200);
                             }
+
+                            setTimeout(function () {
+                                $("#cu-submit-fb").fadeOut(800);
+                            }, 2000);
                         },
                         error: function (request) {
 
@@ -316,9 +321,7 @@ $(document).ready(function () {
         $.ajax({
             url: "/theACP/controller/logout.con.php",
             success: function (data) {
-                var result = JSON.parse(data);
-
-                if (result.status == CORRECT) {
+                if (data == CORRECT) {
                     location.href = "/theACP/login.html";
                 }
             }

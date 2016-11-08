@@ -6,9 +6,9 @@
  * Time: 0:37
  */
 
-header('Content-Type:text/html;charset=utf-8;');
-require substr(dirname(__FILE__), 0, -10) . 'common\connection.db.php';
-require substr(dirname(__FILE__), 0, -10) . 'common\Constant.php';
+require 'connection.db.php';
+require 'global.func.php';
+require 'Constant.php';
 
 $result = array();
 
@@ -20,7 +20,7 @@ if ($result['status'] != Constant::$_CORRECT) {
 }
 
 //验证token是否正确
-$result['status'] = is_token_exist($_COOKIE['__token']);
+$result['status'] = is_token_correct();
 
 echo json_encode($result);
 exit;
@@ -29,18 +29,33 @@ exit;
 //-----------------------------------------------------------------------
 //-----------------------------------------------------------------------
 
+/**
+ * 检测cookie是否存在
+ * __token
+ * __username
+ * __password
+ * @return int
+ */
 function is_cookie_exist()
 {
-    if (!(isset($_COOKIE['__token']) && isset($_COOKIE['__username']))) {
+    if (!(isset($_COOKIE['__token']) && isset($_COOKIE['__username'])
+        && isset($_COOKIE['__password']))
+    ) {
         return Constant::$_NOT_LOGIN;
     } else {
         return Constant::$_CORRECT;
     }
 }
 
-function is_token_exist($token)
+/**
+ * 检测token是否正确
+ * @return int
+ */
+function is_token_correct()
 {
-    if (checkToken($token)) {
+    if ($_COOKIE['__token'] ==
+        generateToken($_COOKIE['__username'], $_COOKIE['__password'], Constant::$_SALT)
+    ) {
         return Constant::$_CORRECT;
     } else {
         return Constant::$_TOKEN_INCORRECT;

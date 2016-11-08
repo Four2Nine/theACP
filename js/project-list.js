@@ -82,10 +82,13 @@ $(document).ready(function () {
                                 "<div class='blog-item mdl-shadow--2dp'>" +
                                 "<img class='img-responsive img-blog' src='../acpAdmin/" + pic_src + "' alt=''/>" +
                                 "<div class='blog-content'>" +
-                                "<a href='project-item.html?project_id=" + result.projectInfo[item]['id'] + "'><h3>" + result.projectInfo[item]['name'] + "</h3></a>" +
+                                "<a href='project-item.html?project_id=" + result.projectInfo[item]['id'] + "'><h3>" +
+                                result.projectInfo[item]['name'] + "</h3></a>" +
                                 "<div class='entry-meta'>" +
                                 "<span><i class='icon-user'></i>发布人</span>" +
-                                "<span><i class='icon-calendar'> " + result.projectInfo[item]['push_date'] + "</i></span>" +
+                                "<span>" +
+                                "<i class='icon-calendar'> " + result.projectInfo[item]['push_date'] + "</i>" +
+                                "</span>" +
                                 "<span><i class='icon-comment'></i>评论人数</span>" +
                                 "</div>" +
                                 "<p>" + result.projectInfo[item]['bright'] + "</p>" +
@@ -111,9 +114,7 @@ $(document).ready(function () {
         $.ajax({
             url: "/theACP/controller/logout.con.php",
             success: function (data) {
-                var result = JSON.parse(data);
-
-                if (result.status == CORRECT) {
+                if (data == CORRECT) {
                     location.href = "/theACP/project-list.html";
                 }
             }

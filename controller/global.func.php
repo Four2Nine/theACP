@@ -6,6 +6,11 @@
  * Time: 16:23
  */
 
+/**
+ * @param $salt1 //采用username作为盐1
+ * @param $salt2 //采用password（密）作为盐2
+ * @return string   //邀请码，唯一
+ */
 function generateInvitationCode($salt1, $salt2)
 {
     $guid = "";
@@ -27,6 +32,12 @@ function generateInvitationCode($salt1, $salt2)
     return $guid;
 }
 
+/**
+ * @param $username //用户名
+ * @param $password //密码
+ * @param $salt //盐
+ * @return string   //token
+ */
 function generateToken($username, $password, $salt)
 {
     $cookies = array();
@@ -34,19 +45,4 @@ function generateToken($username, $password, $salt)
     $cookies['password'] = $password;
     $cookies['salt'] = $salt;
     return md5(serialize($cookies));
-}
-
-function toUTF8($str)
-{
-    $encode = mb_detect_encoding($str, array('ASCII', 'UTF-8', 'GB2312', 'GBK'));
-    if (!$encode == 'UTF-8') {
-        $str = iconv('UTF-8', $encode, $str);
-    }
-    return $str;
-}
-
-function logout($cookie1, $cookie2)
-{
-    setcookie($cookie1, FALSE, time() - 1);
-    setcookie($cookie2, FALSE, time() - 1);
 }

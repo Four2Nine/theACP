@@ -2,13 +2,11 @@
  * Created by liuyang on 2016/10/22.
  */
 
-$(".cu-error").hide();
-$(".cu-correct").hide();
-$(".cu-notification").hide();
+$(".cu-default-fb").hide();
 
 $(document).ready(function () {
     $("#login-form").submit(function (event) {
-        $(".cu-error").hide();
+        $(".cu-default-fb").hide();
         // Prevent default posting of form - put here to work in case of errors
         event.preventDefault();
 
@@ -26,17 +24,20 @@ $(document).ready(function () {
         // Disabled form elements will not be serialized.
         $inputs.prop("disabled", true);
 
-        //验证会员名
-        if (!checkUsername($("#username").val())) {
+        var username = $("#username");
+        var password = $("#password");
+
+        if (!checkUsername(username, $("#cu-username-fb"))) {
             $inputs.prop("disabled", false);
             return false;
         }
 
         //验证密码
-        if (!checkPassword($("#password").val())) {
+        if (!checkPassword(password, $("#cu-password-fb"))) {
             $inputs.prop("disabled", false);
             return false;
         }
+
         $.ajax({
             url: "/theACP/controller/login.con.php",
             type: "post",
@@ -46,16 +47,17 @@ $(document).ready(function () {
                 var result = JSON.parse(data);
 
                 if (result.status != CORRECT) {
-                    $(".alert-danger").html(
-                        "error code: " + result.status + '<br>' + errorcode2errorinfo(result.status)
-                    ).fadeIn(800);
+                    $("#cu-submit-fb").attr("class", "cu-error-fb").html(
+                        "<span class='glyphicon glyphicon-remove'></span>&nbsp;" +
+                        "error code: " + result.status + "&nbsp;&nbsp;" + errorcode2errorinfo(result.status)
+                    ).show();
                 } else {
-                    $(".alert-success").html(
-                        "登录成功，正在跳转..."
+                    $("#cu-submit-fb").attr("class", "cu-success-fb").html(
+                        "<span class='glyphicon glyphicon-ok'></span>&nbsp;登录成功，正在跳转..."
                     ).show();
                     setTimeout(function () {
                         location.href = "/theACP/user.html";
-                    }, 1800);
+                    }, 1200);
                 }
 
                 setTimeout(function () {
@@ -75,9 +77,11 @@ $(document).ready(function () {
 
     //失去焦点时判断 input 的合法性
     $("#username").blur(function () {
-        checkUsername($(this).val());
+        var fb = $("#cu-username-fb");
+        fb.attr("class", "cu-success-fb").html("").fadeIn(800);
+        checkUsername($(this), fb);
     });
     $("#password").blur(function () {
-        checkPassword($(this).val())
+        checkPassword($(this), $("#cu-password-fb"))
     });
 });
