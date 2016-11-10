@@ -147,7 +147,7 @@ $(document).ready(function () {
         }
 
         $.ajax({
-            url: "/theACP/controller/user.updateInfo.con.php",
+            url: "/theACP/controller/user.update.con.php",
             type: "post",
             data: serializedData,
             success: function (data) {
