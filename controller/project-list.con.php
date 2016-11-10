@@ -42,6 +42,7 @@ while ($stmt->fetch()) {
     $item = array();
     $item['id'] = $id;
     $item['name'] = $name;
+    $item['imageFile'] = md5($name);
     $item['city'] = $city;
     $item['date'] = $date;
     $item['day'] = $day;
@@ -56,7 +57,7 @@ while ($stmt->fetch()) {
 
     $projects[$id] = $item;
 }
-$result['projectInfo'] = $projects;
+$result['projects'] = $projects;
 
 $stmt->close();
 $con->close();

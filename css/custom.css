@@ -107,3 +107,10 @@
 .span-margin {
     margin: 5px 0 5px 0 !important;
 }
+
+.cu-pre {
+    background-color: transparent !important;
+    border: 0;
+    line-height: 1.5;
+    font-size: 14px !important;
+}

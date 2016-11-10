@@ -73,27 +73,31 @@ $(document).ready(function () {
                         $("#cu-project-notification").html("暂时没有项目");
                     } else {
                         $("#cu-project-notification").hide();
-                        for (var item in result.projectInfo) {
+                        for (var item in result.projects) {
 
-                            var pic_src = getProjectFirstPic(result.projectInfo[item]['picture']);
+                            var id = result.projects[item + ""]['id'];
+                            var name = result.projects[item + ""]['name'];
+                            var image_file = result.projects[item + ""]['imageFile'];
+                            var pic_src = getProjectFirstPic(result.projects[item + ""]['picture']);
+                            var push_date = result.projects[item + ""]['push_date']
+                            var bright = result.projects[item + ""]['bright'];
 
                             $("#cu-blog-container").find(".blog:last").after(
                                 "<div class='blog'>" +
                                 "<div class='blog-item mdl-shadow--2dp'>" +
-                                "<img class='img-responsive img-blog' src='../acpAdmin/" + pic_src + "' alt=''/>" +
+                                "<img class='img-responsive img-blog' src='/theACP/images/" + image_file + "/" + pic_src + "' alt=''/>" +
                                 "<div class='blog-content'>" +
-                                "<a href='project-item.html?project_id=" + result.projectInfo[item]['id'] + "'><h3>" +
-                                result.projectInfo[item]['name'] + "</h3></a>" +
+                                "<a href='project-item.html?project_id=" + id + "'>" +
+                                "<h3>" + name + "</h3>" +
+                                "</a>" +
                                 "<div class='entry-meta'>" +
-                                "<span><i class='icon-user'></i>发布人</span>" +
                                 "<span>" +
-                                "<i class='icon-calendar'> " + result.projectInfo[item]['push_date'] + "</i>" +
+                                "<i class='icon-calendar'>&nbsp;&nbsp;" + push_date + "</i>" +
                                 "</span>" +
-                                "<span><i class='icon-comment'></i>评论人数</span>" +
                                 "</div>" +
-                                "<p>" + result.projectInfo[item]['bright'] + "</p>" +
+                                "<p>" + bright + "</p>" +
                                 "<button class='mdl-button mdl-js-button mdl-js-ripple-effect'>" +
-                                "<a href='project-item.html?project_id=" + result.projectInfo[item]['id'] + "'>" +
+                                "<a href='project-item.html?project_id=" + id + "'>" +
                                 "查看全部" +
                                 "</a>" +
                                 "</button>" +

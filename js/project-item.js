@@ -3,7 +3,7 @@
  */
 
 
-var pathToAdmin = "../acpAdmin/";
+var pathToAdmin = "/theACP/images/";
 $("li.dropdown").hide();
 $("#cu-goto-apply-btn").hide();
 $("#cu-goto-login-btn").hide();
@@ -43,18 +43,19 @@ $(document).ready(function () {
             var slideBubble = "";
             var slideImage = "";
 
-            var pics = result["acppicture"].split("@");
+            var pics = result.detail['acppicture'].split("@");
+            var img_file = result.img_file + "/";
 
             for (var item in pics) {
                 if (item == 0) {
                     slideBubble += '<li data-target="#carousel-example-generic" data-slide-to="' + item + '" class="active"></li>';
                     slideImage += '<div class="item active">' +
-                        '<img src="' + pathToAdmin + pics[item] + '">' +
+                        '<img src="' + pathToAdmin + img_file + pics[item] + '">' +
                         '</div>';
                 } else {
                     slideBubble += '<li data-target="#carousel-example-generic" data-slide-to="' + item + '"></li>';
                     slideImage += '<div class="item">' +
-                        '<img src="' + pathToAdmin + pics[item] + '">' +
+                        '<img src="' + pathToAdmin + img_file + pics[item] + '">' +
                         '</div>';
                 }
             }
@@ -63,23 +64,27 @@ $(document).ready(function () {
             carousel.find("ol").html(slideBubble);
             carousel.find("div[role='listbox']").html(slideImage);
 
-            $("#cu-project-title").html(result['acpname']);
-            $("#cu-project-title-aside").html(result['acpname']);
+            $("#cu-project-title").html(result.detail['acpname']);
+            $("#cu-project-title-aside").html(result.detail['acpname']);
 
             var description = "";
-            description += '<strong>出发城市</strong>&nbsp;&nbsp;' + result['acpcity'] + '<br><br>';
-            description += '<strong>出发日期</strong>&nbsp;&nbsp;' + result['acpdate'] + '<br><br>';
-            description += '<strong>行程天数</strong>&nbsp;&nbsp;' + result['acpday'] + '天<br><br>';
-            description += '<strong>主题</strong>&nbsp;&nbsp;' + result['acptheme'] + '<br><br>';
+            description += '<strong>出发城市</strong>&nbsp;&nbsp;' + result.detail['acpcity'] + '<br><br>';
+            description += '<strong>出发日期</strong>&nbsp;&nbsp;' + result.detail['acpdate'] + '<br><br>';
+            description += '<strong>行程天数</strong>&nbsp;&nbsp;' + result.detail['acpday'] + '天<br><br>';
+            description += '<strong>主题</strong>&nbsp;&nbsp;' + result.detail['acptheme'] + '<br><br>';
 
             $("#cu-project-based-info").html(description);
 
-            $("#cu-project-detail-info").html(
-                result['acpbright'] + "<br><br>" +
-                result['acpmean'] + "<br><br>" +
-                result['acpdetail']);
+            $("#cu-project-tips").html("<pre class='cu-pre'>" + result.detail['acptip'] + "</pre>");
 
-            $("#cu-project-tips").html(result['acptip']);
+            $("#cu-project-detail-info").html(
+                "<h5>行程亮点</h5>" +
+                "<pre class='cu-pre'>" + result.detail['acpbright'] + "<br><br>" + "</pre>" +
+                "<h5>行程意义</h5>" +
+                "<pre class='cu-pre'>" + result.detail['acpmean'] + "<br><br>" + "</pre>" +
+                "<h5>行程安排</h5>" +
+                "<pre class='cu-pre'>" + result.detail['acpdetail'] + "</pre>"
+            );
         }
     });
 

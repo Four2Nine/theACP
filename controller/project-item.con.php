@@ -10,6 +10,7 @@ require 'connection.db.php';
 require 'Constant.php';
 
 $id = $_POST['id'];
+$result = array();
 
 $pdo = new PDO('mysql:host=' . DB_HOST . ';dbname=' . DB_NAME, DB_USER, DB_PWD);
 $pdo->query("SET NAMES UTF8;");
@@ -18,10 +19,12 @@ $sql = "SELECT * FROM `tb_project` WHERE `id` = ?";
 $stmt = $pdo->prepare($sql);
 $stmt->bindParam(1, $id, PDO::PARAM_INT);
 $stmt->execute();
-$result = $stmt->fetchObject();
+$result['detail'] = $stmt->fetchObject();
 
 $stmt->closeCursor();
 $pdo = null;
+
+$result['img_file'] = md5($result['detail']->acpname);
 
 echo json_encode($result);
 exit;
