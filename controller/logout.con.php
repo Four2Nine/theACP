@@ -9,6 +9,7 @@
 require 'Constant.php';
 
 setcookie("__username", FALSE, time() - 1);
+setcookie("__password", FALSE, time() - 1);
 setcookie("__token", FALSE, time() - 1);
 
 echo Constant::$_CORRECT;
