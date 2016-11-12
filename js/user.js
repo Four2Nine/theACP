@@ -186,6 +186,13 @@ $(document).ready(function () {
         })
     });
 
+    $("#cu-copy-invitation-code").click(function () {
+        var code = $("#invitation-code");
+        code.select();
+        document.execCommand("Copy");
+        $(this).find(".mdl-tooltip").html("已复制到剪切板");
+    });
+
 });
 
 function cancelUpdate() {

@@ -209,6 +209,13 @@
 
 #cu-applies-list .mdl-list__item-secondary-content {
     margin-right: 15px;
+    color: #7b7b7b !important;
+    font-size: 14px;
+}
+
+#cu-applies-list .mdl-list__item-secondary-info {
+    color: #7b7b7b !important;
+    font-size: 14px;
 }
 
 #cu-applies-list .mdl-list__item {
@@ -218,7 +225,6 @@
 #cu-applies-list .mdl-list__item:last-child {
     border: 0;
 }
-
 /*
 *---------------------------------------------------------------------
 *   project-list.html

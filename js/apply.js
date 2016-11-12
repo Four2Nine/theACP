@@ -16,8 +16,6 @@ $(document).ready(function () {
         url: "/theACP/controller/check.login.php",
         success: function (data) {
             var result = JSON.parse(data);
-
-            $("#p2").hide();
             if (result.status != CORRECT) {
                 // 显示错误信息
                 $("#cu-apply-notification").html(
@@ -25,7 +23,7 @@ $(document).ready(function () {
                     ", 正在跳转至登录页面..."
                 );
                 setTimeout(function () {
-                    location.href = "/login.html";
+                    location.href = "/theACP/login.html";
                 }, 1200);
             } else {
                 $("#cu-apply-notification").hide();
