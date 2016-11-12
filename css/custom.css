@@ -3,6 +3,21 @@
     font-family: FontAwesome, "Hiragino Sans GB", "Microsoft YaHei", "SimHei", "微软雅黑", sans-serif;
 }
 
+.nephritis h1,
+.nephritis h2,
+.nephritis h3,
+.nephritis h4,
+.nephritis h5,
+.nephritis h6,
+.nephritis p {
+    color: #fff;
+}
+
+.cu-page-head h3 {
+    font-size: 30px;
+    margin: 10px 0 !important;
+}
+
 .cu-logo {
     font-family: FontAwesome, Helvetica, Arial, sans-serif !important;
     font-weight: bolder;
@@ -21,15 +36,6 @@
 .cu-link,
 .cu-link:hover {
     color: #2e77ff !important;
-}
-
-.cu-page-head h1,
-.cu-page-head p {
-    font-family: "黑体", Arial, sans-serif !important;
-}
-
-.cu-page-head p {
-    font-size: medium;
 }
 
 .cu-error {
@@ -218,7 +224,9 @@
 }
 
 /*
-*
+*---------------------------------------------------------------------
+*   project-list.html
+*---------------------------------------------------------------------
 */
 #cu-project-empty-state-img {
     color: #fff;
@@ -229,3 +237,27 @@
 .pagination li {
     cursor: pointer;
 }
+
+/*
+*---------------------------------------------------------------------
+*   login.html & register.html
+*---------------------------------------------------------------------
+*/
+
+#cu-login {
+    position: relative;
+    top: -100px;
+}
+
+#login-form h6,
+#register-form h6 {
+    margin: 0;
+    font-weight: lighter !important;
+}
+
+#cu-registration {
+    position: relative;
+    top: -100px;
+}
+
+

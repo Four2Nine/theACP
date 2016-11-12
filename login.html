@@ -61,51 +61,57 @@
     </div>
 </header><!--/header-->
 
-<section id="title" class="emerald">
+<section id="title" class="nephritis">
     <div class="container">
         <div class="row">
-            <div class="col-sm-6 cu-page-head">
-                <h1>登录</h1>
-                <p>报名加入我们的志愿者工作。</p>
-            </div>
-            <div class="col-sm-6">
-                <ul class="breadcrumb pull-right">
-                    <li><a href="index.html">首页</a></li>
-                    <li class="active">登录</li>
-                </ul>
+            <div class="col-sm-12 cu-page-head">
+                <h3>登录您的帐户</h3>
+                <p>登录后即可查看您的报名信息。</p>
             </div>
         </div>
     </div>
 </section><!--/#title-->
 
-<section id="login" class="container">
-    <form id="login-form" class="form-horizontal cu-form col-sm-5" role="form">
-        <div class="form-group">
-            <label for="username">会员名</label>
-            <input type="text" id="username" name="username" placeholder="会员名" pattern="-?[a-zA-Z0-9_\u4e00-\u9fa5]+?"
-                   class="form-control">
-            <span id="cu-username-fb" class="cu-default-fb"></span>
-        </div>
-        <div class="form-group">
-            <label for="password">密码</label>
-            <input type="password" id="password" name="password" placeholder="密码" class="form-control">
-            <span id="cu-password-fb" class="cu-default-fb"></span>
-        </div>
+<section id="cu-login" class="container">
+    <div class="row">
+        <aside class="col-sm-6 col-sm-push-3">
+            <div class="panel mdl-shadow--2dp">
 
-        <div class="form-group">
-            <!--<button type="submit" class="btn btn-success btn-md" id="login-btn">登录</button>-->
-            <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent"
-                    data-loading-text="登录中..." id="cu-login-btn">
-                登录
-            </button>
-            <span id="cu-submit-fb" class="cu-default-fb cu-inline"></span>
-            <br>
-            <br>
-            <p>还没有帐号？<a href="register.html" class="cu-link">立即注册</a></p>
-        </div>
-    </form>
+                <div class="mdl-card__supporting-text container">
+                    <form id="login-form" class="form-horizontal" role="form" method="post">
+                        <div class="form-group">
+                            <h6><label for="username">会员名</label></h6>
+                            <input type="text" id="username" name="username" placeholder="会员名"
+                                   pattern="-?[a-zA-Z0-9_\u4e00-\u9fa5]+?"
+                                   class="form-control">
+                            <span id="cu-username-fb" class="cu-default-fb"></span>
+                        </div>
+                        <div class="form-group">
+                            <h6><label for="password">密码</label></h6>
+                            <input type="password" id="password" name="password" placeholder="密码" class="form-control">
+                            <span id="cu-password-fb" class="cu-default-fb"></span>
+                        </div>
+                        <div class="form-group">
+                            <!--<button type="submit" class="btn btn-success btn-md" id="login-btn">登录</button>-->
+                            <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent"
+                                    data-loading-text="登录中..." id="cu-login-btn">
+                                登录
+                            </button>
+                            <span id="cu-submit-fb" class="cu-default-fb cu-inline"></span>
+                        </div>
+                    </form>
+                </div>
 
-</section><!--/#login-->
+                <div class="mdl-card__actions mdl-card--border">
+                    <button class="mdl-button mdl-js-button mdl-button--accent">
+                        <a href="register.html">还没有账号？立即注册</a>
+                    </button>
+                </div>
+            </div>
+        </aside>
+    </div>
+</section>
+
 
 <footer id="footer" class="midnight-blue">
     <div class="container">
@@ -133,5 +139,6 @@
 <script src="js/main.js"></script>
 <script src="js/com.fun.js"></script>
 <script src="js/login.js"></script>
+
 </body>
 </html>

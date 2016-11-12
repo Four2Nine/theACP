@@ -5,6 +5,9 @@ $(".cu-default-fb").hide();
 $(document).ready(function () {
     // Bind to the submit event of our form
     $("#register-form").submit(function (event) {
+
+        var $registerBtn = $("#cu-register-btn").button('loading');
+
         $(".cu-default-fb").hide();
         // Prevent default posting of form - put here to work in case of errors
         event.preventDefault();
@@ -79,6 +82,7 @@ $(document).ready(function () {
             complete: function () {
                 // Reenable the inputs
                 $inputs.prop("disabled", false);
+                $registerBtn.button('reset')
             }
         });
 

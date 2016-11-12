@@ -25,7 +25,7 @@ $(document).ready(function () {
                     ", 正在跳转至登录页面..."
                 );
                 setTimeout(function () {
-                    location.href = "/theACP/login.html";
+                    location.href = "/login.html";
                 }, 1200);
             } else {
                 $("#cu-apply-notification").hide();

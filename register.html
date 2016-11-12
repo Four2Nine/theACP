@@ -7,12 +7,13 @@
     <meta name="author" content="">
     <title>注册 | theACP</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/material.min.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/prettyPhoto.css" rel="stylesheet">
     <link href="css/animate.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
     <link href="css/custom.css" rel="stylesheet">
-    <!--[if lt IE 9]>
+    <!--[if lt IE 9]-->
     <script src="js/html5shiv.js"></script>
     <script src="js/respond.min.js"></script>
     <![endif]-->
@@ -22,7 +23,7 @@
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
 </head><!--/head-->
-<body>
+<body id="sign-bg">
 
 <header class="navbar navbar-inverse navbar-fixed-top wet-asphalt" role="banner">
     <div class="container">
@@ -60,53 +61,63 @@
     </div>
 </header><!--/header-->
 
-<section id="title" class="emerald">
+<section id="title" class="nephritis">
     <div class="container">
         <div class="row">
-            <div class="col-sm-6 cu-page-head">
-                <h1>注册一个帐号</h1>
-                <p>注册一个帐号即可报名加入我们的志愿者工作。</p>
-            </div>
-            <div class="col-sm-6">
-                <ul class="breadcrumb pull-right">
-                    <li><a href="index.html">首页</a></li>
-                    <li class="active">注册</li>
-                </ul>
+            <div class="col-sm-12 cu-page-head">
+                <h3>注册一个帐号</h3>
+                <p>注册一个帐号即可报名加入我们。</p>
             </div>
         </div>
     </div>
 </section><!--/#title-->
 
-<section id="registration" class="container">
+<section id="cu-registration" class="container">
+    <div class="row">
+        <aside class="col-sm-6 col-sm-push-3">
+            <div class="panel mdl-shadow--2dp">
+                <div class="mdl-card__supporting-text container">
+                    <form id="register-form" class="form-horizontal cu-form" role="form" method="post">
+                        <div class="form-group">
+                            <h6><label for="username">会员名</label></h6>
+                            <input type="text" id="username" name="username" placeholder="支持字母数字中文和下划线"
+                                   class="form-control">
+                            <span id="cu-username-fb" class="cu-default-fb"></span>
+                        </div>
 
-    <form id="register-form" class="form-horizontal cu-form col-sm-5" role="form" method="post">
-        <div class="form-group">
-            <label for="username">会员名</label>
-            <input type="text" id="username" name="username" placeholder="支持字母数字中文和下划线" class="form-control">
-            <span id="cu-username-fb" class="cu-default-fb"></span>
-        </div>
+                        <div class="form-group">
+                            <h6><label for="password">密码</label></h6>
+                            <input type="password" id="password" name="password" placeholder="至少6位"
+                                   class="form-control">
+                            <span id="cu-password-fb" class="cu-default-fb"></span>
+                        </div>
+                        <div class="form-group">
+                            <h6><label for="password_confirm">密码确认</label></h6>
+                            <input type="password" id="password_confirm" name="password_confirm" placeholder="再次输入密码"
+                                   class="form-control">
+                            <span id="cu-confirm-password-fb" class="cu-default-fb"></span>
+                        </div>
 
-        <div class="form-group">
-            <label for="password">密码</label>
-            <input type="password" id="password" name="password" placeholder="至少6位" class="form-control">
-            <span id="cu-password-fb" class="cu-default-fb"></span>
-        </div>
-        <div class="form-group">
-            <label for="password_confirm">密码确认</label>
-            <input type="password" id="password_confirm" name="password_confirm" placeholder="再次输入密码"
-                   class="form-control">
-            <span id="cu-confirm-password-fb" class="cu-default-fb"></span>
-        </div>
+                        <div class="form-group">
+                            <!--<button type="submit" class="btn btn-success btn-md" id="register-btn">注册</button>-->
+                            <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent"
+                                    data-loading-text=正在注册..." id="cu-register-btn">
+                                立即注册
+                            </button>
+                            <span id="cu-submit-fb" class="cu-default-fb cu-inline"></span>
+                        </div>
+                    </form>
+                </div>
 
-        <div class="form-group">
-            <button type="submit" class="btn btn-success btn-md" id="register-btn">注册</button>
-            <span id="cu-submit-fb" class="cu-default-fb cu-inline"></span>
-            <br>
-            <br>
-            <p>已有帐号？<a href="login.html" class="cu-link">直接登录</a></p>
-        </div>
+                <div class="mdl-card__actions mdl-card--border">
+                    <button class="mdl-button mdl-js-button mdl-button--accent">
+                        <a href="login.html">已有帐号？直接登录</a>
+                    </button>
+                </div>
 
-    </form>
+            </div>
+        </aside>
+    </div>
 </section><!--/#registration-->
 
 <footer id="footer" class="midnight-blue">
@@ -129,6 +140,7 @@
 </footer><!--/#footer-->
 
 <script src="js/jquery.js"></script>
+<script src="js/material.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/jquery.prettyPhoto.js"></script>
 <script src="js/main.js"></script>
