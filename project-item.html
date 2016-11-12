@@ -1,6 +1,3 @@
-<?
-define("NAV", "project");
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -72,7 +69,8 @@ define("NAV", "project");
     <div class="row">
 
         <aside class="col-sm-4 col-sm-push-8">
-            <div class="panel mdl-shadow--2dp">
+
+            <div class="panel panel-default mdl-shadow--2dp">
                 <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
                     <!-- Indicators -->
                     <ol class="carousel-indicators"></ol>
@@ -81,29 +79,47 @@ define("NAV", "project");
                     <div class="carousel-inner" role="listbox"></div>
                 </div>
 
-                <h5 class="mdl-card__title" id="cu-project-title-aside"></h5>
-
-                <div class="mdl-card__supporting-text" id="cu-project-based-info">
+                <div class="panel-heading">
+                    <strong id="cu-project-title-aside"></strong>
                 </div>
+                <!--<h5 class="mdl-card__title" id="cu-project-title-aside"></h5>-->
 
-                <div class="mdl-card__actions mdl-card--border" id="cu-goto-apply">
-                    <button class="mdl-button mdl-js-button mdl-js-ripple-effect disabled" id="cu-goto-login-btn">
-                        <a>您还未登录，无法报名</a>
-                    </button>
-                    <button class="mdl-button mdl-js-button mdl-js-ripple-effect disabled" id="cu-goto-apply-btn">
-                        <a>立即报名</a>
-                    </button>
-                </div>
+                <!--<div class="mdl-card__supporting-text" id="cu-project-based-info">-->
+                <!--</div>-->
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <span class="glyphicon glyphicon-plane"></span>&nbsp;
+                        <span id="city"></span>
+                    </li>
+                    <li class="list-group-item">
+                        <span class="glyphicon glyphicon-calendar"></span>&nbsp;
+                        <span id="date"></span>
+                    </li>
+                    <li class="list-group-item">
+                        <span class="glyphicon glyphicon-time"></span>&nbsp;
+                        <span id="day"></span>
+                    </li>
+                    <li class="list-group-item">
+                        <span class="glyphicon glyphicon-heart"></span>&nbsp;
+                        <span id="theme"></span>
+                    </li>
+                </ul>
+            </div>
+
+            <div id="cu-goto-apply">
+                <button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="cu-goto-login-btn">
+                    <span>您还未登录，无法报名</span>
+                </button>
+                <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" id="cu-goto-apply-btn">
+                    <span>立即报名</span>
+                </button>
             </div>
         </aside>
 
         <div class="col-sm-8 col-sm-pull-4">
+            <h3 id="cu-project-title"></h3>
 
             <div class="panel mdl-shadow--2dp">
-                <div class="mdl-card__title">
-                    <h3 class="mdl-card__title-text" id="cu-project-title"></h3>
-                </div>
-
                 <div class="panel-body">
                     <p id="cu-project-detail-info"></p>
                 </div>
@@ -116,12 +132,18 @@ define("NAV", "project");
                     </div>
                     <div class="media-body">
                         <div class="media-heading">
-                            <strong>注意:</strong>
+                            <h5>注意事项:</h5>
                         </div>
                         <p id="cu-project-tips"></p>
                     </div>
                 </div>
             </div>
+
+            <button class="btn-link">
+                <a href="project-list.html">
+                    <span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;返回项目列表
+                </a>
+            </button>
         </div>
 
     </div><!--/.row-->

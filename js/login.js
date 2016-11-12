@@ -6,6 +6,9 @@ $(".cu-default-fb").hide();
 
 $(document).ready(function () {
     $("#login-form").submit(function (event) {
+
+        var $loginBtn = $("#cu-login-btn").button('loading');
+
         $(".cu-default-fb").hide();
         // Prevent default posting of form - put here to work in case of errors
         event.preventDefault();
@@ -43,7 +46,6 @@ $(document).ready(function () {
             type: "post",
             data: serializedData,
             success: function (data) {
-
                 var result = JSON.parse(data);
 
                 if (result.status != CORRECT) {
@@ -67,9 +69,10 @@ $(document).ready(function () {
             error: function (request) {
 
             },
-            complete: function (data) {
+            complete: function () {
                 // Reenable the inputs
                 $inputs.prop("disabled", false);
+                $loginBtn.button('reset');
             }
         });
 

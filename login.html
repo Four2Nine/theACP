@@ -10,9 +10,10 @@
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/prettyPhoto.css" rel="stylesheet">
     <link href="css/animate.css" rel="stylesheet">
+    <link href="css/material.min.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
     <link href="css/custom.css" rel="stylesheet">
-    <!--[if lt IE 9]>
+    <!--[if lt IE 9]-->
     <script src="js/html5shiv.js"></script>
     <script src="js/respond.min.js"></script>
     <![endif]-->
@@ -78,11 +79,11 @@
 </section><!--/#title-->
 
 <section id="login" class="container">
-
     <form id="login-form" class="form-horizontal cu-form col-sm-5" role="form">
         <div class="form-group">
             <label for="username">会员名</label>
-            <input type="text" id="username" name="username" placeholder="会员名" class="form-control">
+            <input type="text" id="username" name="username" placeholder="会员名" pattern="-?[a-zA-Z0-9_\u4e00-\u9fa5]+?"
+                   class="form-control">
             <span id="cu-username-fb" class="cu-default-fb"></span>
         </div>
         <div class="form-group">
@@ -92,7 +93,11 @@
         </div>
 
         <div class="form-group">
-            <button type="submit" class="btn btn-success btn-md" id="login-btn">登录</button>
+            <!--<button type="submit" class="btn btn-success btn-md" id="login-btn">登录</button>-->
+            <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent"
+                    data-loading-text="登录中..." id="cu-login-btn">
+                登录
+            </button>
             <span id="cu-submit-fb" class="cu-default-fb cu-inline"></span>
             <br>
             <br>
@@ -122,6 +127,7 @@
 </footer><!--/#footer-->
 
 <script src="js/jquery.js"></script>
+<script src="js/material.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/jquery.prettyPhoto.js"></script>
 <script src="js/main.js"></script>

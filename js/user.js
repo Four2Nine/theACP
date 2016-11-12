@@ -2,6 +2,9 @@
  * Created by liuyang on 2016/10/23.
  */
 
+$("#cu-empty-state").hide();
+$("#cu-applies-form").hide();
+
 $("#cu-new-password").hide();
 $("#cu-confirm-new-password").hide();
 $("#cu-update-user-info-form").parent().hide();
@@ -15,7 +18,6 @@ $(document).ready(function () {
         success: function (data) {
             var result = JSON.parse(data);
 
-            $("#p2").hide();
             if (result.status != CORRECT) {
                 $("#cu-user-notification").html(
                     "error code: " + result.status + '<br>' + errorcode2errorinfo(result.status) + "正在跳转至登录页面..."
@@ -27,6 +29,7 @@ $(document).ready(function () {
             } else {
                 //登录状态验证成功，获取信息（包括用户信息和报名的醒目信息）
                 $("#cu-user-notification").fadeOut(500);
+                $("#cu-applies-loading").fadeOut(500);
                 $.ajax({
                     url: "/theACP/controller/user.con.php",
                     success: function (data) {
@@ -54,18 +57,29 @@ $(document).ready(function () {
                         } else {
                             //显示用户已经报名的项目，以及进度
                             if (result.apply_info == null || result.apply_info.length == 0) {
-                                $("table tbody>tr>td").html("没有已报名项目");
+                                $("#cu-empty-state").fadeIn(800);
                             } else {
-                                var html = "";
+                                $("#cu-applies-form").show();
+                                var html = '';
                                 for (var item in result.apply_info) {
-                                    html += "<tr>" +
-                                        "<td>" + item + "</td>" +
-                                        "<td>" + result.apply_info[item + ""]['project_id'] + "</td>" +
-                                        "<td>" + result.apply_info[item + ""]['status'] + "</td>" +
-                                        "</tr>";
-                                }
 
-                                $("table tbody").html(html).fadeIn(300);
+                                    var id = result.apply_info[item + ""]['id'];
+                                    var project_name = result.apply_info[item + ""]['project_name'];
+                                    var status = result.apply_info[item + ""]['status'];
+                                    var time = result.apply_info[item + ""]['apply_time'];
+
+                                    html += '<li class="mdl-list__item">' +
+                                        '<span class="mdl-list__item-action">' +
+                                        '<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="list-checkbox-' + id + '">' +
+                                        '<input type="checkbox" id="list-checkbox-' + id + '" name="list-checkbox-' + id + '" class="mdl-checkbox__input"/>' +
+                                        '</label>' +
+                                        '</span>' +
+                                        '<span class="mdl-list__item-primary-content">' + project_name + '</span>' +
+                                        '<span class="mdl-list__item-secondary-content">' + time + '</span>' +
+                                        '<span class="mdl-list__item-secondary-info">' + status + '</span>' +
+                                        '</li>';
+                                }
+                                $("#cu-applies-list").html(html).fadeIn(800);
                             }
                         }
                     }

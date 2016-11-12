@@ -70,15 +70,15 @@
         <aside class="col-sm-4 col-sm-push-8">
             <div id="cu-project-list-aside" class="panel mdl-shadow--2dp">
                 <div class="mdl-card__title">
-                    <h2 class="mdl-card__title-text">theACP志愿者</h2>
+                    <h2 class="mdl-card__title-text">theACP</h2>
                 </div>
-                <div class="mdl-card__supporting-text">
+                <div class="mdl-card__supporting-text" id="cu-project-list-aside-card__supporting-text">
                     作为斯里兰卡国内官方志愿者组织的国内分支，theACP致力于提供最顶级的义工之旅, 同时收取最为可接收的项目费用。
                 </div>
 
                 <div class="mdl-card__actions mdl-card--border">
-                    <button id="cu-link-to-about-btn" class="mdl-button mdl-js-button mdl-js-ripple-effect">
-                        <a>了解更多</a>
+                    <button class="mdl-button mdl-js-button mdl-button--accent">
+                        <a href="about-us.html">了解更多</a>
                     </button>
                 </div>
             </div>
@@ -86,13 +86,28 @@
 
         <div class="col-sm-8 col-sm-pull-4">
 
-            <div id="p2" class="mdl-progress mdl-js-progress mdl-progress__indeterminate"></div>
-            <p id="cu-project-notification">正在获取数据...</p>
+            <div class="center" id="cu-project-list-loading">
+                <div class="mdl-spinner mdl-js-spinner is-active"></div>
+            </div>
+
+            <!--empty-state-->
+            <div class="row panel mdl-shadow--2dp" id="cu-empty-state">
+                <div class="col-xm-4 col-sm-6">
+                    <div id="cu-project-empty-state-img"></div>
+                </div>
+                <div class="col-xm-8">
+                    <div class="panel-body col-sm-6">
+                        <h4 class="center">暂时没有项目</h4>
+                        <p class="center">Sorry! 暂时没有任何项目，到别处逛逛</p>
+                    </div>
+                </div>
+            </div>
+
 
             <div id="cu-blog-container">
                 <div class="blog hidden"></div>
 
-                <ul class="pagination pagination-lg">
+                <ul class="pagination pagination-md">
                     <li onclick="prevPage()"><a><i class="icon-angle-left"></i></a></li>
                     <li onclick="nextPage()"><a><i class="icon-angle-right"></i></a></li>
                 </ul><!--/.pagination-->

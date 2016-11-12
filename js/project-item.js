@@ -67,13 +67,10 @@ $(document).ready(function () {
             $("#cu-project-title").html(result.detail['acpname']);
             $("#cu-project-title-aside").html(result.detail['acpname']);
 
-            var description = "";
-            description += '<strong>出发城市</strong>&nbsp;&nbsp;' + result.detail['acpcity'] + '<br><br>';
-            description += '<strong>出发日期</strong>&nbsp;&nbsp;' + result.detail['acpdate'] + '<br><br>';
-            description += '<strong>行程天数</strong>&nbsp;&nbsp;' + result.detail['acpday'] + '天<br><br>';
-            description += '<strong>主题</strong>&nbsp;&nbsp;' + result.detail['acptheme'] + '<br><br>';
-
-            $("#cu-project-based-info").html(description);
+            $("#city").html(result.detail['acpcity']);
+            $("#date").html(result.detail['acpdate']);
+            $("#day").html(result.detail['acpday']);
+            $("#theme").html(result.detail['acptheme']);
 
             $("#cu-project-tips").html("<pre class='cu-pre'>" + result.detail['acptip'] + "</pre>");
 

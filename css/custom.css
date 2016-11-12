@@ -1,3 +1,8 @@
+*, body, h1, h2, h3, h4, h5, h6, a, p, span, label, section, article, pre, button,
+.entry-meta {
+    font-family: FontAwesome, "Hiragino Sans GB", "Microsoft YaHei", "SimHei", "微软雅黑", sans-serif;
+}
+
 .cu-logo {
     font-family: FontAwesome, Helvetica, Arial, sans-serif !important;
     font-weight: bolder;
@@ -91,8 +96,9 @@
 
 #cu-project-list-aside .mdl-card__title {
     color: #fff;
-    height: 170px;
+    height: 240px;
     background: #78909b url("../images/project/volunteer.icon.png") center no-repeat;
+    /*background: #8da9b6 url("../images/about-us/about-us.logo.png") center no-repeat;*/
 }
 
 #cu-about-us-logo {
@@ -108,9 +114,118 @@
     margin: 5px 0 5px 0 !important;
 }
 
+/*
+*---------------------------------------------------------------------
+*   index.html
+*---------------------------------------------------------------------
+*/
+
+.item p {
+    font-size: 18px;
+    font-weight: lighter;
+}
+
+/*
+*---------------------------------------------------------------------
+*   about-us.html
+*---------------------------------------------------------------------
+*/
+.cu-title {
+    font-weight: lighter !important;
+}
+
+.cu-subtitle {
+    font-size: 17px !important;
+    font-weight: lighter !important;
+}
+
+/*
+*---------------------------------------------------------------------
+*   project-list.html
+*---------------------------------------------------------------------
+*/
+#cu-project-list-aside-card__supporting-text {
+    font-size: 16px;
+    line-height: 1.4 !important;
+}
+
+.icon-calendar {
+    font-size: 14px;
+}
+
+.cu-project-list__bright-text {
+    font-size: 16px;
+    font-weight: lighter;
+    color: #181818;
+}
+
+/*
+*---------------------------------------------------------------------
+*   project-item.html
+*---------------------------------------------------------------------
+*/
+#cu-project-title {
+    padding-bottom: 20px;
+}
+
 .cu-pre {
     background-color: transparent !important;
     border: 0;
-    line-height: 1.5;
-    font-size: 14px !important;
+    line-height: 1.6;
+    font-size: 15px !important;
+}
+
+/*
+*---------------------------------------------------------------------
+*   user.html
+*---------------------------------------------------------------------
+*/
+#cu-user-profile .mdl-card__title {
+    color: #fff;
+    height: 170px;
+    background: #BA68C8 url("../images/user/profile.png") center no-repeat;
+}
+
+#cu-empty-state .col-xm-4 {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+#cu-applies-empty-state-img {
+    color: #fff;
+    height: 240px;
+    background: #26C6DA url("../images/user/no-applies.png") center no-repeat;
+}
+
+#cu-applies-list {
+    margin: 0;
+}
+
+#cu-applies-list .mdl-list__item-action {
+    margin-right: 15px;
+}
+
+#cu-applies-list .mdl-list__item-secondary-content {
+    margin-right: 15px;
+}
+
+#cu-applies-list .mdl-list__item {
+    border-bottom: 1px solid #dedede;
+}
+
+#cu-applies-list .mdl-list__item:last-child {
+    border: 0;
+}
+
+/*
+*
+*/
+#cu-project-empty-state-img {
+    color: #fff;
+    height: 240px;
+    background: #172568 url("../images/project/no-project.png") center no-repeat;
+}
+
+.pagination li {
+    cursor: pointer;
 }

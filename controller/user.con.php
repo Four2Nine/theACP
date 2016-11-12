@@ -40,19 +40,21 @@ if (count($userInfo) == 0) {
 }
 
 //获取会员的报名表
-$sql = "SELECT `id`, `project_id`, `status` FROM `tb_apply` WHERE `user_token` = ?";
+$sql = "SELECT a.id, p.acpname, a.status, a.apply_time FROM `tb_apply` a, `tb_project` p 
+WHERE `user_token` = ? AND a.project_id = p.id";
 $stmt = $con->prepare($sql);
 $stmt->bind_param("s", $_COOKIE['__token']);
 $stmt->execute();
 
 $stmt->store_result();
-$stmt->bind_result($id, $project_id, $status);
+$stmt->bind_result($id, $project_name, $status, $time);
 
 $applyInfo = array();
 while ($stmt->fetch()) {
     $item = array();
     $item['id'] = $id;
-    $item['project_id'] = $project_id;
+    $item['project_name'] = $project_name;
+    $item['apply_time'] = $time;
     switch ($status) {
         case 0:
             $item['status'] = "待审核";

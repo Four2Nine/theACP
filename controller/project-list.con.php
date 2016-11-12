@@ -28,7 +28,7 @@ $result['projectNum'] = $stmt->num_rows;
 
 //获取项目的详情
 $sqlDetail = "SELECT `id`, `acpname`, `acpcity`, `acpdate`, `acpday`, `acptheme`, `acpbright`, 
-`acpmean`, `acpdetail`, `acptip`, `acppicture`, `acppushdate`, `acpistop` FROM `tb_project` LIMIT ?, ?";
+`acpmean`, `acpdetail`, `acptip`, `acppicture`, `acppushdate`, `acpistop` FROM `tb_project` ORDER BY `id` DESC LIMIT ?, ?";
 $stmt = $con->prepare($sqlDetail);
 $stmt->bind_param("ii", $start, $num);
 $stmt->execute();

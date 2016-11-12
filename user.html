@@ -65,60 +65,11 @@
     </div>
 </header><!--/header-->
 
-<section id="title" class="emerald">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-6 cu-page-head">
-                <h1>个人中心</h1>
-                <p></p>
-            </div>
-            <div class="col-sm-6">
-                <ul class="breadcrumb pull-right">
-                    <li><a href="index.html">首页</a></li>
-                    <li class="active">会员 - 个人中心</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</section><!--/#title-->
-
 <section class="container">
 
-    <div class="col-sm-7">
-        <div id="p2" class="mdl-progress mdl-js-progress mdl-progress__indeterminate"></div>
-        <p id="cu-user-notification">正在验证登录状态...</p>
-
-        <div class="panel panel-default mdl-shadow--2dp">
-            <div class="panel-heading">
-                <strong>已报名的项目</strong>
-            </div>
-
-            <div class="table-responsive">
-                <table class="table table-striped">
-                    <thead>
-                    <tr>
-                        <td>#</td>
-                        <td>项目名称</td>
-                        <td>申请状态</td>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td colspan="4" class="center">
-                            <div class="mdl-spinner mdl-js-spinner is-active"></div>
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
-    </div>
-
-    <aside class="col-sm-5">
-        <div class="panel panel-default mdl-shadow--2dp">
-            <div class="panel-heading">
-                <strong>会员资料</strong>
+    <aside class="col-sm-4 col-sm-push-8">
+        <div id="cu-user-profile" class="panel mdl-shadow--2dp">
+            <div class="mdl-card__title">
             </div>
             <ul class="list-group">
                 <li class="list-group-item">
@@ -132,7 +83,7 @@
                 <li class="list-group-item">
                     <div class="input-group">
 
-                        <input id="invitation-code" class="form-control"/>
+                        <input id="invitation-code" class="form-control" title=""/>
 
                         <div id="cu-copy-invitation-code" class="input-group-addon">
                             <span id="copy2board" class="glyphicon glyphicon-link"></span>
@@ -194,8 +145,48 @@
                 </li>
             </ul>
         </div>
-
     </aside>
+
+    <div class="col-sm-8 col-sm-pull-4">
+        <p id="cu-user-notification"></p>
+
+        <div class="center" id="cu-applies-loading">
+            <div class="mdl-spinner mdl-js-spinner is-active"></div>
+        </div>
+
+        <!--没有报名表-->
+        <div class="row panel mdl-shadow--2dp" id="cu-empty-state">
+            <div class="col-xm-4 col-sm-6">
+                <div id="cu-applies-empty-state-img"></div>
+            </div>
+            <div class="col-xm-8">
+                <div class="panel-body col-sm-6">
+                    <h4 class="center">没有找到报名表</h4>
+                    <p class="center">您提交过的报名表会显示于此，可以查看报名审核进度</p>
+                    <div class="center">
+                        <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent">
+                            <a href="apply.html" style="color: #fff;">立即报名</a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--有报名表-->
+        <form id="cu-applies-form">
+            <div class="panel mdl-shadow--2dp">
+                <ul class="mdl-list" id="cu-applies-list">
+                </ul>
+            </div>
+            <div class="pull-right">
+                <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" disabled>
+                    <span>删除</span>
+                </button>
+            </div>
+        </form>
+
+    </div>
+
 </section>
 
 <footer id="footer" class="midnight-blue">
