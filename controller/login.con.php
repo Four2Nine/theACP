@@ -19,7 +19,7 @@ $data['username'] = $_POST["username"];
 $data['password'] = md5($_POST["password"] . Constant::$_SALT);
 
 //表中是否存在相同用户名
-$sql = "SELECT * FROM `tb_user` WHERE `username` = ? LIMIT 1";
+$sql = "SELECT * FROM `tb_user` WHERE `username` COLLATE utf8_bin = ? LIMIT 1";
 $stmt = $con->prepare($sql);
 $stmt->bind_param("s", $data['username']);
 $stmt->execute();
