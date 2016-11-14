@@ -204,13 +204,16 @@ function cancelUpdate() {
 
 //检测姓名
 function checkName(tar, fb) {
-    if (tar.val() == "") {
-        tar.parent("div").removeClass("has-success").addClass("has-error");
-        fb.attr("class", "cu-error-fb").html(
-            "<span class='glyphicon glyphicon-remove'></span>&nbsp;不能为空"
-        ).fadeIn(800);
-        return false;
-    } else if (tar.val().length > 20) {
+    /*
+     if (tar.val() == "") {
+     tar.parent("div").removeClass("has-success").addClass("has-error");
+     fb.attr("class", "cu-error-fb").html(
+     "<span class='glyphicon glyphicon-remove'></span>&nbsp;不能为空"
+     ).fadeIn(800);
+     return false;
+     } else
+     */
+    if (tar.val().length > 20) {
         tar.parent("div").removeClass("has-success").addClass("has-error");
         fb.attr("class", "cu-error-fb").html(
             "<span class='glyphicon glyphicon-remove'></span>&nbsp;长度不能超过20个字符"
