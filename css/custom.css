@@ -262,4 +262,9 @@
     top: -100px;
 }
 
+.midnight-blue-active {
+    background-color: #2b6190 !important;
+    border-radius: 4px !important;
+}
+
 

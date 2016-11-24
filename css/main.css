@@ -319,7 +319,7 @@ body > section {
 }
 
 .wet-asphalt {
-    background-color: #34495e;
+    background-color: #396d9d;
 }
 
 .wet-asphalt a:not(.btn) {
@@ -331,7 +331,7 @@ body > section {
 }
 
 .midnight-blue {
-    background-color: #2c3e50;
+    background-color: #174b7b;
 }
 
 .concrete {
@@ -853,11 +853,11 @@ ul.tag-cloud li {
 .navbar-inverse .navbar-nav > .open > a,
 .navbar-inverse .navbar-nav > .open > a:hover,
 .navbar-inverse .navbar-nav > .open > a:focus {
-    background-color: #2c3e50;
+    background-color: #2b6190;
 }
 
 .navbar-inverse .navbar-nav .dropdown-menu {
-    background-color: #2c3e50;
+    background-color: #2b6190;
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
     box-shadow: none;
