@@ -12,7 +12,7 @@ require 'Constant.php';
 $con = mysqli_connect(DB_HOST, DB_USER, DB_PWD, DB_NAME);
 $con->query("SET NAMES UTF8;");
 
-$currentPage = (int)$_GET['currentPage'];
+$currentPage = (int)$_POST['currentPage'];
 
 $num = 3;
 $start = ($currentPage - 1) * $num;

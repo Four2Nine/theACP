@@ -42,7 +42,7 @@ $(document).ready(function () {
         }
 
         $.ajax({
-            url: "/theACP/controller/login.con.php",
+            url: "/controller/login.con.php",
             type: "post",
             data: serializedData,
             success: function (data) {
@@ -58,7 +58,7 @@ $(document).ready(function () {
                         "<span class='glyphicon glyphicon-ok'></span>&nbsp;登录成功，正在跳转..."
                     ).show();
                     setTimeout(function () {
-                        location.href = "/theACP/user.html";
+                        location.href = "user.html";
                     }, 1200);
                 }
 

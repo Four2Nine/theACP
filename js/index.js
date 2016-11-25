@@ -7,7 +7,7 @@ $("li.dropdown").hide();
 $(document).ready(function () {
     //验证登录状态
     $.ajax({
-        url: "/theACP/controller/check.login.php",
+        url: "/controller/check.login.php",
         success: function (data) {
             var result = JSON.parse(data);
             if (result.status == CORRECT) {
@@ -27,7 +27,7 @@ $(document).ready(function () {
     });
 
     $.ajax({
-        url: "/theACP/controller/index.con.php",
+        url: "/controller/index.con.php",
         success: function (data) {
             var result = JSON.parse(data);
             var slideBubble = "";
@@ -51,10 +51,10 @@ $(document).ready(function () {
     //退出登录
     $("#cu-logout").click(function () {
         $.ajax({
-            url: "/theACP/controller/logout.con.php",
+            url: "/controller/logout.con.php",
             success: function (data) {
                 if (data == CORRECT) {
-                    location.href = "/theACP/index.html";
+                    location.href = "index.html";
                 }
             }
         })

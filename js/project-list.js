@@ -17,8 +17,8 @@ $(document).ready(function () {
 
     //获取项目列表并显示
     $.ajax({
-        url: "/theACP/controller/project-list.con.php",
-        type: "get",
+        url: "/controller/project-list.con.php",
+        type: "post",
         data: {currentPage: currentPage},
         success: function (data) {
 
@@ -42,7 +42,7 @@ $(document).ready(function () {
                     $("#cu-blog-container").find(".blog:first").before(
                         "<div class='blog'>" +
                         "<div class='blog-item mdl-shadow--2dp'>" +
-                        "<img class='img-responsive img-blog' src='/theACP/images/" + image_file + "/" + pic_src + "' alt=''/>" +
+                        "<img class='img-responsive img-blog' src='images/" + image_file + "/" + pic_src + "' alt=''/>" +
                         "<div class='blog-content'>" +
                         "<a href='project-item.html?project_id=" + id + "'>" +
                         "<h3>" + name + "</h3>" +
@@ -95,7 +95,7 @@ $(document).ready(function () {
 
     //验证登录状态
     $.ajax({
-        url: "/theACP/controller/check.login.php",
+        url: "/controller/check.login.php",
         success: function (data) {
             var result = JSON.parse(data);
             if (result.status != CORRECT) {
@@ -117,10 +117,10 @@ $(document).ready(function () {
     //退出登录
     $("#cu-logout").click(function () {
         $.ajax({
-            url: "/theACP/controller/logout.con.php",
+            url: "/controller/logout.con.php",
             success: function (data) {
                 if (data == CORRECT) {
-                    location.href = "/theACP/project-list.html";
+                    location.href = "project-list.html";
                 }
             }
         })
@@ -130,17 +130,17 @@ $(document).ready(function () {
 
 function goPage(page) {
     if (page != currentPage)
-        location.href = "/theACP/project-list.html?p=" + page;
+        location.href = "project-list.html?p=" + page;
 }
 
 function prevPage() {
     var page = Math.max(currentPage - 1, 1);
     if (page != currentPage)
-        location.href = "/theACP/project-list.html?p=" + page;
+        location.href = "project-list.html?p=" + page;
 }
 
 function nextPage() {
     var page = Math.min(pageNum, currentPage + 1);
     if (page != currentPage)
-        location.href = "/theACP/project-list.html?p=" + page;
+        location.href = "project-list.html?p=" + page;
 }

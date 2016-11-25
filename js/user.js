@@ -14,7 +14,7 @@ $("#submit-update-form").hide();
 $(document).ready(function () {
     //验证登录状态
     $.ajax({
-        url: "/theACP/controller/check.login.php",
+        url: "/controller/check.login.php",
         success: function (data) {
             var result = JSON.parse(data);
 
@@ -24,14 +24,14 @@ $(document).ready(function () {
                 );
 
                 setTimeout(function () {
-                    location.href = "/theACP/login.html";
+                    location.href = "login.html";
                 }, 1200);
             } else {
                 //登录状态验证成功，获取信息（包括用户信息和报名的醒目信息）
                 $("#cu-user-notification").fadeOut(500);
                 $("#cu-applies-loading").fadeOut(500);
                 $.ajax({
-                    url: "/theACP/controller/user.con.php",
+                    url: "/controller/user.con.php",
                     success: function (data) {
                         var result = JSON.parse(data);
 
@@ -91,10 +91,10 @@ $(document).ready(function () {
     //退出登录
     $("#cu-logout").click(function () {
         $.ajax({
-            url: "/theACP/controller/logout.con.php",
+            url: "/controller/logout.con.php",
             success: function (data) {
                 if (data == CORRECT) {
-                    location.href = "/theACP/login.html";
+                    location.href = "login.html";
                 }
             }
         })
@@ -161,7 +161,7 @@ $(document).ready(function () {
         }
 
         $.ajax({
-            url: "/theACP/controller/user.update.con.php",
+            url: "/controller/user.update.con.php",
             type: "post",
             data: serializedData,
             success: function (data) {
@@ -213,6 +213,12 @@ function checkName(tar, fb) {
      return false;
      } else
      */
+    if (tar.val() == "") {
+        tar.parent("div").removeClass("has-error").addClass("has-success");
+        fb.attr("class", "cu-success-fb").html("").fadeIn(800);
+        return true;
+    }
+
     if (tar.val().length > 20) {
         tar.parent("div").removeClass("has-success").addClass("has-error");
         fb.attr("class", "cu-error-fb").html(

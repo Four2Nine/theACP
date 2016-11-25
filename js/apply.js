@@ -13,7 +13,7 @@ $(document).ready(function () {
 
     //验证登录状态
     $.ajax({
-        url: "/theACP/controller/check.login.php",
+        url: "/controller/check.login.php",
         success: function (data) {
             var result = JSON.parse(data);
             if (result.status != CORRECT) {
@@ -23,7 +23,7 @@ $(document).ready(function () {
                     ", 正在跳转至登录页面..."
                 );
                 setTimeout(function () {
-                    location.href = "/theACP/login.html";
+                    location.href = "login.html";
                 }, 1200);
             } else {
                 $("#cu-apply-notification").hide();
@@ -33,7 +33,7 @@ $(document).ready(function () {
 
     //从数据库获取项目列表，如果有项目才可以报名，没有的话就无法报名
     $.ajax({
-        url: "/theACP/controller/apply.getProject.con.php",
+        url: "/controller/apply.getProject.con.php",
         success: function (data) {
             var result = JSON.parse(data);
 
@@ -172,7 +172,7 @@ $(document).ready(function () {
                     }
 
                     $.ajax({
-                        url: "/theACP/controller/apply.con.php",
+                        url: "/controller/apply.con.php",
                         type: "post",
                         data: serializedData,
                         success: function (data) {
@@ -188,7 +188,7 @@ $(document).ready(function () {
                                     "<span class='glyphicon glyphicon-ok'></span>&nbsp;报名成功..."
                                 ).show();
                                 setTimeout(function () {
-                                    location.href = "/theACP/user.html";
+                                    location.href = "user.html";
                                 }, 1200);
                             }
 
@@ -317,10 +317,10 @@ $(document).ready(function () {
     //退出登录
     $("#cu-logout").click(function () {
         $.ajax({
-            url: "/theACP/controller/logout.con.php",
+            url: "/controller/logout.con.php",
             success: function (data) {
                 if (data == CORRECT) {
-                    location.href = "/theACP/login.html";
+                    location.href = "login.html";
                 }
             }
         })
