@@ -2,21 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="68bf7b96-db2d-43e4-bcf0-84d1f4ab4a97" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/controller/login.fun.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/com.fun.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/login.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/404.php" afterPath="$PROJECT_DIR$/404.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/about-us.php" afterPath="$PROJECT_DIR$/about-us.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/common/Constant.php" afterPath="$PROJECT_DIR$/common/Constant.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/common/mysql.func.php" afterPath="$PROJECT_DIR$/common/mysql.func.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controller/register.fun.php" afterPath="$PROJECT_DIR$/controller/register.fun.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/register.js" afterPath="$PROJECT_DIR$/js/register.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project-item.php" afterPath="$PROJECT_DIR$/project-item.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project-list.php" afterPath="$PROJECT_DIR$/project-list.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/register.html" afterPath="$PROJECT_DIR$/register.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/login.php" afterPath="$PROJECT_DIR$/login.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/apply.wechat.js" afterPath="$PROJECT_DIR$/js/apply.wechat.js" />
     </list>
     <ignored path="theACP.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -37,14 +24,78 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="connection.db.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/controller/connection.db.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="184">
+              <caret line="8" column="22" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="register.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/register.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="350">
-              <caret line="149" column="28" selection-start-line="149" selection-start-column="28" selection-end-line="149" selection-end-column="28" />
+            <state relative-caret-position="418">
+              <caret line="148" column="7" selection-start-line="148" selection-start-column="7" selection-end-line="148" selection-end-column="7" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="apply.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/apply.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="414">
+              <caret line="35" column="52" selection-start-line="35" selection-start-column="8" selection-end-line="35" selection-end-column="52" />
               <folding>
-                <element signature="e#5407#5413#0" expanded="true" />
+                <element signature="e#331#949#0" expanded="false" />
+                <element signature="n#!!block;n#checkEmpty#0" expanded="false" />
+                <element signature="e#10750#10922#0" expanded="false" />
+                <element signature="e#10987#11157#0" expanded="false" />
+                <element signature="e#11317#11523#0" expanded="false" />
+                <marker date="1480167260802" expanded="true" signature="2040:2046" ph=" " />
+                <marker date="1480167260802" expanded="true" signature="2496:2502" ph=" " />
+                <marker date="1480167260802" expanded="true" signature="7325:7331" ph=" " />
+                <marker date="1480167260802" expanded="true" signature="7393:7399" ph=" " />
+                <marker date="1480167260802" expanded="true" signature="7399:7405" ph=" " />
+                <marker date="1480167260802" expanded="true" signature="7644:7650" ph=" " />
+                <marker date="1480167260802" expanded="true" signature="8376:8382" ph=" " />
+                <marker date="1480167260802" expanded="true" signature="8505:8511" ph=" " />
+                <marker date="1480167260802" expanded="true" signature="10488:10494" ph=" " />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="apply.wechat.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/apply.wechat.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="329">
+              <caret line="76" column="24" selection-start-line="76" selection-start-column="24" selection-end-line="76" selection-end-column="24" />
+              <folding>
+                <element signature="e#370#2070#0" expanded="false" />
+                <marker date="1480167583695" expanded="true" signature="1403:1409" ph=" " />
+                <marker date="1480167583695" expanded="true" signature="1859:1865" ph=" " />
+                <marker date="1480167583695" expanded="true" signature="7207:7213" ph=" " />
+                <marker date="1480167583695" expanded="true" signature="7287:7293" ph=" " />
+                <marker date="1480167583695" expanded="true" signature="7293:7299" ph=" " />
+                <marker date="1480167583695" expanded="true" signature="7586:7592" ph=" " />
+                <marker date="1480167583695" expanded="true" signature="8692:8698" ph=" " />
+                <marker date="1480167583695" expanded="true" signature="8833:8839" ph=" " />
+                <marker date="1480167583695" expanded="true" signature="11063:11069" ph=" " />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="apply.wechat.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apply.wechat.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3277">
+              <caret line="262" column="39" selection-start-line="262" selection-start-column="39" selection-end-line="262" selection-end-column="39" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -53,9 +104,13 @@
         <entry file="file://$PROJECT_DIR$/js/login.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="240">
-              <caret line="47" column="40" selection-start-line="47" selection-start-column="40" selection-end-line="47" selection-end-column="40" />
+              <caret line="47" column="38" selection-start-line="47" selection-start-column="38" selection-end-line="47" selection-end-column="38" />
               <folding>
                 <element signature="e#0#44#0" expanded="false" />
+                <marker date="1480166890068" expanded="true" signature="1683:1689" ph=" " />
+                <marker date="1480166890068" expanded="true" signature="1751:1757" ph=" " />
+                <marker date="1480166890068" expanded="true" signature="1757:1763" ph=" " />
+                <marker date="1480166890068" expanded="true" signature="2002:2008" ph=" " />
               </folding>
             </state>
           </provider>
@@ -64,60 +119,8 @@
       <file leaf-file-name="login.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/login.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="810">
-              <caret line="87" column="34" selection-start-line="87" selection-start-column="34" selection-end-line="87" selection-end-column="34" />
-              <folding>
-                <element signature="e#5173#5179#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="login.fun.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/controller/login.fun.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="17" column="47" selection-start-line="17" selection-start-column="47" selection-end-line="17" selection-end-column="47" />
-              <folding>
-                <element signature="e#6#89#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="mysql.func.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/common/mysql.func.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="40">
-              <caret line="8" column="3" selection-start-line="8" selection-start-column="3" selection-end-line="8" selection-end-column="3" />
-              <folding>
-                <element signature="e#6#89#0#PHP" expanded="true" />
-                <marker date="1477135651334" expanded="true" signature="257:298" ph="SELECT COUNT... tb_user" />
-                <marker date="1477135651334" expanded="true" signature="734:756" ph="SELECT * FRO... " />
-                <marker date="1477135651334" expanded="true" signature="734:799" ph="SELECT id FR... ${$table}" />
-                <marker date="1477135651334" expanded="true" signature="1162:1174" ph="INSERT INTO ``... " />
-                <marker date="1477135651334" expanded="true" signature="1162:1183" ph="INSERT INTO `${$table}`... " />
-                <marker date="1477135651334" expanded="true" signature="1162:1270" ph="INSERT INTO `${$table}`... " />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="register.fun.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/controller/register.fun.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Constant.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/common/Constant.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="17" column="50" selection-start-line="17" selection-start-column="50" selection-end-line="17" selection-end-column="50" />
+            <state relative-caret-position="163">
+              <caret line="94" column="17" selection-start-line="94" selection-start-column="17" selection-end-line="94" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -185,6 +188,8 @@
         <option value="$PROJECT_DIR$/controller/register.fun.php" />
         <option value="$PROJECT_DIR$/common/mysql.func.php" />
         <option value="$PROJECT_DIR$/common/Constant.php" />
+        <option value="$PROJECT_DIR$/js/apply.js" />
+        <option value="$PROJECT_DIR$/js/apply.wechat.js" />
       </list>
     </option>
   </component>
@@ -199,10 +204,10 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" interpreter_name="PHP" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="490" />
-    <option name="y" value="39" />
-    <option name="width" value="859" />
-    <option name="height" value="739" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1382" />
+    <option name="height" value="744" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -229,11 +234,70 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane">
-        <subPane />
-      </pane>
-      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="theACP" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="theACP" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="theACP" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="theACP" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="theACP" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="open-resource" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="theACP" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="theACP" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="theACP" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="theACP" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controller" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -244,6 +308,7 @@
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="js.eslint.eslintPackage" value="" />
+    <property name="js-jscs-nodeInterpreter" value="C:\Program Files\nodejs\node.exe" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -343,6 +408,7 @@
       <workItem from="1477036061471" duration="24638000" />
       <workItem from="1477108338683" duration="1931000" />
       <workItem from="1477110382078" duration="20346000" />
+      <workItem from="1480166912774" duration="1623000" />
     </task>
     <task id="LOCAL-00001" summary="初始化静态模板">
       <created>1476894664513</created>
@@ -435,17 +501,24 @@
       <option name="project" value="LOCAL" />
       <updated>1477129544426</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Merge branch 'master' into server&#10;&#10;# Conflicts:&#10;#&#9;js/apply.js&#10;wechat apply">
+      <created>1480168537066</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1480168537066</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="68942000" />
+    <option name="totallyTimeSpent" value="70565000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="490" y="39" width="859" height="739" extended-state="0" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27093595" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19894099" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -491,7 +564,8 @@
     <MESSAGE value="修复uc会多出'&gt;'的bug" />
     <MESSAGE value="html表单提交到js页面，经过js验证后，post方式传递给php页面，在php页面对数据库操作后返回结果给js页面，然后js控制html页面的内容显示（提示功能）" />
     <MESSAGE value="注册页面逻辑基本完成" />
-    <option name="LAST_COMMIT_MESSAGE" value="注册页面逻辑基本完成" />
+    <MESSAGE value="Merge branch 'master' into server&#10;&#10;# Conflicts:&#10;#&#9;js/apply.js&#10;wechat apply" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merge branch 'master' into server&#10;&#10;# Conflicts:&#10;#&#9;js/apply.js&#10;wechat apply" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
@@ -502,24 +576,7 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/blog-item.html" />
-    <entry file="file://$PROJECT_DIR$/blog.html" />
-    <entry file="file://$PROJECT_DIR$/sendemail.php" />
-    <entry file="file://$PROJECT_DIR$/images/ads/ad1.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/images/ads/ad2.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/images/ads/ad3.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/images/ads/ad3.png" />
     <entry file="file://$PROJECT_DIR$/images/ico/apple-touch-icon-144-precomposed.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -535,31 +592,11 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/images/portfolio/full/item2.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/images/portfolio/full/item1.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/images/portfolio/recent/item1.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/images/portfolio/recent/item2.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/images/portfolio/thumb/item1.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/images/portfolio/full/item2.jpg" />
+    <entry file="file://$PROJECT_DIR$/images/portfolio/full/item1.jpg" />
+    <entry file="file://$PROJECT_DIR$/images/portfolio/recent/item1.png" />
+    <entry file="file://$PROJECT_DIR$/images/portfolio/recent/item2.png" />
+    <entry file="file://$PROJECT_DIR$/images/portfolio/thumb/item1.jpg" />
     <entry file="file://$PROJECT_DIR$/images/prettyPhoto/dark_rounded/btnPrevious.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -590,16 +627,8 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/images/logo.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/images/team-member.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/images/logo.png" />
+    <entry file="file://$PROJECT_DIR$/images/team-member.jpg" />
     <entry file="file://$PROJECT_DIR$/css/font-awesome.min.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
@@ -635,14 +664,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/common/global.func.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="537">
-          <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/common/global.func.php" />
     <entry file="file://$PROJECT_DIR$/images/slider/bg1.jpg">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -652,18 +674,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="261">
           <caret line="45" column="49" selection-start-line="45" selection-start-column="30" selection-end-line="45" selection-end-column="49" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/common/connection.db.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="10" column="28" selection-start-line="10" selection-start-column="28" selection-end-line="10" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/common/connection.db.php" />
     <entry file="file://$PROJECT_DIR$/js/bootstrap.min.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -674,40 +688,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/404.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="71" column="23" selection-start-line="71" selection-start-column="23" selection-end-line="71" selection-end-column="23" />
-          <folding>
-            <element signature="e#2928#2934#0#HTML" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project-list.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="222" column="23" selection-start-line="222" selection-start-column="23" selection-end-line="222" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project-item.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="317" column="23" selection-start-line="317" selection-start-column="23" selection-end-line="317" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/about-us.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="199" column="23" selection-start-line="199" selection-start-column="23" selection-end-line="199" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/404.php" />
+    <entry file="file://$PROJECT_DIR$/project-list.php" />
+    <entry file="file://$PROJECT_DIR$/project-item.php" />
+    <entry file="file://$PROJECT_DIR$/about-us.php" />
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="224">
@@ -720,7 +704,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="473">
           <caret line="39" column="1" selection-start-line="39" selection-start-column="1" selection-end-line="39" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -739,83 +722,106 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="320">
           <caret line="94" column="3" selection-start-line="94" selection-start-column="3" selection-end-line="94" selection-end-column="3" />
-          <folding>
-            <element signature="e#249#2368#0" expanded="false" />
-            <element signature="e#2433#2478#0" expanded="false" />
-            <element signature="e#2517#2561#0" expanded="false" />
-            <element signature="e#2608#2682#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/register.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="149" column="28" selection-start-line="149" selection-start-column="28" selection-end-line="149" selection-end-column="28" />
+        <state relative-caret-position="418">
+          <caret line="148" column="7" selection-start-line="148" selection-start-column="7" selection-end-line="148" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controller/login.fun.php" />
+    <entry file="file://$PROJECT_DIR$/controller/register.fun.php" />
+    <entry file="file://$PROJECT_DIR$/common/mysql.func.php" />
+    <entry file="file://$PROJECT_DIR$/common/Constant.php" />
+    <entry file="file://$PROJECT_DIR$/js/apply.wechat.result.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="14" column="1" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/apply.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="35" column="52" selection-start-line="35" selection-start-column="8" selection-end-line="35" selection-end-column="52" />
           <folding>
-            <element signature="e#5407#5413#0" expanded="true" />
+            <element signature="e#331#949#0" expanded="false" />
+            <element signature="n#!!block;n#checkEmpty#0" expanded="false" />
+            <element signature="e#10750#10922#0" expanded="false" />
+            <element signature="e#10987#11157#0" expanded="false" />
+            <element signature="e#11317#11523#0" expanded="false" />
+            <marker date="1480167260802" expanded="true" signature="2040:2046" ph=" " />
+            <marker date="1480167260802" expanded="true" signature="2496:2502" ph=" " />
+            <marker date="1480167260802" expanded="true" signature="7325:7331" ph=" " />
+            <marker date="1480167260802" expanded="true" signature="7393:7399" ph=" " />
+            <marker date="1480167260802" expanded="true" signature="7399:7405" ph=" " />
+            <marker date="1480167260802" expanded="true" signature="7644:7650" ph=" " />
+            <marker date="1480167260802" expanded="true" signature="8376:8382" ph=" " />
+            <marker date="1480167260802" expanded="true" signature="8505:8511" ph=" " />
+            <marker date="1480167260802" expanded="true" signature="10488:10494" ph=" " />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/apply.wechat.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="329">
+          <caret line="76" column="24" selection-start-line="76" selection-start-column="24" selection-end-line="76" selection-end-column="24" />
+          <folding>
+            <element signature="e#370#2070#0" expanded="false" />
+            <marker date="1480167583695" expanded="true" signature="1403:1409" ph=" " />
+            <marker date="1480167583695" expanded="true" signature="1859:1865" ph=" " />
+            <marker date="1480167583695" expanded="true" signature="7207:7213" ph=" " />
+            <marker date="1480167583695" expanded="true" signature="7287:7293" ph=" " />
+            <marker date="1480167583695" expanded="true" signature="7293:7299" ph=" " />
+            <marker date="1480167583695" expanded="true" signature="7586:7592" ph=" " />
+            <marker date="1480167583695" expanded="true" signature="8692:8698" ph=" " />
+            <marker date="1480167583695" expanded="true" signature="8833:8839" ph=" " />
+            <marker date="1480167583695" expanded="true" signature="11063:11069" ph=" " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apply.wechat.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3277">
+          <caret line="262" column="39" selection-start-line="262" selection-start-column="39" selection-end-line="262" selection-end-column="39" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/login.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
-          <caret line="47" column="40" selection-start-line="47" selection-start-column="40" selection-end-line="47" selection-end-column="40" />
+          <caret line="47" column="38" selection-start-line="47" selection-start-column="38" selection-end-line="47" selection-end-column="38" />
           <folding>
             <element signature="e#0#44#0" expanded="false" />
+            <marker date="1480166890068" expanded="true" signature="1683:1689" ph=" " />
+            <marker date="1480166890068" expanded="true" signature="1751:1757" ph=" " />
+            <marker date="1480166890068" expanded="true" signature="1757:1763" ph=" " />
+            <marker date="1480166890068" expanded="true" signature="2002:2008" ph=" " />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/login.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="810">
-          <caret line="87" column="34" selection-start-line="87" selection-start-column="34" selection-end-line="87" selection-end-column="34" />
-          <folding>
-            <element signature="e#5173#5179#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controller/login.fun.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="17" column="47" selection-start-line="17" selection-start-column="47" selection-end-line="17" selection-end-column="47" />
-          <folding>
-            <element signature="e#6#89#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controller/register.fun.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+        <state relative-caret-position="163">
+          <caret line="94" column="17" selection-start-line="94" selection-start-column="17" selection-end-line="94" selection-end-column="17" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/common/mysql.func.php">
+    <entry file="file://$PROJECT_DIR$/controller/connection.db.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="40">
-          <caret line="8" column="3" selection-start-line="8" selection-start-column="3" selection-end-line="8" selection-end-column="3" />
-          <folding>
-            <element signature="e#6#89#0#PHP" expanded="true" />
-            <marker date="1477135651334" expanded="true" signature="257:298" ph="SELECT COUNT... tb_user" />
-            <marker date="1477135651334" expanded="true" signature="734:756" ph="SELECT * FRO... " />
-            <marker date="1477135651334" expanded="true" signature="734:799" ph="SELECT id FR... ${$table}" />
-            <marker date="1477135651334" expanded="true" signature="1162:1174" ph="INSERT INTO ``... " />
-            <marker date="1477135651334" expanded="true" signature="1162:1183" ph="INSERT INTO `${$table}`... " />
-            <marker date="1477135651334" expanded="true" signature="1162:1270" ph="INSERT INTO `${$table}`... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common/Constant.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="17" column="50" selection-start-line="17" selection-start-column="50" selection-end-line="17" selection-end-column="50" />
+        <state relative-caret-position="184">
+          <caret line="8" column="22" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
           <folding />
         </state>
       </provider>

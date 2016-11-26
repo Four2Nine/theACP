@@ -14,7 +14,7 @@ $(document).ready(function () {
 
     //从数据库获取项目列表，如果有项目才可以报名，没有的话就无法报名
     $.ajax({
-        url: "/theACP/controller/apply.getProject.con.php",
+        url: "/controller/apply.getProject.con.php",
         success: function (data) {
             var result = JSON.parse(data);
 
@@ -169,7 +169,7 @@ $(document).ready(function () {
         tempNaPa = $name + $phone_number;
 
         $.ajax({
-            url: "/theACP/controller/register.con.php",
+            url: "/controller/register.con.php",
             type: "post",
             data: {username: tempNaPa, password: tempNaPa, password_confirm: tempNaPa},
             success: function (data) {
@@ -177,7 +177,7 @@ $(document).ready(function () {
 
                 if (result.status == CORRECT) {
                     $.ajax({
-                        url: "/theACP/controller/apply.con.php",
+                        url: "/controller/apply.con.php",
                         type: "post",
                         data: serializedData,
                         success: function (data) {
@@ -319,18 +319,6 @@ $(document).ready(function () {
 
     //下载报名表
     $("#cu-apply-download-btn").click(function () {
-        window.location.href = '/theACP/open-resource/项目报名表.doc';
-    });
-
-    //退出登录
-    $("#cu-logout").click(function () {
-        $.ajax({
-            url: "/theACP/controller/logout.con.php",
-            success: function (data) {
-                if (data == CORRECT) {
-                    location.href = "/theACP/login.html";
-                }
-            }
-        })
+        window.location.href = 'open-resource/apply.doc';
     });
 });
