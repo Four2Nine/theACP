@@ -46,7 +46,11 @@ $sql = "SELECT `id` FROM tb_user WHERE `token` = ?";
 $stmt = $con->prepare($sql);
 $stmt->bind_param("s", $data['user_token']);
 $stmt->execute();
+$stmt->store_result();
 $stmt->bind_result($user_id);
+while ($stmt->fetch()) {
+    $data['user_id'] = $user_id;
+}
 
 $sql = "INSERT INTO `tb_apply` (
                     `user_id`,
@@ -79,7 +83,7 @@ $sql = "INSERT INTO `tb_apply` (
 
 $stmt = $con->prepare($sql);
 $stmt->bind_param("sisisssssssssssiissisiiiis",
-    $user_id,
+    $data['user_id'],
     $data['project'],
     $data['name'],
     $data['gender'],
@@ -112,6 +116,7 @@ $affected_rows = $stmt->affected_rows;
 
 if ($affected_rows == 1) {
     $result['status'] = Constant::$_CORRECT;
+    $result['u'] = $data['name'] . $data['phone_number'];
 } else {
     $result['status'] = Constant::$_DB_INSERT_ERROR;
 }
