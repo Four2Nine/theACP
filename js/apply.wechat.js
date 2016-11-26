@@ -1,45 +1,26 @@
 /**
- * Created by liuyang on 2016/10/25.
+ * Created by liuyang on 2016/11/26.
  */
-
 $("#cu-interview-date").hide();
 $("#cu-medical-history").hide();
 var project_id_GET = getQueryString("project_id");
+
+var tempNaPa;
 
 $(document).ready(function () {
 
     var is_apply_interview = $("#is_apply_interview");
     var is_medical_history = $("#is_medical_history");
 
-    //验证登录状态
-    $.ajax({
-        url: "/controller/check.login.php",
-        success: function (data) {
-            var result = JSON.parse(data);
-            if (result.status != CORRECT) {
-                // 显示错误信息
-                $("#cu-apply-notification").html(
-                    "error code: " + result.status + '<br>' + errorcode2errorinfo(result.status) +
-                    ", 正在跳转至登录页面..."
-                );
-                setTimeout(function () {
-                    location.href = "login.html";
-                }, 1200);
-            } else {
-                $("#cu-apply-notification").hide();
-            }
-        }
-    });
-
     //从数据库获取项目列表，如果有项目才可以报名，没有的话就无法报名
     $.ajax({
-        url: "/controller/apply.getProject.con.php",
+        url: "/theACP/controller/apply.getProject.con.php",
         success: function (data) {
             var result = JSON.parse(data);
 
             if (result.projectNum == 0) {
                 $(".list-group").html(
-                    '<div class="alert alert-danger">Oh snap!  暂未开通任何项目, 无法报名</div>'
+                    '<div class="alert alert-danger">Ops! 暂未开通任何项目, 无法报名</div>'
                 );
 
                 $("#apply-form").find("button[type='submit']").addClass("disabled");
@@ -90,6 +71,9 @@ $(document).ready(function () {
         // Disabled form elements will not be serialized.
         $inputs.prop("disabled", true);
 
+        $name = $("#name").val();
+        $phone_number = $("#phone_number").val();
+
         //开始验证表单内容格式是否合法
         var project = $("input[name=project]:checked").val();
         if (project == undefined) {
@@ -97,12 +81,12 @@ $(document).ready(function () {
             return false;
         }
 
-        if ($("#name").val() == "") {
+        if ($name == "") {
             showErrorInfo("姓名没有填写，请检查", "不能为空", $("#cu-name-fb"), $inputs);
             return false;
         }
 
-        if ($("#name").val().length > 20) {
+        if ($name.length > 20) {
             showErrorInfo("姓名太长了", "俄罗斯人的名字也没有这么长吧!", $("#cu-name-fb"), $inputs);
         }
 
@@ -111,12 +95,12 @@ $(document).ready(function () {
             return false;
         }
 
-        if ($("#phone_number").val() == "") {
+        if ($phone_number == "") {
             showErrorInfo("电话号码没有填写，请检查", "不能为空", $("#cu-phone-number-fb"), $inputs);
             return false;
         }
 
-        if ($("#phone_number").val().length < 6) {
+        if ($phone_number.length < 6) {
             showErrorInfo("电话号码太短点吧", "不加区号的座机号都比你长", $("#cu-phone-number-fb"), $inputs);
         }
 
@@ -124,7 +108,6 @@ $(document).ready(function () {
             showErrorInfo("邮箱没有填写，请检查", "不能为空", $("#cu-email-fb"), $inputs);
             return false;
         }
-
         if ($("#wechat").val() == "") {
             showErrorInfo("微信号没有填写，请检查", "不能为空", $("#cu-wechat-fb"), $inputs);
             return false;
@@ -183,156 +166,171 @@ $(document).ready(function () {
             }
         }
 
+        tempNaPa = $name + $phone_number;
+
         $.ajax({
-            url: "/controller/apply.con.php",
+            url: "/theACP/controller/register.con.php",
             type: "post",
-            data: serializedData,
+            data: {username: tempNaPa, password: tempNaPa, password_confirm: tempNaPa},
             success: function (data) {
                 var result = JSON.parse(data);
-                if (result.status != CORRECT) {
-                    // 显示错误信息
-                    $("#cu-submit-fb").attr("class", "cu-error-fb").html(
-                        "<span class='glyphicon glyphicon-remove'></span>&nbsp;" +
-                        "error code: " + result.status + "&nbsp;&nbsp;" + errorcode2errorinfo(result.status)
-                    ).show();
+
+                if (result.status == CORRECT) {
+                    $.ajax({
+                        url: "/theACP/controller/apply.con.php",
+                        type: "post",
+                        data: serializedData,
+                        success: function (data) {
+                            var result = JSON.parse(data);
+
+                            if (result.status != CORRECT) {
+                                // 显示错误信息
+                                $("#cu-submit-fb").attr("class", "cu-error-fb").html(
+                                    "<span class='glyphicon glyphicon-remove'></span>&nbsp;" +
+                                    "error code: " + result.status + "&nbsp;&nbsp;" + errorcode2errorinfo(result.status)
+                                ).show();
+                            } else {
+                                $("#cu-submit-fb").attr("class", "cu-success-fb").html(
+                                    "<span class='glyphicon glyphicon-ok'></span>&nbsp;报名成功..."
+                                ).show();
+
+                                setTimeout(function () {
+                                    location.href = "apply.wechat.result.html?s=1&u=" + result.u;
+                                }, 1200);
+                            }
+
+                            setTimeout(function () {
+                                $("#cu-submit-fb").fadeOut(800);
+                            }, 2000);
+                        },
+                        error: function (request) {
+
+                        },
+                        complete: function () {
+                            // Reenable the inputs
+                            $inputs.prop("disabled", false);
+                        }
+                    });
                 } else {
-                    $("#cu-submit-fb").attr("class", "cu-success-fb").html(
-                        "<span class='glyphicon glyphicon-ok'></span>&nbsp;报名成功..."
-                    ).show();
-                    setTimeout(function () {
-                        location.href = "user.html";
-                    }, 1200);
+                    location.href = "apply.wechat.result.html?s=0";
                 }
-
-                setTimeout(function () {
-                    $("#cu-submit-fb").fadeOut(800);
-                }, 2000);
-            },
-            error: function (request) {
-
-            },
-            complete: function () {
-                // Reenable the inputs
-                $inputs.prop("disabled", false);
             }
         });
     });
 
-});
-
-//点击提交时判断input的合法性
-function showErrorInfo(info1, info2, fb, inputs) {
-    $("#cu-submit-fb").attr("class", "cu-error-fb").html(
-        "<span class='glyphicon glyphicon-remove'></span>&nbsp;" + info1
-    ).show();
-    fb.attr("class", "cu-error-fb").html(
-        "<span class='glyphicon glyphicon-remove'></span>&nbsp;" + info2
-    ).fadeIn(800);
-    inputs.prop("disabled", false);
-}
-
-
-//失去焦点时判断 input 的合法性
-$("#name").blur(function () {
-    checkEmpty($(this), $("#cu-name-fb"));
-});
-$("#nationality").blur(function () {
-    checkEmpty($(this), $("#cu-nationality-fb"));
-});
-$("#phone_number").blur(function () {
-    checkEmpty($(this), $("#cu-phone-number-fb"));
-});
-$("#email").blur(function () {
-    checkEmpty($(this), $("#cu-email-fb"));
-});
-$("#wechat").blur(function () {
-    checkEmpty($(this), $("#cu-wechat-fb"));
-});
-$("#id_card_number").blur(function () {
-    checkEmpty($(this), $("#cu-id-card-number-fb"));
-});
-$("#passport_number").blur(function () {
-    checkEmpty($(this), $("#cu-passport-number-fb"));
-});
-$("#province").blur(function () {
-    checkEmpty($(this), $("#cu-province-fb"));
-});
-$("#post_address").blur(function () {
-    checkEmpty($(this), $("#cu-post-address-fb"));
-});
-$("#city_of_departure").blur(function () {
-    checkEmpty($(this), $("#cu-city-of-departure-fb"));
-});
-$("#emergency_contact_name").blur(function () {
-    checkEmpty($(this), $("#cu-emergency-contact-name-fb"));
-});
-$("#emergency_contact_phone_number").blur(function () {
-    checkEmpty($(this), $("#cu-emergency-contact-phone-number-fb"));
-});
-$("#duration").blur(function () {
-    checkEmpty($(this), $("#cu-duration-fb"));
-});
-$("#start_date").blur(function () {
-    checkEmpty($(this), $("#cu-start-date-fb"));
-});
-$("#interview_date").blur(function () {
-    if (is_apply_interview.is(':checked')) {
-        checkEmpty($(this), $("#cu-interview-date-fb"));
-    }
-});
-$("#medical_history").blur(function () {
-    if (is_medical_history.is(':checked')) {
-        checkEmpty($(this), $("#cu-medical-history-fb"));
-    }
-});
-
-
-//验证表单是否为空，如果是空的话显示错误信息
-function checkEmpty(tar, fb) {
-    if (tar.val() == "") {
-        tar.parent("div").removeClass("has-success").addClass("has-error");
+    //点击提交时判断input的合法性
+    function showErrorInfo(info1, info2, fb, inputs) {
+        $("#cu-submit-fb").attr("class", "cu-error-fb").html(
+            "<span class='glyphicon glyphicon-remove'></span>&nbsp;" + info1
+        ).show();
         fb.attr("class", "cu-error-fb").html(
-            "<span class='glyphicon glyphicon-remove'></span>&nbsp;不能为空"
+            "<span class='glyphicon glyphicon-remove'></span>&nbsp;" + info2
         ).fadeIn(800);
-    } else {
-        tar.parent("div").removeClass("has-error").addClass("has-success");
-        fb.attr("class", "cu-success-fb").html("").fadeIn(800);
+        inputs.prop("disabled", false);
     }
-}
 
-//是否有重大疾病，是的话才会显示重大疾病的填写文本框
-is_medical_history.click(function () {
-    var check = $(this);
-    if (check.is(':checked')) {
-        $("#cu-medical-history").fadeIn(800);
-    } else {
-        $("#cu-medical-history").fadeOut(300);
-    }
-});
-
-//是否申请面试，是的话才会显示面试时间的选择
-is_apply_interview.click(function () {
-    var check = $(this);
-    if (check.is(':checked')) {
-        $("#cu-interview-date").fadeIn(800);
-    } else {
-        $("#cu-interview-date").fadeOut(300);
-    }
-});
-
-//下载报名表
-$("#cu-apply-download-btn").click(function () {
-    window.location.href = 'open-resource/apply.doc';
-});
-
-//退出登录
-$("#cu-logout").click(function () {
-    $.ajax({
-        url: "/controller/logout.con.php",
-        success: function (data) {
-            if (data == CORRECT) {
-                location.href = "login.html";
-            }
+    //失去焦点时判断 input 的合法性
+    $("#name").blur(function () {
+        checkEmpty($(this), $("#cu-name-fb"));
+    });
+    $("#nationality").blur(function () {
+        checkEmpty($(this), $("#cu-nationality-fb"));
+    });
+    $("#phone_number").blur(function () {
+        checkEmpty($(this), $("#cu-phone-number-fb"));
+    });
+    $("#email").blur(function () {
+        checkEmpty($(this), $("#cu-email-fb"));
+    });
+    $("#wechat").blur(function () {
+        checkEmpty($(this), $("#cu-wechat-fb"));
+    });
+    $("#id_card_number").blur(function () {
+        checkEmpty($(this), $("#cu-id-card-number-fb"));
+    });
+    $("#passport_number").blur(function () {
+        checkEmpty($(this), $("#cu-passport-number-fb"));
+    });
+    $("#province").blur(function () {
+        checkEmpty($(this), $("#cu-province-fb"));
+    });
+    $("#post_address").blur(function () {
+        checkEmpty($(this), $("#cu-post-address-fb"));
+    });
+    $("#city_of_departure").blur(function () {
+        checkEmpty($(this), $("#cu-city-of-departure-fb"));
+    });
+    $("#emergency_contact_name").blur(function () {
+        checkEmpty($(this), $("#cu-emergency-contact-name-fb"));
+    });
+    $("#emergency_contact_phone_number").blur(function () {
+        checkEmpty($(this), $("#cu-emergency-contact-phone-number-fb"));
+    });
+    $("#duration").blur(function () {
+        checkEmpty($(this), $("#cu-duration-fb"));
+    });
+    $("#start_date").blur(function () {
+        checkEmpty($(this), $("#cu-start-date-fb"));
+    });
+    $("#interview_date").blur(function () {
+        if (is_apply_interview.is(':checked')) {
+            checkEmpty($(this), $("#cu-interview-date-fb"));
         }
-    })
+    });
+    $("#medical_history").blur(function () {
+        if (is_medical_history.is(':checked')) {
+            checkEmpty($(this), $("#cu-medical-history-fb"));
+        }
+    });
+
+
+    //验证表单是否为空，如果是空的话显示错误信息
+    function checkEmpty(tar, fb) {
+        if (tar.val() == "") {
+            tar.parent("div").removeClass("has-success").addClass("has-error");
+            fb.attr("class", "cu-error-fb").html(
+                "<span class='glyphicon glyphicon-remove'></span>&nbsp;不能为空"
+            ).fadeIn(800);
+        } else {
+            tar.parent("div").removeClass("has-error").addClass("has-success");
+            fb.attr("class", "cu-success-fb").html("").fadeIn(800);
+        }
+    }
+
+    //是否有重大疾病，是的话才会显示重大疾病的填写文本框
+    is_medical_history.click(function () {
+        var check = $(this);
+        if (check.is(':checked')) {
+            $("#cu-medical-history").fadeIn(800);
+        } else {
+            $("#cu-medical-history").fadeOut(300);
+        }
+    });
+
+    //是否申请面试，是的话才会显示面试时间的选择
+    is_apply_interview.click(function () {
+        var check = $(this);
+        if (check.is(':checked')) {
+            $("#cu-interview-date").fadeIn(800);
+        } else {
+            $("#cu-interview-date").fadeOut(300);
+        }
+    });
+
+    //下载报名表
+    $("#cu-apply-download-btn").click(function () {
+        window.location.href = '/theACP/open-resource/项目报名表.doc';
+    });
+
+    //退出登录
+    $("#cu-logout").click(function () {
+        $.ajax({
+            url: "/theACP/controller/logout.con.php",
+            success: function (data) {
+                if (data == CORRECT) {
+                    location.href = "/theACP/login.html";
+                }
+            }
+        })
+    });
 });

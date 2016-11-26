@@ -41,8 +41,19 @@ $data['interview_date'] = $_POST['interview_date'];
 $con = mysqli_connect(DB_HOST, DB_USER, DB_PWD, DB_NAME);
 $con->query("SET NAMES UTF8;");
 
+//根据token查找用户的id，使用id绑定到用户的报名表上
+$sql = "SELECT `id` FROM tb_user WHERE `token` = ?";
+$stmt = $con->prepare($sql);
+$stmt->bind_param("s", $data['user_token']);
+$stmt->execute();
+$stmt->store_result();
+$stmt->bind_result($user_id);
+while ($stmt->fetch()) {
+    $data['user_id'] = $user_id;
+}
+
 $sql = "INSERT INTO `tb_apply` (
-                    `user_token`,
+                    `user_id`,
                     `project_id`,
                     `name`,
                     `gender`,
@@ -72,7 +83,7 @@ $sql = "INSERT INTO `tb_apply` (
 
 $stmt = $con->prepare($sql);
 $stmt->bind_param("sisisssssssssssiissisiiiis",
-    $data['user_token'],
+    $data['user_id'],
     $data['project'],
     $data['name'],
     $data['gender'],
@@ -105,6 +116,7 @@ $affected_rows = $stmt->affected_rows;
 
 if ($affected_rows == 1) {
     $result['status'] = Constant::$_CORRECT;
+    $result['u'] = $data['name'] . $data['phone_number'];
 } else {
     $result['status'] = Constant::$_DB_INSERT_ERROR;
 }

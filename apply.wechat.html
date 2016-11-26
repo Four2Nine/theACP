@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>微信报名 | theACP</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/material.min.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+    <link href="css/custom.css" rel="stylesheet">
+    <!--[if lt IE 9]-->
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+</head><!--/head-->
+<body style="padding-top: 0;">
+
+<section class="container" style="padding-top: 0;">
+
+    <div class="col-sm-8">
+
+        <p id="cu-apply-notification"></p>
+
+        <h3>立即在线报名</h3>
+
+        <form id="apply-form" role="form" method="post">
+
+            <div class="form-group">
+                <label>项目/Project</label>
+                <ul class="list-group">
+
+                </ul>
+                <span id="cu-project-fb" class="cu-default-fb">请选择一个项目</span>
+            </div>
+
+            <div class="form-group">
+                <label for="name">姓名/Name</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="姓名/Name">
+                <span id="cu-name-fb" class="cu-default-fb">请填写您的真实姓名</span>
+            </div>
+
+            <div class="form-group">
+                <label>性别/Gender</label><br>
+                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect">
+                    <input type="radio" class="mdl-radio__button" name="gender" value="0" checked/>
+                    女
+                </label>
+                &nbsp;&nbsp;&nbsp;
+                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect">
+                    <input type="radio" class="mdl-radio__button" name="gender" value="1"/>
+                    男
+                </label>
+                <span id="cu-gender-fb" class="cu-default-fb"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="nationality">国籍/Nationality</label>
+                <input type="text" class="form-control" id="nationality" name="nationality"
+                       placeholder="国籍/Nationality">
+                <span id="cu-nationality-fb" class="cu-default-fb"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="phone_number">手机号码/Phone number</label>
+                <input type="tel" class="form-control" id="phone_number" name="phone_number"
+                       placeholder="手机号码/Phone number">
+                <span id="cu-phone-number-fb" class="cu-default-fb"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="email">电子邮件/Email</label>
+                <input type="email" class="form-control" id="email" name="email"
+                       placeholder="电子邮件/Email">
+                <span id="cu-email-fb" class="cu-default-fb"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="wechat">微信账号/WeChat number</label>
+                <input type="text" class="form-control" id="wechat" name="wechat" placeholder="微信账号/WeChat number">
+                <span id="cu-wechat-fb" class="cu-default-fb"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="id_card_number">身份证号/ID Card number</label>
+                <input type="text" class="form-control" id="id_card_number" name="id_card_number"
+                       placeholder="身份证号/ID Card number">
+                <span id="cu-id-card-number-fb" class="cu-default-fb"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="passport_number">护照号/Passport number</label>
+                <input type="text" class="form-control" id="passport_number" name="passport_number"
+                       placeholder="护照号/Passport number">
+                <span id="cu-passport-number-fb" class="cu-default-fb"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="province">现居省份/Province</label>
+                <input type="text" class="form-control" id="province" name="province" placeholder="现居省份/Province">
+                <span id="cu-province-fb" class="cu-default-fb"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="post_address">邮寄地址/Post address</label>
+                <input type="text" class="form-control" id="post_address" name="post_address"
+                       placeholder="邮寄地址/Post address">
+                <span id="cu-post-address-fb" class="cu-default-fb"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="city_of_departure">出发城市/City of Departure</label>
+                <input type="text" class="form-control" id="city_of_departure" name="city_of_departure"
+                       placeholder="出发城市/City of Departure">
+                <span id="cu-city-of-departure-fb" class="cu-default-fb"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="emergency_contact_name">紧急联系人/Emergency contact name</label>
+                <input type="text" class="form-control" id="emergency_contact_name" name="emergency_contact_name"
+                       placeholder="紧急联系人/Emergency contact name">
+                <span id="cu-emergency-contact-name-fb" class="cu-default-fb"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="emergency_contact_phone_number">紧急联系人电话/Emergency phone number</label>
+                <input type="tel" class="form-control" id="emergency_contact_phone_number"
+                       name="emergency_contact_phone_number" placeholder="手机号码/Phone number">
+                <span id="cu-emergency-contact-phone-number-fb" class="cu-default-fb"></span>
+            </div>
+
+            <div class="form-group">
+                <label>您的身份（高中生/大学生/工作）
+                    Your occupation
+                </label><br>
+                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect">
+                    <input type="radio" class="mdl-radio__button" name="occupation" value="0" checked/>
+                    高中生
+                </label>
+                &nbsp;&nbsp;&nbsp;
+                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect">
+                    <input type="radio" class="mdl-radio__button" name="occupation" value="1"/>
+                    大学生及以上
+                </label>
+                &nbsp;&nbsp;&nbsp;
+                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect">
+                    <input type="radio" class="mdl-radio__button" name="occupation" value="2"/>
+                    工作
+                </label>
+                <span id="cu-occupation-fb" class="cu-default-fb"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="duration">项目时长/How long do you plan to volunteer?</label>
+                <div class="input-group">
+                    <input type="number" class="form-control" id="duration" min="1" name="duration"
+                           placeholder="项目时长/How long do you plan to volunteer?">
+                    <span class="input-group-addon">周(week)</span>
+                </div>
+                <span id="cu-duration-fb" class="cu-default-fb">至少一周时间/At least one week</span>
+            </div>
+
+            <div class="form-group">
+                <label for="start_date">预计项目开始时间/Starting date</label>
+                <input type="date" class="form-control" id="start_date" name="start_date"
+                       placeholder="预计项目开始时间/Starting date">
+                <span id="cu-start-date-fb" class="cu-default-fb"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="diet_requirement">有无特殊饮食要求/Specific requirement for diet</label>
+                <textarea id="diet_requirement" name="diet_requirement" class="form-control" rows="3"
+                          placeholder="有无特殊饮食要求/Specific requirement for diet"></textarea>
+                <span id="cu-diet-requirement-fb" class="cu-default-fb">如果没有，可以不填</span>
+            </div>
+
+            <div class="form-group">
+                <label for="is_medical_history">有无历史重大疾病/Any referential medical history?</label>
+                <br>
+                <label class="cu-inline mdl-switch mdl-js-switch mdl-js-ripple-effect" for="is_medical_history">
+                    <input type="checkbox" id="is_medical_history" name="is_medical_history" class="mdl-switch__input"/>
+                </label>
+            </div>
+
+            <div class="form-group" id="cu-medical-history">
+                <label for="diet_requirement">历史重大疾病/Referential medical history</label>
+                <textarea id="medical_history" name="medical_history" class="form-control" rows="3"
+                          placeholder="历史重大疾病/Referential medical history"></textarea>
+                <span id="cu-medical-history-fb" class="cu-default-fb"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="is_first_go_abroad">是否是第一次出国/Is this the first time to go abroad?</label>
+                <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="is_first_go_abroad">
+                    <input type="checkbox" id="is_first_go_abroad" name="is_first_go_abroad"
+                           class="mdl-checkbox__input"/>
+                </label>
+                <span id="cu-is-first-go-abroad-fb" class="cu-default-fb"></span>
+            </div>
+
+            <div class="form-group">
+                <label>英语水平/English level</label>
+                <br>
+                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect">
+                    <input type="radio" class="mdl-radio__button" name="english_level" value="0" checked/>
+                    高中
+                </label>&nbsp;&nbsp;&nbsp;
+                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect">
+                    <input type="radio" class="mdl-radio__button" name="english_level" value="1"/>
+                    大学英语四级
+                </label>&nbsp;&nbsp;&nbsp;
+                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect">
+                    <input type="radio" class="mdl-radio__button" name="english_level" value="2"/>
+                    大学英语六级
+                </label>
+                <span id="cu-english-level-fb" class="cu-default-fb"></span>
+            </div>
+
+            <div class="form-group">
+                <label>是否申请面试</label>
+                <br>
+                <label class="cu-inline mdl-switch mdl-js-switch mdl-js-ripple-effect" for="is_apply_interview">
+                    <input type="checkbox" id="is_apply_interview" name="is_apply_interview" class="mdl-switch__input"/>
+                </label>
+                <span id="cu-is-apply-interview-fb" class="cu-default-fb">选择申请面试后，需要选择合适的面试时间</span>
+            </div>
+
+            <div class="form-group" id="cu-interview-date">
+                <label for="interview_date">选择合适的面试时间</label>
+                <input type="date" class="form-control" id="interview_date" name="interview_date"
+                       placeholder="选择合适的面试时间">
+                <span id="cu-interview-date-fb" class="cu-default-fb"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="is_need_insurance">是否需要签证保险业协助办理/Need of help about visa or assurance
+                    engagement?</label>
+                <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="is_need_insurance">
+                    <input type="checkbox" id="is_need_insurance" name="is_need_insurance"
+                           class="mdl-checkbox__input"/>
+                </label>
+                <span id="cu-is-need-insurance-fb" class="cu-default-fb"></span>
+            </div>
+
+            <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent">
+                <span>立即报名</span>
+            </button>
+            <span id="cu-submit-fb" class="cu-default-fb"></span>
+        </form>
+    </div>
+
+    <aside class="col-sm-4">
+
+        <h3>或下载报名表</h3>
+        <div id="cu-apply-doc" class="panel mdl-shadow--2dp">
+            <div class="mdl-card__title">
+                <h2 class="mdl-card__title-text">报名表</h2>
+            </div>
+            <div class="mdl-card__supporting-text">
+                请填写后发送到:&nbsp;<span class="btn-link">theacp@163.com</span>
+            </div>
+
+            <div class="mdl-card__actions mdl-card--border">
+                <button id="cu-apply-download-btn"
+                        class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent">
+                    <span class="glyphicon glyphicon-cloud-download"></span>&nbsp;下载报名表
+                </button>
+            </div>
+        </div>
+    </aside>
+
+</section>
+
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.prettyPhoto.js"></script>
+<script src="js/material.min.js"></script>
+<script src="js/main.js"></script>
+<script src="js/com.fun.js"></script>
+<script src="js/apply.wechat.js"></script>
+</body>
+</html>
