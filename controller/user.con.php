@@ -15,17 +15,18 @@ $con->query("SET NAMES UTF8;");
 $result = array();
 
 //获取个人信息
-$sqlInfo = "SELECT `username`, `balance`, `invitation_code` FROM `tb_user` WHERE `token` = ? LIMIT 1";
+$sqlInfo = "SELECT `id`, `username`, `balance`, `invitation_code` FROM `tb_user` WHERE `token` = ? LIMIT 1";
 
 $stmt = $con->prepare($sqlInfo);
 $stmt->bind_param("s", $_COOKIE['__token']);
 $stmt->execute();
 
 $stmt->store_result();
-$stmt->bind_result($username, $balance, $invitation_code);
+$stmt->bind_result($id, $username, $balance, $invitation_code);
 
 $userInfo = array();
 while ($stmt->fetch()) {
+    $userInfo['id'] = $id;
     $userInfo['username'] = $username;
     $userInfo['balance'] = $balance;
     $userInfo['invitation_code'] = $invitation_code;
@@ -41,9 +42,9 @@ if (count($userInfo) == 0) {
 
 //获取会员的报名表
 $sql = "SELECT a.id, p.acpname, a.status, a.apply_time FROM `tb_apply` a, `tb_project` p 
-WHERE `user_token` = ? AND a.project_id = p.id";
+WHERE `user_id` = ? AND a.project_id = p.id";
 $stmt = $con->prepare($sql);
-$stmt->bind_param("s", $_COOKIE['__token']);
+$stmt->bind_param("s", $userInfo['id']);
 $stmt->execute();
 
 $stmt->store_result();
