@@ -218,121 +218,118 @@ $(document).ready(function () {
         });
     });
 
-});
-
-//点击提交时判断input的合法性
-function showErrorInfo(info1, info2, fb, inputs) {
-    $("#cu-submit-fb").attr("class", "cu-error-fb").html(
-        "<span class='glyphicon glyphicon-remove'></span>&nbsp;" + info1
-    ).show();
-    fb.attr("class", "cu-error-fb").html(
-        "<span class='glyphicon glyphicon-remove'></span>&nbsp;" + info2
-    ).fadeIn(800);
-    inputs.prop("disabled", false);
-}
-
-
-//失去焦点时判断 input 的合法性
-$("#name").blur(function () {
-    checkEmpty($(this), $("#cu-name-fb"));
-});
-$("#nationality").blur(function () {
-    checkEmpty($(this), $("#cu-nationality-fb"));
-});
-$("#phone_number").blur(function () {
-    checkEmpty($(this), $("#cu-phone-number-fb"));
-});
-$("#email").blur(function () {
-    checkEmpty($(this), $("#cu-email-fb"));
-});
-$("#wechat").blur(function () {
-    checkEmpty($(this), $("#cu-wechat-fb"));
-});
-$("#id_card_number").blur(function () {
-    checkEmpty($(this), $("#cu-id-card-number-fb"));
-});
-$("#passport_number").blur(function () {
-    checkEmpty($(this), $("#cu-passport-number-fb"));
-});
-$("#province").blur(function () {
-    checkEmpty($(this), $("#cu-province-fb"));
-});
-$("#post_address").blur(function () {
-    checkEmpty($(this), $("#cu-post-address-fb"));
-});
-$("#city_of_departure").blur(function () {
-    checkEmpty($(this), $("#cu-city-of-departure-fb"));
-});
-$("#emergency_contact_name").blur(function () {
-    checkEmpty($(this), $("#cu-emergency-contact-name-fb"));
-});
-$("#emergency_contact_phone_number").blur(function () {
-    checkEmpty($(this), $("#cu-emergency-contact-phone-number-fb"));
-});
-$("#duration").blur(function () {
-    checkEmpty($(this), $("#cu-duration-fb"));
-});
-$("#start_date").blur(function () {
-    checkEmpty($(this), $("#cu-start-date-fb"));
-});
-$("#interview_date").blur(function () {
-    if (is_apply_interview.is(':checked')) {
-        checkEmpty($(this), $("#cu-interview-date-fb"));
-    }
-});
-$("#medical_history").blur(function () {
-    if (is_medical_history.is(':checked')) {
-        checkEmpty($(this), $("#cu-medical-history-fb"));
-    }
-});
-
-
-//验证表单是否为空，如果是空的话显示错误信息
-function checkEmpty(tar, fb) {
-    if (tar.val() == "") {
-        tar.parent("div").removeClass("has-success").addClass("has-error");
+    //点击提交时判断input的合法性
+    function showErrorInfo(info1, info2, fb, inputs) {
+        $("#cu-submit-fb").attr("class", "cu-error-fb").html(
+            "<span class='glyphicon glyphicon-remove'></span>&nbsp;" + info1
+        ).show();
         fb.attr("class", "cu-error-fb").html(
-            "<span class='glyphicon glyphicon-remove'></span>&nbsp;不能为空"
+            "<span class='glyphicon glyphicon-remove'></span>&nbsp;" + info2
         ).fadeIn(800);
-    } else {
-        tar.parent("div").removeClass("has-error").addClass("has-success");
-        fb.attr("class", "cu-success-fb").html("").fadeIn(800);
+        inputs.prop("disabled", false);
     }
-}
 
-//是否有重大疾病，是的话才会显示重大疾病的填写文本框
-is_medical_history.click(function () {
-    var check = $(this);
-    if (check.is(':checked')) {
-        $("#cu-medical-history").fadeIn(800);
-    } else {
-        $("#cu-medical-history").fadeOut(300);
-    }
-});
-
-//是否申请面试，是的话才会显示面试时间的选择
-is_apply_interview.click(function () {
-    var check = $(this);
-    if (check.is(':checked')) {
-        $("#cu-interview-date").fadeIn(800);
-    } else {
-        $("#cu-interview-date").fadeOut(300);
-    }
-});
-
-//下载报名表
-$("#cu-apply-download-btn").click(function () {
-    window.location.href = 'open-resource/apply.doc';
-});
-
-//退出登录
-$("#cu-logout").click(function () {
-    $.ajax({
-        url: "/controller/logout.con.php",
-        success: function (data) {
-            if (data == CORRECT) {
-                location.href = "login.html";
-            }
+    //失去焦点时判断 input 的合法性
+    $("#name").blur(function () {
+        checkEmpty($(this), $("#cu-name-fb"));
+    });
+    $("#nationality").blur(function () {
+        checkEmpty($(this), $("#cu-nationality-fb"));
+    });
+    $("#phone_number").blur(function () {
+        checkEmpty($(this), $("#cu-phone-number-fb"));
+    });
+    $("#email").blur(function () {
+        checkEmpty($(this), $("#cu-email-fb"));
+    });
+    $("#wechat").blur(function () {
+        checkEmpty($(this), $("#cu-wechat-fb"));
+    });
+    $("#id_card_number").blur(function () {
+        checkEmpty($(this), $("#cu-id-card-number-fb"));
+    });
+    $("#passport_number").blur(function () {
+        checkEmpty($(this), $("#cu-passport-number-fb"));
+    });
+    $("#province").blur(function () {
+        checkEmpty($(this), $("#cu-province-fb"));
+    });
+    $("#post_address").blur(function () {
+        checkEmpty($(this), $("#cu-post-address-fb"));
+    });
+    $("#city_of_departure").blur(function () {
+        checkEmpty($(this), $("#cu-city-of-departure-fb"));
+    });
+    $("#emergency_contact_name").blur(function () {
+        checkEmpty($(this), $("#cu-emergency-contact-name-fb"));
+    });
+    $("#emergency_contact_phone_number").blur(function () {
+        checkEmpty($(this), $("#cu-emergency-contact-phone-number-fb"));
+    });
+    $("#duration").blur(function () {
+        checkEmpty($(this), $("#cu-duration-fb"));
+    });
+    $("#start_date").blur(function () {
+        checkEmpty($(this), $("#cu-start-date-fb"));
+    });
+    $("#interview_date").blur(function () {
+        if (is_apply_interview.is(':checked')) {
+            checkEmpty($(this), $("#cu-interview-date-fb"));
         }
-    })
+    });
+    $("#medical_history").blur(function () {
+        if (is_medical_history.is(':checked')) {
+            checkEmpty($(this), $("#cu-medical-history-fb"));
+        }
+    });
+
+    //验证表单是否为空，如果是空的话显示错误信息
+    function checkEmpty(tar, fb) {
+        if (tar.val() == "") {
+            tar.parent("div").removeClass("has-success").addClass("has-error");
+            fb.attr("class", "cu-error-fb").html(
+                "<span class='glyphicon glyphicon-remove'></span>&nbsp;不能为空"
+            ).fadeIn(800);
+        } else {
+            tar.parent("div").removeClass("has-error").addClass("has-success");
+            fb.attr("class", "cu-success-fb").html("").fadeIn(800);
+        }
+    }
+
+    //是否有重大疾病，是的话才会显示重大疾病的填写文本框
+    is_medical_history.click(function () {
+        var check = $(this);
+        if (check.is(':checked')) {
+            $("#cu-medical-history").fadeIn(800);
+        } else {
+            $("#cu-medical-history").fadeOut(300);
+        }
+    });
+
+    //是否申请面试，是的话才会显示面试时间的选择
+    is_apply_interview.click(function () {
+        var check = $(this);
+        if (check.is(':checked')) {
+            $("#cu-interview-date").fadeIn(800);
+        } else {
+            $("#cu-interview-date").fadeOut(300);
+        }
+    });
+
+    //下载报名表
+    $("#cu-apply-download-btn").click(function () {
+        window.location.href = 'open-resource/apply.doc';
+    });
+
+    //退出登录
+    $("#cu-logout").click(function () {
+        $.ajax({
+            url: "/controller/logout.con.php",
+            success: function (data) {
+                if (data == CORRECT) {
+                    location.href = "login.html";
+                }
+            }
+        })
+    });
 });
