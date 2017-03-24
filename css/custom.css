@@ -103,7 +103,8 @@
 #cu-project-list-aside .mdl-card__title {
     color: #fff;
     height: 240px;
-    background: #78909b url("../images/project/volunteer.icon.png") center no-repeat;
+    /*background: #78909b url("../images/project/volunteer.icon.png") center no-repeat;*/
+    background: #2b6190 url("../images/ico/logo.white.png") center no-repeat;
     /*background: #8da9b6 url("../images/about-us/about-us.logo.png") center no-repeat;*/
 }
 
